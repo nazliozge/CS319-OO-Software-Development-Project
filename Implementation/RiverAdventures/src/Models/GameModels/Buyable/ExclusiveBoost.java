@@ -1,4 +1,4 @@
-package Buyable;
+package Models.GameModels.Buyable;
 
 /**
  * Created by Meder on 23/04/16.

@@ -1,4 +1,4 @@
-package Account;
+package Models.Account;
 
 /**
  * Created by Meder on 23/04/16.

@@ -1,6 +1,6 @@
-package MetaModels;
+package Models.GameModels.MetaModels;
 
-import RealModels.RiverObject;
+import Models.GameModels.RealModels.RiverObject;
 
 import java.awt.*;
 
