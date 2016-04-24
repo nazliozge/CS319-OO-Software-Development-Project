@@ -4,15 +4,25 @@ import java.awt.*;
 
 /**
  * Created by Meder on 23/04/16.
+ * Updated by Nazli on 24/04/16.
  */
-public class Character {
+
+public class Character implements Buyable {
     private int price;
     private String name;
     private String specialty;
     private boolean isEquipped;
     private boolean isUnlocked;
 
-    //CONSTRUCTOR
+    //CONSTRUCTORS
+    public Character(){
+        price = 0;
+        name = "";
+        specialty = "";
+        isEquipped = false;
+        isUnlocked = false;
+    }
+
     public Character(int price, String name, String specialty, boolean isEquipped, boolean isUnlocked){
         this.price = price;
         this.name = name;
@@ -23,7 +33,9 @@ public class Character {
 
 
     //PUBLIC METHODS
-    public void draw(Graphics g){}
+    public void draw(Graphics g){
+        //TODO
+    }
 
 
 

@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 /**
  * Created by Meder on 23/04/16.
- * Updated by nazli on 24/04/16.
+ * Updated by Nazli on 24/04/16.
  */
 
 public class Account {
@@ -119,6 +119,13 @@ public class Account {
     }
 
 
+    /*
+    * BELOW METHODS ARE DONE ACCORDING TO AN INDEX VALUE.
+    * I BELIEVE WE SHOULD CHANGE THEM AS CHARACTER AND BOOST OBJECTS FOR
+    * THE SAKE OF AN OBJECT-ORIENTED PROJECT.
+    * KEEP IN MIND AND CHANGE THEM LATER ON!
+    *
+    */
 
     public boolean equip(int index)	//checking the amount of coin is not done!
     {

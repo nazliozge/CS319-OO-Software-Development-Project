@@ -12,6 +12,15 @@ public class RiverObject {
     private int xLoc;
     private double ySize;
 
+    //default constructor
+    public RiverObject()
+    {
+        name="";
+        effect="";
+        xLoc = 0;
+        ySize = 0.0;
+    }
+
     public RiverObject(String name, String effect, int xLoc, double ySize) {
         this.name = name;
         this.effect = effect;
@@ -19,9 +28,7 @@ public class RiverObject {
         this.ySize = ySize;
     }
 
-    public void draw(Graphics g){
-
-    }
+    public void draw(Graphics g){} //method should be overwritten by child classes
 
     public int checkType(){
         return -1;
