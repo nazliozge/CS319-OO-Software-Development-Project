@@ -61,5 +61,25 @@ public class ExclusiveBoost extends Boost implements Buyable{
         level = 1;
     }
 
+    //Setters and getters
+    public void setDuration(int duration)
+    {
+        this.duration = duration;
+    }
+
+    public void setLimit(int limit)
+    {
+        this.limit = limit;
+    }
+
+    public int getDuration()
+    {
+        return duration;
+    }
+
+    public int getLimit()
+    {
+        return limit;
+    }
 
 }
