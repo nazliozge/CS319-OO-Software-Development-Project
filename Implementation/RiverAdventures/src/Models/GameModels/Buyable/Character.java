@@ -1,4 +1,4 @@
-package Buyable;
+package Models.GameModels.Buyable;
 
 import java.awt.*;
 

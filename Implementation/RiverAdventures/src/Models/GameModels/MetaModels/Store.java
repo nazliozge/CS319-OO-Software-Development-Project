@@ -1,7 +1,7 @@
-package MetaModels;
+package Models.GameModels.MetaModels;
 
-import Buyable.Character;
-import Buyable.ExclusiveBoost;
+import Models.GameModels.Buyable.Character;
+import Models.GameModels.Buyable.ExclusiveBoost;
 
 import java.awt.*;
 

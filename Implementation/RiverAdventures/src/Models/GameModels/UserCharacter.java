@@ -1,7 +1,7 @@
-package MetaModels;
+package Models.GameModels;
 
-import Buyable.Character;
-import RealModels.RiverObject;
+import Models.GameModels.Buyable.Character;
+import Models.GameModels.RealModels.RiverObject;
 
 import java.awt.*;
 

@@ -1,8 +1,9 @@
-package MetaModels;
+package Models.GameModels.MetaModels;
 
-import Buyable.Buyable;
-import RealModels.Collectible;
-import Account.Account;
+import Models.GameModels.Buyable.Buyable;
+import Models.GameModels.RealModels.Collectible;
+import Models.Account.Account;
+import Models.GameModels.UserCharacter;
 
 import java.awt.*;
 import java.util.Timer;

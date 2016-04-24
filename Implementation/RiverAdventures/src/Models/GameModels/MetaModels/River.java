@@ -1,8 +1,8 @@
-package MetaModels;
+package Models.GameModels.MetaModels;
 
-import RealModels.Collectible;
+import Models.GameModels.RealModels.Collectible;
+import Models.GameModels.UserCharacter;
 
-import javax.jws.soap.SOAPBinding;
 import java.awt.*;
 
 /**

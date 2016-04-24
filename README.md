@@ -17,4 +17,7 @@ The game River Adventure is a first-person, desktop based game where the player 
 
 --------------------------------------------------
 Dev. Environment: IntelliJ IDEA
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/aras_refit

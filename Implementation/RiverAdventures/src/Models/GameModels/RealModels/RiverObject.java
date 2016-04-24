@@ -1,4 +1,4 @@
-package RealModels;
+package Models.GameModels.RealModels;
 
 import java.awt.*;
 

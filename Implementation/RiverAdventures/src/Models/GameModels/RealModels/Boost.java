@@ -1,4 +1,4 @@
-package RealModels;
+package Models.GameModels.RealModels;
 
 /**
  * Created by Meder on 23/04/16.
