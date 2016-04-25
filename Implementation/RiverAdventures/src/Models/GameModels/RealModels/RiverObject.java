@@ -9,7 +9,8 @@ public class RiverObject {
     private String name;
     private String effect;
     private int xLoc;
-    private double ySize;
+    private int ySize;
+    private int xSize;
 
     //default constructor
     public RiverObject()

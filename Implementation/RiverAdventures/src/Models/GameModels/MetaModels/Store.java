@@ -10,39 +10,56 @@ import java.awt.*;
  */
 public class Store {
 
-    private Character[] characters;
-    private ExclusiveBoost[] boosts;
+//    private ArrayList<Character> characters;
+//    private ArrayList<ExclusiveBoost> boosts;
 
-    public Store(Character[] characters, ExclusiveBoost[] boosts) {
+    /*These are changed according to Nazli's code on Account*/
+    private int[] characters;
+    private int[] boosts;
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++
+    //============== CONSTRUCTOR - START =============
+    //++++++++++++++++++++++++++++++++++++++++++++++++
+
+    public Store() {
+        characters = new int[];
+        boosts = new int[];
+    }
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++
+    //============== CONSTRUCTOR - END ===============
+    //++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+    //it supposed to be boolean, but no point to make it boolean.
+    public void unlock( Character character){
+        character.setUnlock(true);
+    }
+
+    public void equip(Character character){
+        character.setEquipped(true);
+    }
+
+    public void setCharacters(int [] characters){
         this.characters = characters;
+    }
+
+    public void setBoosts( int[] boosts){
         this.boosts = boosts;
     }
 
-    public boolean buy(ExclusiveBoost exclusiveBoost){return true;}
+    //============ !! NEEDS IMPLEMENTATION !! ============
 
-    public boolean upgrade(ExclusiveBoost exclusiveBoost){return true;}
+    //in these two methods I need to access to account, but I am not sure how to access,
+    // because we don't have them as an object.
 
-    public boolean equip(Character character){return true;}
+    public boolean buy(ExclusiveBoost exclusiveBoost){
+        return true;}
 
-    public boolean unlock( Character character){return true;}
+    public boolean upgrade(ExclusiveBoost exclusiveBoost){
+        return exclusiveBoost.update();
+    }
 
     public void draw (Graphics g){}
 
-
-
-    public Character[] getCharacters() {
-        return characters;
-    }
-
-    public void setCharacters(Character[] characters) {
-        this.characters = characters;
-    }
-
-    public ExclusiveBoost[] getBoosts() {
-        return boosts;
-    }
-
-    public void setBoosts(ExclusiveBoost[] boosts) {
-        this.boosts = boosts;
-    }
 }

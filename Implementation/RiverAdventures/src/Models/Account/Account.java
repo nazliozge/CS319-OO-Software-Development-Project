@@ -19,7 +19,7 @@ public class Account {
 
     /* Each value in the list denotes a character/boost.
      *
-     * For charStates; index 0 is the state of the Duck, index 1 is the state of the Beaver,
+     * For charStatess; index 0 is the state of the Duck, index 1 is the state of the Beaver,
      *  			index 2 is the state of the Deer, index 3 is the state of the Crocodile and index 4 is the state of the Hippopotamus
      * Character states are: 0->unlock, 1->equip, 2->equipped
      *
@@ -27,7 +27,7 @@ public class Account {
      * 				 index 3 is the state of Invincibility, index 4 is the state of Health Pack,
      * Boost states are: 0->unlock, 1->level1, 2->level2, 3->level3
      */
-    private int[] charState;
+    private int[] charStates;
     private int[] boostStates;
     private CoinWallet wallet;
     private int[] highScores;
@@ -40,7 +40,7 @@ public class Account {
 
     //constructor
     public Account(){
-        charState = new int[numOfCharacters];
+        charStates = new int[numOfCharacters];
         boostStates = new int[numOfBoosts];
         saveFile = "accountInfo.txt";   //Put text file in the same directory!
         wallet = new CoinWallet();
@@ -71,7 +71,7 @@ public class Account {
         for(int i=0; i<numOfHighscores;i++)
         {
             highScores[i] = Integer.parseInt(highscr[i].trim());
-            charState[i] = Integer.parseInt(characterst[i].trim());
+            charStates[i] = Integer.parseInt(characterst[i].trim());
             boostStates[i] = Integer.parseInt(boostst[i].trim());
         }
 
@@ -93,7 +93,7 @@ public class Account {
         for(int i=0; i<numOfCharacters;i++)
         {
             //converts the int of the element of the array list into string, puts " " after it and store it in the second index of str
-            str[1] = "" + charState[i] + " ";
+            str[1] = "" + charStates[i] + " ";
         }
         for(int i=0; i<numOfBoosts;i++)
         {
@@ -130,10 +130,10 @@ public class Account {
     public boolean equip(int index)	//checking the amount of coin is not done!
     {
         //if it is already purchased
-        if(charState[index] == 1)
+        if(charStates[index] == 1)
         {
             //it is now equipped
-            charState[index] = 2;
+            charStates[index] = 2;
             return true;
         }
 
@@ -143,10 +143,10 @@ public class Account {
     public boolean purchaseChar(int index)
     {
         //if it is unlock
-        if(charState[index] == 0)
+        if(charStates[index] == 0)
         {
             //purchase it. Its state becomes 1.
-            charState[index] = 1;
+            charStates[index] = 1;
             return true;
         }
         return false;
@@ -180,6 +180,14 @@ public class Account {
         //else is only valid if it's level-3. So, no upgrade available.
         return false;
 
+    }
+    
+    public int[] getCharStates(){
+        return charStates; 
+    }
+    
+    public int[] getBoostStates(){
+        return boostStates;
     }
 
 

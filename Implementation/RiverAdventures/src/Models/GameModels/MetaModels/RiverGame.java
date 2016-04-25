@@ -18,6 +18,17 @@ public class RiverGame {
     private Timer stream;
     private Collectible tempWallet;
 
+    //++++++++++++++++++++++++++++++++++++++++++++++++
+    //============== CONSTRUCTOR - START =============
+    //++++++++++++++++++++++++++++++++++++++++++++++++
+
+    public RiverGame(){
+        river = new River();
+        store = new Store();
+        tempWallet = new Collectible();
+        stream = new Timer();
+    }
+
     public RiverGame(River river, Store store, Timer stream, Collectible tempWallet) {
         this.river = river;
         this.store = store;
@@ -25,53 +36,53 @@ public class RiverGame {
         this.tempWallet = tempWallet;
     }
 
-    public void increaseGold(Collectible collectible){}
+    //++++++++++++++++++++++++++++++++++++++++++++++++
+    //============== CONSTRUCTOR - END ===============
+    //++++++++++++++++++++++++++++++++++++++++++++++++
 
-    public void updateUserCharacter(UserCharacter character){}
 
-    public void loadStore(Account account){}
 
-    public void move(String direction){}
+    //++++++++++++++++++++++++++++++++++++++++++++++++
+    //=================== METHODS ====================
+    //++++++++++++++++++++++++++++++++++++++++++++++++
 
-    public void updateSpeedMode( double rate){}
+    public void increaseGold(Collectible collectible){
+        updateWallet(collectible.getAmount());
+    }
 
-    public void updateWallet (int amount){}
+    public void updateUserCharacter(Character character){
+        river.getUserCharacter().setCharacter(character);
+    }
 
-    public int storeEvent(Buyable source, int type){return -1;}
+
+
+    public void move(String direction){
+        if(direction == "LEFT")
+            river.move("LEFT");
+        if(direction == "RIGHT")
+            river.move("RIGHT");
+    }
+
+
+    public void updateWallet (int amount){
+        tempWallet.setAmount(amount);
+    }
+
+
+    public void updateSpeedMode( double rate){
+        river.setSpeedMode(rate);
+    }
+
+    public void loadStore(Account account){
+        store.setCharacters(account.getCharStates());
+        store.setBoosts(account.getBoostStates());
+    }
+
+    //============ !! NEEDS IMPLEMENTATION !! ============
 
     public void draw(Graphics g){}
 
+    public int storeEvent(Buyable source, int type){return -1;}
 
 
-    public River getRiver() {
-        return river;
-    }
-
-    public void setRiver(River river) {
-        this.river = river;
-    }
-
-    public Store getStore() {
-        return store;
-    }
-
-    public void setStore(Store store) {
-        this.store = store;
-    }
-
-    public Timer getStream() {
-        return stream;
-    }
-
-    public void setStream(Timer stream) {
-        this.stream = stream;
-    }
-
-    public Collectible getTempWallet() {
-        return tempWallet;
-    }
-
-    public void setTempWallet(Collectible tempWallet) {
-        this.tempWallet = tempWallet;
-    }
 }

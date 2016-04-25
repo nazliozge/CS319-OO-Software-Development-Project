@@ -18,6 +18,10 @@ public class UserCharacter {
 
     //CONSTRUCTOR
 
+    public UserCharacter(){
+
+    }
+
     public UserCharacter(double health, double size, double[][] activeEffects, int shield, Character character, double position) {
         this.health = health;
         this.size = size;
