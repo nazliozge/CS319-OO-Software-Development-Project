@@ -9,7 +9,7 @@ public class RiverObject {
     private String name;
     private String effect;  //we can delete effect, since we are creating child classes
     private int xLoc;
-    private int ySize;
+    private double ySize;
     private int xSize;
 
     //default constructor
@@ -64,5 +64,9 @@ public class RiverObject {
 
     public void setySize(double ySize) {
         this.ySize = ySize;
+    }
+
+    public int getxSize(){
+        return this.xSize;
     }
 }

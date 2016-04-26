@@ -2,13 +2,16 @@ package Models.GameModels.MetaModels;
 
 import Models.GameModels.RealModels.Collectible;
 import Models.GameModels.UserCharacter;
-
+import Models.GameModels.RealModels.RiverObject;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Meder on 23/04/16.
  */
-public class River {
+public class
+
+River {
 
     private UserCharacter character;
     private double speedMode;
@@ -16,10 +19,10 @@ public class River {
     private Collectible totalCoins;
 
     // THESE VARIABLES' MAGNITUDES SHOULD CHANGE, THEY ARE RANDOMLY SET
-    final static UserCharacter_YLoc = 24;
-    final static UserCharacter_MOVE = 4;
-    final static DISTANCE_BETWEEN_LINES = 4;
-    final static MAX_LINE_NUMBER_ON_SCREEN = 15;
+    final static int UserCharacter_YLoc = 24;
+    final static int UserCharacter_MOVE = 4;
+    final static int DISTANCE_BETWEEN_LINES = 4;
+    final static int MAX_LINE_NUMBER_ON_SCREEN = 15;
 
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
@@ -32,7 +35,7 @@ public class River {
         lines = new ArrayList<Line>();
         totalCoins = new Collectible();
     }
-    public River(UserCharacter character, double speedMode, Collectibe totalCoins) {
+    public River(UserCharacter character, double speedMode, Collectible totalCoins) {
         this.character = character;
         this.speedMode = speedMode;
         this.totalCoins = totalCoins;
@@ -72,7 +75,7 @@ public class River {
             line.move();
         }
         /*This means the user character alreade passes this line, and should be removed*/
-        if(lines.get(0) > UserCharacter_YLoc){
+        if(lines.get(0).getyLoc() > UserCharacter_YLoc){
             dropLine();
             generateLine();
         }
@@ -121,10 +124,10 @@ public class River {
         Line newLine = new Line();
 
         if(!lines.isEmpty()){
-            int loc = lines.get(lines.size()- 1).getyLoc(); //y-location of the last line on the lines array
+            double loc = lines.get(lines.size()- 1).getyLoc(); //y-location of the last line on the lines array
             newLine.setyLoc(loc - DISTANCE_BETWEEN_LINES);
         }else{
-            newLine.setyLoc(-5) // this number is a just random number, it is gonna change.
+            newLine.setyLoc(-5); // this number is a just random number, it is gonna change.
             //Negative number because it should not be shown on the screen when created.
         }
         newLine.fillLine(character.getSize());

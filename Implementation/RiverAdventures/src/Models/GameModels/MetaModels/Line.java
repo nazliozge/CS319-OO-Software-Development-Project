@@ -4,7 +4,7 @@ import Models.GameModels.RealModels.RiverObject;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.lang.*;
+import java.lang.Math;
 /**
  * Created by Meder on 23/04/16.
  */
@@ -75,21 +75,36 @@ public class Line {
     *  ACCORDING TO THE SIZE OF THE USER CHARACTER AND LINE*/
 
     public void fillLine(double userCharacterWidth){
-        int start = 0;
-        int end = LINE_WIDTH;
 
+        //THE CODE UNDER THE COMMENT IS MORE ADVANCED WAY OF ADDING OBJECTS TO THE LINE
+        //BUT FOR THE SAKE OF SIMPLICITY, I AM ADDING ONLY ONE OBSTACLE TO THE LINE.
+        //========================================================================
+        /*int start = 0;
+        int end = LINE_WIDTH;
         do{
             int range = (end - start) + 1;
-            int location = Math.random() * range + start;
+            int location = (int)Math.random() * range + start;
             RiverObject object = new RiverObject();
             object.setxLoc(location);
+            objects.add(object);
 
-            /*Objective of setting these to 'start' is to make sure to have enough space
-            * between obstacles for user character to pass through.*/
+            //Objective of setting these to 'start' is to make sure to have enough space
+            * between obstacles for user character to pass through.
 
             start = location + object.getxSize() + (int)userCharacterWidth;
 
-        }while(end - start > userCharacterWidth)
+        }while(end - start > userCharacterWidth);
+    */
+        //========================================================================
+
+        int start = 0;
+        int end = LINE_WIDTH;
+        int range = (end - start) + 1;
+        int location = (int)Math.random() * range + start;
+
+        RiverObject object = new RiverObject();
+        object.setxLoc(location);
+        objects.add(object);
     }
 
     //=============== !! NEW METHOD(s) !! ================
