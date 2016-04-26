@@ -23,6 +23,9 @@ public class Obstacle extends RiverObject{
     }
 
     //setters & getters
+
+
+    //I DONT NEED BELOW ARE NECESSARY SINCE WE CREATED THE CHILD CLASSES!!!
     public void setHealthDecAmount(int amount)
     {
         healthDecAmount = amount;

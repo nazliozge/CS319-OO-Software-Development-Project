@@ -10,11 +10,13 @@ import java.awt.*;
 public class ExclusiveBoost extends Boost implements Buyable{
 
     //ATTRIBUTES
-    private int duration;
-    private int limit;
+    private int duration; 	//for others
+    private int limit;	//for shield
     private int price;
     private int level;
     private boolean isUnlocked;
+    private int healthIncAmount;
+
 
     //CONSTRUCTOR
     public ExclusiveBoost()
@@ -24,6 +26,8 @@ public class ExclusiveBoost extends Boost implements Buyable{
         price = 0;
         level = 0;
         isUnlocked = false;
+        healthIncAmount = 0;
+
     }
 
     //from Buyable interface
@@ -61,7 +65,37 @@ public class ExclusiveBoost extends Boost implements Buyable{
         level = 1;
     }
 
-    //Setters and getters
+    public int getLevel()
+    {
+        return level;
+    }
+
+    public void setLevel(int level)
+    {
+        this.level = level;
+    }
+
+    public void setIsUnlocked(boolean b)
+    {
+        isUnlocked = b;
+    }
+
+
+    public boolean getIsUnlocked()
+    {
+        return isUnlocked;
+    }
+
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
+
+    public boolean isUnlocked()
+    {
+        return isUnlocked;
+    }
+
     public void setDuration(int duration)
     {
         this.duration = duration;
@@ -81,5 +115,17 @@ public class ExclusiveBoost extends Boost implements Buyable{
     {
         return limit;
     }
+
+
+    public void setHealthIncAmount(int amount)
+    {
+        healthIncAmount = amount;
+    }
+
+    public int getHealthIncAmount()
+    {
+        return healthIncAmount;
+    }
+
 
 }

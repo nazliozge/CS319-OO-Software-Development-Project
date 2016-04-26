@@ -7,7 +7,7 @@ import java.awt.*;
 public class RiverObject {
 
     private String name;
-    private String effect;
+    private String effect;  //we can delete effect, since we are creating child classes
     private int xLoc;
     private int ySize;
     private int xSize;

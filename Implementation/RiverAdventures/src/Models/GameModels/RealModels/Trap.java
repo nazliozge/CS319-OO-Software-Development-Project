@@ -15,8 +15,8 @@ public class Trap extends RiverObject{
     //constructors
     public Trap()
     {
-        duration = 0.0;
-    }
+        duration = 5.0;
+    }   //duration time is initially 5 seconds
 
     //overwritten method from RiverObject
     public void draw(Graphics g){
