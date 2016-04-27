@@ -18,7 +18,7 @@ class MainMenu extends Menu{
 	private static final long serialVersionUID = 1L;
 	private MainFrame frame;
 	private BufferedImage img;
-	public MenuPanel(){
+	public MainMenu(){
 		setLocation(0,0);
 		setSize(800,500);
 		setLayout(null);
