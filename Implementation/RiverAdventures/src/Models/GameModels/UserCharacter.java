@@ -1,6 +1,8 @@
 package Models.GameModels;
 
 import Models.GameModels.Buyable.Character;
+import Models.GameModels.RealModels.Collectible.Collectible;
+import Models.GameModels.RealModels.Obstacle.Obstacle;
 import Models.GameModels.RealModels.RiverObject;
 
 import javax.swing.*;
@@ -10,7 +12,7 @@ import java.awt.*;
  * Created by Meder on 23/04/16.
  */
 public class UserCharacter {
-    private double health;
+    private int health;
     private int ySize;//these are added, while drawing the characters, we need the both x and y locations
     private int xSize;
     private int activeEffects[][];
@@ -20,8 +22,8 @@ public class UserCharacter {
 
 
     private final static int yPosition = 400;
-    private final static int DEFAULT_CHARACTER_YSIZE = 70;
-    private final static int DEFAULT_CHARACTER_XSIZE = 80;
+    private final static int DEFAULT_CHARACTER_YSIZE = 100;
+    private final static int DEFAULT_CHARACTER_XSIZE = 100;
     private final static int DEFAULT_CHARACTER_SHIELD = 10;
     private final static int DEFAULT_CHARACTER_XPOSITION = 50;
 
@@ -38,7 +40,7 @@ public class UserCharacter {
         character.setName("duck");
     }
 
-    public UserCharacter(double health, int xSize, int ySize, int[][] activeEffects, int shield, Character character, int xPosition) {
+    public UserCharacter(int health, int xSize, int ySize, int[][] activeEffects, int shield, Character character, int xPosition) {
         this.health = health;
         this.ySize = ySize;
         this.xSize = xSize;
@@ -49,6 +51,7 @@ public class UserCharacter {
     }
 
     public boolean hasShield(){
+
         return true;
     }
 
@@ -57,11 +60,15 @@ public class UserCharacter {
     }
 
     public void receiveDamage(int reduce){
-
+        this.health -= reduce;
     }
 
     public void executeEffect(RiverObject object){
-
+        System.out.println("executeEffect, before " + getHealth());
+        if (object instanceof Obstacle){
+            receiveDamage(((Obstacle) object).getHealthDecAmount());
+        }
+        System.out.println("executeEffect, after " + getHealth());
     }
 
     public void draw(Graphics g){
@@ -71,11 +78,11 @@ public class UserCharacter {
 
     //ACCESSORS AND MUTATORS
 
-    public double getHealth() {
+    public int getHealth() {
         return health;
     }
 
-    public void setHealth(double health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 

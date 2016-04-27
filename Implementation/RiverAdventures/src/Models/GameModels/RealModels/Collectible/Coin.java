@@ -1,6 +1,7 @@
 package Models.GameModels.RealModels.Collectible;
 
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 
 
 public class Coin extends Collectible {
@@ -13,7 +14,8 @@ public class Coin extends Collectible {
 
     //overwritten method from RiverObject
     public void draw(Graphics g){
-        //TODO
+        Image img = new ImageIcon("image/collectible/coin.png").getImage();
+        g.drawImage(img, super.getxLoc() , super.getyLoc(), super.getxSize(), super.getySize(), null);
     }
 
 

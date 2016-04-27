@@ -32,9 +32,6 @@ public class River {
         speedMode = 5; //just a random number
         lines = new ArrayList<Line>();
 
-//        Line line = new Line();
-//        line.fillLine(15);
-//        lines.add(line);
 
         totalCoins = new Collectible();
     }
@@ -106,6 +103,11 @@ public class River {
 
                 if(userCharacter.intersects(object)){
                     //collision
+                    if (riverObject instanceof Collectible){
+                        gainCoin((Collectible) riverObject);
+                    }
+                    character.executeEffect(riverObject);
+                    line.removeObject(riverObject);
                     return true;
                 }
             }
@@ -148,8 +150,12 @@ public class River {
             line.draw(g);
     }
 
+    public void gainCoin(Collectible c){
+        System.out.println("gainCoin, before " + totalCoins.getAmount());
+        totalCoins.setAmount(totalCoins.getAmount() + c.getAmount());
+        System.out.println("gainCoin, after " + totalCoins.getAmount());
+    }
     //============ !! NEEDS IMPLEMENTATION !! ============
-    public void gainCoin(Collectible c){}
     public void endMe(){}
 
 

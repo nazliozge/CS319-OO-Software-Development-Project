@@ -9,7 +9,7 @@ import java.awt.*;
 
 
 
-public class CharacterSpecifiedBoost extends RiverObject {
+public class CharacterSpecifiedBoost extends Boost {
 
     //attributes
 

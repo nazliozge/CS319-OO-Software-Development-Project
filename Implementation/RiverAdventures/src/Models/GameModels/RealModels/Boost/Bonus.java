@@ -1,4 +1,4 @@
-package Models.GameModels.RealModels.Collectible;
+package Models.GameModels.RealModels.Boost;
 import Models.GameModels.RealModels.Boost.RareBoost;
 
 import java.awt.Graphics;

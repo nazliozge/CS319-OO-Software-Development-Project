@@ -30,7 +30,7 @@ public class Obstacle extends RiverObject {
         healthDecAmount = amount;
     }
 
-    public double getHealthDecAmount()
+    public int getHealthDecAmount()
     {
         return healthDecAmount;
     }

@@ -2,7 +2,8 @@ package Models.GameModels.RealModels.Collectible;
 
 import Models.GameModels.Drawable;
 
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 
 
 public class CoinBag extends Collectible implements Drawable {
@@ -15,7 +16,8 @@ public class CoinBag extends Collectible implements Drawable {
 
     //overwritten method from RiverObject
     public void draw(Graphics g){
-        //TODO
+        Image img = new ImageIcon("image/collectible/coinBag.png").getImage();
+        g.drawImage(img, super.getxLoc() , super.getyLoc(), super.getxSize(), super.getySize(), null);
     }
 
 

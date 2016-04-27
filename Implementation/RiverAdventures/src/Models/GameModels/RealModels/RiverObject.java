@@ -21,8 +21,8 @@ public class RiverObject implements Drawable{
         name="";
         effect="";
         xLoc = 0;
-        ySize = 70;
-        xSize = 90;
+        ySize = 110;
+        xSize = 110;
     }
 
     public RiverObject(String name, String effect, int xLoc, int yLoc, int ySize) {

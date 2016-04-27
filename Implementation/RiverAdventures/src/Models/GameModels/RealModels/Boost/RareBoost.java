@@ -7,7 +7,7 @@ import java.awt.*;
  * Created by Nazli on 24/04/16.
  */
 
-public class RareBoost extends RiverObject {
+public class RareBoost extends Boost {
 
     //attributes
     private double rarity;

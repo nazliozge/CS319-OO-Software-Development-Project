@@ -1,6 +1,8 @@
 package Models.GameModels.MetaModels;
 
 import Models.GameModels.Drawable;
+import Models.GameModels.RealModels.Collectible.Coin;
+import Models.GameModels.RealModels.Collectible.CoinBag;
 import Models.GameModels.RealModels.Obstacle.ChemicalHazard;
 import Models.GameModels.RealModels.Obstacle.Log;
 import Models.GameModels.RealModels.Obstacle.NuclearBomb;
@@ -60,6 +62,9 @@ public class Line implements Drawable {
     public void removeObject(int index){
         objects.remove(index);
     }
+    public void removeObject(RiverObject object){
+        objects.remove(object);
+    }
 
     public void addObject(RiverObject object){
         objects.add(object);
@@ -113,7 +118,7 @@ public class Line implements Drawable {
         int range = (end - start) + 1;
         int Xlocation = (int)(Math.random() * range) + start;
 
-        int random = (int)(Math.random() * 3) + 1;
+        int random = (int)(Math.random() * 5) + 1;
 
         if(random == 0){
             ChemicalHazard chemical = new ChemicalHazard();
@@ -138,6 +143,18 @@ public class Line implements Drawable {
             nuclearBomb.setxLoc(Xlocation);
             nuclearBomb.setyLoc(yLoc);
             objects.add(nuclearBomb);
+        }
+        if (random == 4){
+            Coin coin = new Coin();
+            coin.setxLoc(Xlocation);
+            coin.setyLoc(yLoc);
+            objects.add(coin);
+        }
+        if (random == 5){
+            CoinBag coinbag = new CoinBag();
+            coinbag.setxLoc(Xlocation);
+            coinbag.setyLoc(yLoc);
+            objects.add(coinbag);
         }
         /*
         This continues...

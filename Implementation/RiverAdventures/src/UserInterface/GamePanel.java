@@ -1,5 +1,6 @@
 package UserInterface;
 
+import Models.GameModels.MetaModels.River;
 import Models.GameModels.MetaModels.RiverGame;
 
 import javax.swing.*;
@@ -20,72 +21,100 @@ public class GamePanel extends JPanel {
 
     public GamePanel(){
 
-        Color newColor = new Color(155, 205, 255);
-        setBackground(newColor);
-        setPreferredSize(new Dimension(500,500));
+        BorderLayout layout = new BorderLayout(0,0);
+        setLayout(layout);
 
-        riverGame = new RiverGame();
-        stream = new Timer(20, new TimerListener());
-        stream.start();
+        RiverSide left = new RiverSide();
+        this.add(left, BorderLayout.BEFORE_LINE_BEGINS);
 
-        this.addKeyListener(new MyKeyListener());
-        this.setFocusable(true);
-        this.requestFocusInWindow();
-    }
+        RiverCenter center = new RiverCenter();
+        this.add(center, BorderLayout.CENTER);
 
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
-        riverGame.draw(g);
+        RiverSide right = new RiverSide();
+        this.add(right, BorderLayout.LINE_END);
     }
 
 
-    public void update(RiverGame riverGame){
-        riverGame.update();
-    }
 
-    private class TimerListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent event)
-        {
-            update(riverGame);
-            repaint();
+
+    private class RiverSide extends JPanel{
+
+        public RiverSide(){
+            setBackground(Color.green);
+            setPreferredSize(new Dimension(200,500));
         }
     }
 
-    private class MyKeyListener implements KeyListener{
+    private class RiverCenter extends JPanel{
 
-        @Override
-        public void keyTyped(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-                riverGame.move("RIGHT");
-            if (e.getKeyCode() == KeyEvent.VK_LEFT)
-                riverGame.move("LEFT");
+        public RiverCenter(){
+            Color newColor = new Color(64, 55, 255);
+            setBackground(newColor);
+            setPreferredSize(new Dimension(500,500));
 
+            riverGame = new RiverGame();
+            stream = new Timer(20, new TimerListener());
+            stream.start();
+
+            this.addKeyListener(new MyKeyListener());
+            this.setFocusable(true);
+            this.requestFocusInWindow();
         }
 
-        /** Handle the key-pressed event from the text field. */
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-                riverGame.move("RIGHT");
-            if (e.getKeyCode() == KeyEvent.VK_LEFT)
-                riverGame.move("LEFT");
-            if (e.getKeyCode() == KeyEvent.VK_SPACE){
-                if (isTimerOn){
-                    stream.stop();
-                    isTimerOn = !isTimerOn;
-                }
-                else{
-                    stream.start();
-                    isTimerOn = !isTimerOn;
-                }
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            riverGame.draw(g);
+        }
 
+        public void update(RiverGame riverGame){
+            riverGame.update();
+        }
+
+        private class TimerListener implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent event)
+            {
+                update(riverGame);
+                repaint();
             }
         }
 
-        /** Handle the key-released event from the text field. */
-        @Override
-        public void keyReleased(KeyEvent e) {
+        private class MyKeyListener implements KeyListener{
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+                    riverGame.move("RIGHT");
+                if (e.getKeyCode() == KeyEvent.VK_LEFT)
+                    riverGame.move("LEFT");
+
+            }
+
+            /** Handle the key-pressed event from the text field. */
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+                    riverGame.move("RIGHT");
+                if (e.getKeyCode() == KeyEvent.VK_LEFT)
+                    riverGame.move("LEFT");
+                if (e.getKeyCode() == KeyEvent.VK_SPACE){
+                    if (isTimerOn){
+                        stream.stop();
+                        isTimerOn = !isTimerOn;
+                    }
+                    else{
+                        stream.start();
+                        isTimerOn = !isTimerOn;
+                    }
+
+                }
+            }
+
+            /** Handle the key-released event from the text field. */
+            @Override
+            public void keyReleased(KeyEvent e) {
+            }
         }
+
     }
 }

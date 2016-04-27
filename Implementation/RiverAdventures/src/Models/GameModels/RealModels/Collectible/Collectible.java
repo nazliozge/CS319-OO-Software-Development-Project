@@ -20,10 +20,6 @@ public class Collectible extends RiverObject {
         amount = 0;
     }
 
-    //overwritten method from RiverObject
-    public void draw(Graphics g){
-        //TODO
-    }
 
     //setters & getters
     public void setAmount(int amount)
@@ -31,7 +27,7 @@ public class Collectible extends RiverObject {
         this.amount = amount;
     }
 
-    public double getAmount()
+    public int getAmount()
     {
         return amount;
     }
