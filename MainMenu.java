@@ -27,7 +27,7 @@ class MainMenu extends Menu{
 	JButton newGameButton=new JButton("PLAY GAME");
 	JButton settingsButton=new JButton("SETTINGS");
 	JButton highscoreButton=new JButton("HIGHSCORES");
-	JButton helpButton=new JButton("HELP");
+	JButton tutorialButton=new JButton("TUTORIAL");
 	JButton creditButton=new JButton("CREDITS");
 	
 
@@ -41,8 +41,8 @@ class MainMenu extends Menu{
 	highscoreButton.setSize(390,50);
 	highscoreButton.setLocation(140,240);
 							
-	helpButton.setSize(310,50);
-	helpButton.setLocation(140,295);
+	tutorialButton.setSize(310,50);
+	tutorialButton.setLocation(140,295);
 	
 	creditButton.setSize(300,50);
 	creditButton.setLocation(140,355);
@@ -50,7 +50,7 @@ class MainMenu extends Menu{
 	buttonList.add(newGameButton);
 	buttonList.add(settingsButton);
 	buttonList.add(highscoreButton);
-	buttonList.add(helpButton);
+	buttonList.add(tutorialButton);
 	buttonList.add(creditButton);
 	
 	
@@ -71,7 +71,7 @@ class MainMenu extends Menu{
 	});
 	tutorialButton.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			helpScreen();
+			tutorialScreen();
 		}
 
 	});
@@ -84,7 +84,7 @@ class MainMenu extends Menu{
 	add(newGameButton);
 	add(settingsButton);
 	add(highscoreButton);
-	add(helpButton);
+	add(tutorialButton);
 	add(creditButton);
 	}
 
@@ -104,7 +104,7 @@ class MainMenu extends Menu{
 		frame.highscores();
 	}
 	public void tutorialScreen(){
-		frame.help();
+		frame.tutorial();
 	}
 	public void creditScreen(){
 		frame.credits();
