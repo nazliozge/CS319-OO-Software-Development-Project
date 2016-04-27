@@ -60,11 +60,9 @@ public class RiverObject implements Drawable{
     public int getxLoc() {
         return xLoc;
     }
-
     public void setxLoc(int xLoc) {
         this.xLoc = xLoc;
     }
-
     public int getyLoc(){
         return yLoc;
     }

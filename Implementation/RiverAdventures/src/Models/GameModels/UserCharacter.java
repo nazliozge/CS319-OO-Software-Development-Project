@@ -20,7 +20,7 @@ public class UserCharacter {
 
 
     private final static int yPosition = 400;
-    private final static int DEFAULT_CHARACTER_YSIZE = 60;
+    private final static int DEFAULT_CHARACTER_YSIZE = 70;
     private final static int DEFAULT_CHARACTER_XSIZE = 80;
     private final static int DEFAULT_CHARACTER_SHIELD = 10;
     private final static int DEFAULT_CHARACTER_XPOSITION = 50;

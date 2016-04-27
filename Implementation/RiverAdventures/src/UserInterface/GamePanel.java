@@ -1,6 +1,5 @@
 package UserInterface;
 
-import Models.GameModels.MetaModels.Line;
 import Models.GameModels.MetaModels.RiverGame;
 
 import javax.swing.*;
@@ -13,18 +12,21 @@ import java.awt.event.KeyListener;
 /**
  * Created by Meder on 27/04/16.
  */
-public class RiverFrame extends JPanel {
+public class GamePanel extends JPanel {
 
     private RiverGame riverGame;
-    public RiverFrame(){
+    private Timer stream;
+    private boolean isTimerOn = true;//for pausing
 
-        int backgroundRGB = Color.BLUE.getRGB();
-        Color newColor = new Color(backgroundRGB - 80);
+    public GamePanel(){
+
+        Color newColor = new Color(155, 205, 255);
         setBackground(newColor);
         setPreferredSize(new Dimension(500,500));
 
         riverGame = new RiverGame();
-        new Timer(20, new TimerListener()).start();
+        stream = new Timer(20, new TimerListener());
+        stream.start();
 
         this.addKeyListener(new MyKeyListener());
         this.setFocusable(true);
@@ -37,11 +39,15 @@ public class RiverFrame extends JPanel {
     }
 
 
+    public void update(RiverGame riverGame){
+        riverGame.update();
+    }
+
     private class TimerListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            riverGame.update();
+            update(riverGame);
             repaint();
         }
     }
@@ -54,6 +60,7 @@ public class RiverFrame extends JPanel {
                 riverGame.move("RIGHT");
             if (e.getKeyCode() == KeyEvent.VK_LEFT)
                 riverGame.move("LEFT");
+
         }
 
         /** Handle the key-pressed event from the text field. */
@@ -63,12 +70,22 @@ public class RiverFrame extends JPanel {
                 riverGame.move("RIGHT");
             if (e.getKeyCode() == KeyEvent.VK_LEFT)
                 riverGame.move("LEFT");
+            if (e.getKeyCode() == KeyEvent.VK_SPACE){
+                if (isTimerOn){
+                    stream.stop();
+                    isTimerOn = !isTimerOn;
+                }
+                else{
+                    stream.start();
+                    isTimerOn = !isTimerOn;
+                }
+
+            }
         }
 
         /** Handle the key-released event from the text field. */
         @Override
         public void keyReleased(KeyEvent e) {
-            System.out.println("keyReleased");
         }
     }
 }

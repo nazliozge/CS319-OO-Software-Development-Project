@@ -18,9 +18,10 @@ public class River {
 
     // THESE VARIABLES' MAGNITUDES SHOULD CHANGE, THEY ARE RANDOMLY SET
     private final static int UserCharacter_MOVE = 5;
-    private final static int DISTANCE_BETWEEN_LINES = 80;
+    private final static int DISTANCE_BETWEEN_LINES = 150;
     private final static int MAX_LINE_NUMBER_ON_SCREEN = 15;
     private final static int SCREEN_HEIGHT = 500;
+    private final static int DEFAULT_LINE_STARTING_YPOSITION = -10;
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
     //============== CONSTRUCTOR - START =============
@@ -73,6 +74,8 @@ public class River {
 
     public void update(){
 
+
+
         for(Line line: lines){
             line.move();
         }
@@ -85,6 +88,7 @@ public class River {
             dropLine();
             generateLine();
         }
+        checkCollision();
     }
 
     public UserCharacter getUserCharacter(){
@@ -92,27 +96,20 @@ public class River {
     }
 
     public boolean checkCollision(){
-        Line line = lines.get(0);
 
-        /* check if they are at the same y-location */
-        if(line.getyLoc() == character.getyPosition()){
+        Rectangle userCharacter = new Rectangle(character.getxPosition(), character.getyPosition(), character.getxSize(), character.getyPosition());
 
-            /*if they are at the same y-location,
-            * then check for every object in the line if they collide
-            * with the user character*/
-            for(RiverObject object: line.getRiverObjects()){
+            Line line = lines.get(0);
 
-                /*if the object's (xLox + xSize) is greater than the character's
-                * position, this means they overlap each other. This checks from both side of the
-                * obstacle*/
+            for (RiverObject riverObject: line.getRiverObjects()){
+                Rectangle object = new Rectangle(riverObject.getxLoc(), riverObject.getyLoc(), riverObject.getxSize(), riverObject.getySize());
 
-                if(object.getxLoc() + object.getxSize() > character.getxPosition() && character.getxPosition() > object.getxLoc()){
-                    character.executeEffect(object);
+                if(userCharacter.intersects(object)){
+                    //collision
                     return true;
                 }
-
             }
-        }
+
         return false;
 
     }
@@ -133,7 +130,7 @@ public class River {
             int loc = lines.get(lines.size()- 1).getyLoc(); //y-location of the last line on the lines array
             newLine.setyLoc(loc - DISTANCE_BETWEEN_LINES);
         }else{
-            newLine.setyLoc(-5); // this number is a just random number, it is gonna change.
+            newLine.setyLoc(DEFAULT_LINE_STARTING_YPOSITION); // this number is a just random number, it is gonna change.
             //Negative number because it should not be shown on the screen when created.
         }
         newLine.fillLine(character.getxSize());

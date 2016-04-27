@@ -1,6 +1,6 @@
 package Models.GameModels.MetaModels;
 
-import UserInterface.RiverFrame;
+import UserInterface.GamePanel;
 
 import javax.swing.*;
 
@@ -16,7 +16,7 @@ public class Main_Test {
         frame = new JFrame("Line");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 
-        RiverFrame test = new RiverFrame();
+        GamePanel test = new GamePanel();
 
         frame.getContentPane().add(test);
         frame.pack();
