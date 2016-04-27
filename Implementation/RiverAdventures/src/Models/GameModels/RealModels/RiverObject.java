@@ -1,15 +1,18 @@
 package Models.GameModels.RealModels;
+import Models.GameModels.Drawable;
+
 import java.awt.*;
 
 /**
  * Created by Meder on 23/04/16.
  */
-public class RiverObject {
+public class RiverObject implements Drawable{
 
     private String name;
     private String effect;  //we can delete effect, since we are creating child classes
     private int xLoc;
-    private double ySize;
+    private int yLoc; //NEW!!! added for the sake of draw method.
+    private int ySize;
     private int xSize;
 
     //default constructor
@@ -18,17 +21,21 @@ public class RiverObject {
         name="";
         effect="";
         xLoc = 0;
-        ySize = 0.0;
+        ySize = 70;
+        xSize = 90;
     }
 
-    public RiverObject(String name, String effect, int xLoc, double ySize) {
+    public RiverObject(String name, String effect, int xLoc, int yLoc, int ySize) {
         this.name = name;
         this.effect = effect;
         this.xLoc = xLoc;
+        this.yLoc = yLoc;
         this.ySize = ySize;
     }
 
-    public void draw(Graphics g){} //method should be overwritten by child classes
+    public void draw(Graphics g){
+        System.out.println("This is draw in RiverObject class");
+    } //method should be overwritten by child classes
 
     public int checkType(){
         return -1;
@@ -58,11 +65,18 @@ public class RiverObject {
         this.xLoc = xLoc;
     }
 
-    public double getySize() {
+    public int getyLoc(){
+        return yLoc;
+    }
+    public void setyLoc(int yLoc){
+        this.yLoc = yLoc;
+    }
+
+    public int getySize() {
         return ySize;
     }
 
-    public void setySize(double ySize) {
+    public void setySize(int ySize) {
         this.ySize = ySize;
     }
 

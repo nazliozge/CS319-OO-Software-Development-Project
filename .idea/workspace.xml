@@ -43,6 +43,7 @@
       <file leaf-file-name="Line.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/Models/GameModels/MetaModels/Line.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             <state relative-caret-position="1200">
               <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
@@ -101,6 +102,14 @@
               <caret line="87" column="22" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
               <folding />
 >>>>>>> origin/master
+=======
+            <state relative-caret-position="1470">
+              <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+              <folding>
+                <marker date="1461675900000" expanded="false" signature="46:153" placeholder="..." />
+                <marker date="1461675900000" expanded="true" signature="3064:3070" placeholder="{...}" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -111,6 +120,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
               <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
               <folding>
                 <element signature="imports" expanded="true" />
@@ -176,6 +186,21 @@
 =======
               <folding />
 >>>>>>> origin/master
+=======
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#963#964#0" expanded="false" />
+                <element signature="e#1004#1005#0" expanded="false" />
+                <element signature="e#1049#1050#0" expanded="false" />
+                <element signature="e#1092#1093#0" expanded="false" />
+                <element signature="e#1143#1144#0" expanded="false" />
+                <element signature="e#1187#1188#0" expanded="false" />
+                <element signature="e#1230#1231#0" expanded="false" />
+                <element signature="e#1266#1267#0" expanded="false" />
+                <element signature="e#1602#1603#0" expanded="false" />
+                <element signature="e#1648#1649#0" expanded="false" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -186,7 +211,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#185#186#0" expanded="false" />
                 <element signature="e#213#214#0" expanded="false" />
@@ -197,6 +225,7 @@
                 <element signature="e#421#422#0" expanded="false" />
                 <element signature="e#456#457#0" expanded="false" />
               </folding>
+<<<<<<< Updated upstream
 =======
       <file leaf-file-name="Buyable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/Models/GameModels/Buyable/Buyable.java">
@@ -208,6 +237,8 @@
 =======
               <folding />
 >>>>>>> origin/master
+=======
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -217,6 +248,7 @@
         <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/Models/GameModels/MetaModels/River.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1845">
+<<<<<<< Updated upstream
               <caret line="133" column="35" selection-start-line="133" selection-start-column="35" selection-end-line="133" selection-end-column="35" />
 <<<<<<< HEAD
               <folding>
@@ -236,6 +268,15 @@
 =======
               <folding />
 >>>>>>> origin/master
+=======
+              <caret line="136" column="35" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
+              <folding>
+                <element signature="e#4201#4202#0" expanded="false" />
+                <element signature="e#4243#4244#0" expanded="false" />
+                <marker date="1461675899000" expanded="false" signature="46:128" placeholder="..." />
+                <marker date="1461675899000" expanded="true" signature="3940:4152" placeholder="{...}" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -246,7 +287,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
               <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#271#272#0" expanded="false" />
                 <element signature="e#297#298#0" expanded="false" />
@@ -255,6 +299,7 @@
                 <element signature="e#537#538#0" expanded="false" />
                 <element signature="e#566#567#0" expanded="false" />
               </folding>
+<<<<<<< Updated upstream
 =======
       <file leaf-file-name="dummy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/Models/dummy.java">
@@ -266,6 +311,8 @@
 =======
               <folding />
 >>>>>>> origin/master
+=======
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -276,6 +323,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+<<<<<<< Updated upstream
 =======
       <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/Controllers/GameManager.java">
@@ -284,6 +332,37 @@
               <caret line="70" column="21" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
 >>>>>>> Stashed changes
               <folding />
+=======
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#812#813#0" expanded="false" />
+                <element signature="e#839#840#0" expanded="false" />
+                <element signature="e#1090#1091#0" expanded="false" />
+                <element signature="e#1119#1120#0" expanded="false" />
+                <element signature="e#1163#1164#0" expanded="false" />
+                <element signature="e#1199#1200#0" expanded="false" />
+                <element signature="e#1230#1231#0" expanded="false" />
+                <element signature="e#1257#1258#0" expanded="false" />
+                <element signature="e#1297#1298#0" expanded="false" />
+                <element signature="e#1329#1330#0" expanded="false" />
+                <element signature="e#1373#1374#0" expanded="false" />
+                <element signature="e#1409#1410#0" expanded="false" />
+                <element signature="e#1471#1472#0" expanded="false" />
+                <element signature="e#1521#1522#0" expanded="false" />
+                <element signature="e#1551#1552#0" expanded="false" />
+                <element signature="e#1580#1581#0" expanded="false" />
+                <element signature="e#1621#1622#0" expanded="false" />
+                <element signature="e#1657#1658#0" expanded="false" />
+                <element signature="e#1696#1697#0" expanded="false" />
+                <element signature="e#1728#1729#0" expanded="false" />
+                <element signature="e#1781#1782#0" expanded="false" />
+                <element signature="e#1823#1824#0" expanded="false" />
+                <element signature="e#1858#1859#0" expanded="false" />
+                <element signature="e#1889#1890#0" expanded="false" />
+                <element signature="e#1937#1938#0" expanded="false" />
+                <element signature="e#1977#1978#0" expanded="false" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -330,12 +409,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
               <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#236#237#0" expanded="false" />
                 <element signature="e#264#265#0" expanded="false" />
                 <element signature="e#432#433#0" expanded="false" />
                 <element signature="e#461#462#0" expanded="false" />
+<<<<<<< Updated upstream
               </folding>
 =======
       <file leaf-file-name="SettingsManager.java" pinned="false" current-in-tab="false">
@@ -348,6 +431,11 @@
 =======
               <folding />
 >>>>>>> origin/master
+=======
+                <element signature="e#498#499#0" expanded="false" />
+                <element signature="e#527#528#0" expanded="false" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -357,7 +445,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-              <folding />
+              <folding>
+                <element signature="e#1312#1313#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1151,7 +1241,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#236#237#0" expanded="false" />
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
+            <element signature="e#461#462#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#527#528#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,7 +1263,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="e#1312#1313#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1309,7 +1408,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#236#237#0" expanded="false" />
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
+            <element signature="e#461#462#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#527#528#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1324,6 +1430,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+<<<<<<< Updated upstream
 =======
     <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/UserInterface/FrameManager.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1331,6 +1438,11 @@
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
 >>>>>>> Stashed changes
           <folding />
+=======
+          <folding>
+            <element signature="e#1312#1313#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1350,7 +1462,14 @@
 <<<<<<< Updated upstream
         <state relative-caret-position="0">
           <caret line="0" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#271#272#0" expanded="false" />
+            <element signature="e#297#298#0" expanded="false" />
+            <element signature="e#464#465#0" expanded="false" />
+            <element signature="e#500#501#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="false" />
+            <element signature="e#566#567#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1511,7 +1630,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#236#237#0" expanded="false" />
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
+            <element signature="e#461#462#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#527#528#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1526,7 +1652,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="e#1312#1313#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1545,7 +1673,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#271#272#0" expanded="false" />
+            <element signature="e#297#298#0" expanded="false" />
+            <element signature="e#464#465#0" expanded="false" />
+            <element signature="e#500#501#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="false" />
+            <element signature="e#566#567#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1739,12 +1874,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
           <folding>
             <element signature="e#236#237#0" expanded="false" />
             <element signature="e#264#265#0" expanded="false" />
             <element signature="e#432#433#0" expanded="false" />
             <element signature="e#461#462#0" expanded="false" />
+<<<<<<< Updated upstream
           </folding>
 =======
         <state vertical-scroll-proportion="0.0">
@@ -1781,6 +1920,11 @@
 =======
           <folding />
 >>>>>>> origin/master
+=======
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#527#528#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1789,7 +1933,10 @@
 <<<<<<< Updated upstream
         <state relative-caret-position="405">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
           <folding>
             <element signature="e#271#272#0" expanded="false" />
             <element signature="e#297#298#0" expanded="false" />
@@ -1798,6 +1945,7 @@
             <element signature="e#537#538#0" expanded="false" />
             <element signature="e#566#567#0" expanded="false" />
           </folding>
+<<<<<<< Updated upstream
 =======
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
@@ -1852,6 +2000,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
           <folding />
+=======
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1881,6 +2031,7 @@
             <element signature="e#376#377#0" expanded="false" />
             <element signature="e#421#422#0" expanded="false" />
             <element signature="e#456#457#0" expanded="false" />
+<<<<<<< Updated upstream
 =======
     <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/UserInterface/FrameManager.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1895,6 +2046,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+=======
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1947,7 +2101,35 @@
 =======
         <state relative-caret-position="300">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#812#813#0" expanded="false" />
+            <element signature="e#839#840#0" expanded="false" />
+            <element signature="e#1090#1091#0" expanded="false" />
+            <element signature="e#1119#1120#0" expanded="false" />
+            <element signature="e#1163#1164#0" expanded="false" />
+            <element signature="e#1199#1200#0" expanded="false" />
+            <element signature="e#1230#1231#0" expanded="false" />
+            <element signature="e#1257#1258#0" expanded="false" />
+            <element signature="e#1297#1298#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1373#1374#0" expanded="false" />
+            <element signature="e#1409#1410#0" expanded="false" />
+            <element signature="e#1471#1472#0" expanded="false" />
+            <element signature="e#1521#1522#0" expanded="false" />
+            <element signature="e#1551#1552#0" expanded="false" />
+            <element signature="e#1580#1581#0" expanded="false" />
+            <element signature="e#1621#1622#0" expanded="false" />
+            <element signature="e#1657#1658#0" expanded="false" />
+            <element signature="e#1696#1697#0" expanded="false" />
+            <element signature="e#1728#1729#0" expanded="false" />
+            <element signature="e#1781#1782#0" expanded="false" />
+            <element signature="e#1823#1824#0" expanded="false" />
+            <element signature="e#1858#1859#0" expanded="false" />
+            <element signature="e#1889#1890#0" expanded="false" />
+            <element signature="e#1937#1938#0" expanded="false" />
+            <element signature="e#1977#1978#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1962,8 +2144,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+<<<<<<< Updated upstream
 >>>>>>> origin/master
           <folding />
+=======
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#963#964#0" expanded="false" />
+            <element signature="e#1004#1005#0" expanded="false" />
+            <element signature="e#1049#1050#0" expanded="false" />
+            <element signature="e#1092#1093#0" expanded="false" />
+            <element signature="e#1143#1144#0" expanded="false" />
+            <element signature="e#1187#1188#0" expanded="false" />
+            <element signature="e#1230#1231#0" expanded="false" />
+            <element signature="e#1266#1267#0" expanded="false" />
+            <element signature="e#1602#1603#0" expanded="false" />
+            <element signature="e#1648#1649#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1974,9 +2172,12 @@
     <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/Models/GameModels/MetaModels/Line.java">
 >>>>>>> origin/master
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="87" column="22" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="1470">
+          <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+          <folding>
+            <marker date="1461675900000" expanded="false" signature="46:153" placeholder="..." />
+            <marker date="1461675900000" expanded="true" signature="3064:3070" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2015,8 +2216,13 @@
     <entry file="file://$PROJECT_DIR$/Implementation/RiverAdventures/src/Models/GameModels/MetaModels/Store.java">
 =======
         <state relative-caret-position="1845">
-          <caret line="133" column="35" selection-start-line="133" selection-start-column="35" selection-end-line="133" selection-end-column="35" />
-          <folding />
+          <caret line="136" column="35" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
+          <folding>
+            <element signature="e#4201#4202#0" expanded="false" />
+            <element signature="e#4243#4244#0" expanded="false" />
+            <marker date="1461675899000" expanded="false" signature="46:128" placeholder="..." />
+            <marker date="1461675899000" expanded="true" signature="3940:4152" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2025,7 +2231,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#1312#1313#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

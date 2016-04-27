@@ -17,13 +17,18 @@ public class Store {
     private int[] characters;
     private int[] boosts;
 
+    private final int numOfHighscores = 5;
+    private final int numOfCharacters = 5;
+    private final int numOfBoosts = 5;
+    private final int numOfLines = 3;
+
     //++++++++++++++++++++++++++++++++++++++++++++++++
     //============== CONSTRUCTOR - START =============
     //++++++++++++++++++++++++++++++++++++++++++++++++
 
     public Store() {
-        characters = new int[];
-        boosts = new int[];
+        characters = new int[numOfCharacters];
+        boosts = new int[numOfBoosts];
     }
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
@@ -33,7 +38,7 @@ public class Store {
 
     //it supposed to be boolean, but no point to make it boolean.
     public void unlock( Character character){
-        character.setUnlock(true);
+        character.setUnlocked(true);
     }
 
     public void equip(Character character){
@@ -57,7 +62,7 @@ public class Store {
         return true;}
 
     public boolean upgrade(ExclusiveBoost exclusiveBoost){
-        return exclusiveBoost.update();
+        return exclusiveBoost.upgrade();
     }
 
     public void draw (Graphics g){}

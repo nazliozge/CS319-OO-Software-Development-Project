@@ -1,7 +1,13 @@
 package Models.GameModels.MetaModels;
 
+import Models.GameModels.Drawable;
+import Models.GameModels.RealModels.Obstacle.ChemicalHazard;
+import Models.GameModels.RealModels.Obstacle.Log;
+import Models.GameModels.RealModels.Obstacle.NuclearBomb;
+import Models.GameModels.RealModels.Obstacle.Stone;
 import Models.GameModels.RealModels.RiverObject;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.lang.Math;
@@ -11,26 +17,26 @@ import java.lang.Math;
 
 
 
-public class Line {
+public class Line implements Drawable {
 
     //THESE VARIABLES' MAGNITUDES SHOULD CHANGE LATER.z
-    final static int MOVE_BY = 4;
-    final static int LINE_WIDTH = 40;
+    final static int MOVE_BY = 1;
+    final static int LINE_WIDTH = 400;
 
-    private double yLoc;
+    private int yLoc;
     private ArrayList<RiverObject> objects;
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
     //============== CONSTRUCTOR - START =============
     //++++++++++++++++++++++++++++++++++++++++++++++++
 
-    public Line(double yLoc) {
+    public Line(int yLoc) {
         this.yLoc = yLoc;
         objects = new ArrayList<RiverObject>();
     }
 
     public Line(){
-        this.yLoc = 0;
+        this.yLoc = 10;
         objects = new ArrayList<RiverObject>();
     }
 
@@ -43,11 +49,11 @@ public class Line {
     //=================== METHODS ====================
     //++++++++++++++++++++++++++++++++++++++++++++++++
 
-    public double getyLoc(){
+    public int getyLoc(){
         return yLoc;
     }
 
-    public void setyLoc(double newLoc){
+    public void setyLoc(int newLoc){
         this.yLoc = newLoc;
     }
 
@@ -62,6 +68,11 @@ public class Line {
 
     /* EVERYTIME WHEN IT IS CALLED, IT UPDATES THE POSITION OF THE LINE*/
     public void move(){
+
+        for(int i = 0; i < objects.size(); i ++){
+            objects.get(i).setyLoc(yLoc + MOVE_BY);
+        }
+
         yLoc += MOVE_BY;
     }
 
@@ -100,11 +111,40 @@ public class Line {
         int start = 0;
         int end = LINE_WIDTH;
         int range = (end - start) + 1;
-        int location = (int)Math.random() * range + start;
+        int Xlocation = (int)(Math.random() * range) + start;
 
-        RiverObject object = new RiverObject();
-        object.setxLoc(location);
-        objects.add(object);
+        int random = (int)(Math.random() * 3) + 1;
+
+        if(random == 0){
+            ChemicalHazard chemical = new ChemicalHazard();
+            chemical.setxLoc(Xlocation);
+            chemical.setyLoc(yLoc);
+            objects.add(chemical);
+        }
+        if(random == 1){
+            Log log = new Log();
+            log.setxLoc(Xlocation);
+            log.setyLoc(yLoc);
+            objects.add(log);
+        }
+        if (random == 2){
+            Stone stone = new Stone();
+            stone.setxLoc(Xlocation);
+            stone.setyLoc(yLoc);
+            objects.add(stone);
+        }
+        if (random == 3){
+            NuclearBomb nuclearBomb = new NuclearBomb();
+            nuclearBomb.setxLoc(Xlocation);
+            nuclearBomb.setyLoc(yLoc);
+            objects.add(nuclearBomb);
+        }
+        /*
+        This continues...
+        * */
+
+
+
     }
 
     //=============== !! NEW METHOD(s) !! ================
@@ -112,5 +152,10 @@ public class Line {
 
     //============ !! NEEDS IMPLEMENTATION !! ============
     public void draw(Graphics g){
+
+        for(int i = 0; i < objects.size(); i ++){
+            objects.get(i).draw(g);
+        }
+
     }
 }

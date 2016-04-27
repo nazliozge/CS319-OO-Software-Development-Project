@@ -1,9 +1,9 @@
 package Models.GameModels.MetaModels;
 
 import Models.GameModels.Buyable.Buyable;
-import Models.GameModels.RealModels.Collectible;
+import Models.GameModels.RealModels.Collectible.Collectible;
 import Models.Account.Account;
-import Models.GameModels.UserCharacter;
+import Models.GameModels.Buyable.Character;
 
 import java.awt.*;
 import java.util.Timer;
@@ -15,7 +15,7 @@ public class RiverGame {
 
     private River river;
     private Store store;
-    private Timer stream;
+    //private Timer stream; We don't need this attribute
     private Collectible tempWallet;
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
@@ -26,13 +26,11 @@ public class RiverGame {
         river = new River();
         store = new Store();
         tempWallet = new Collectible();
-        stream = new Timer();
     }
 
-    public RiverGame(River river, Store store, Timer stream, Collectible tempWallet) {
+    public RiverGame(River river, Store store, Collectible tempWallet) {
         this.river = river;
         this.store = store;
-        this.stream = stream;
         this.tempWallet = tempWallet;
     }
 
@@ -47,7 +45,7 @@ public class RiverGame {
     //++++++++++++++++++++++++++++++++++++++++++++++++
 
     public void increaseGold(Collectible collectible){
-        updateWallet(collectible.getAmount());
+        updateWallet((int)collectible.getAmount());
     }
 
     public void updateUserCharacter(Character character){
@@ -63,6 +61,9 @@ public class RiverGame {
             river.move("RIGHT");
     }
 
+    public void update(){
+        river.update();
+    }
 
     public void updateWallet (int amount){
         tempWallet.setAmount(amount);
@@ -78,9 +79,13 @@ public class RiverGame {
         store.setBoosts(account.getBoostStates());
     }
 
-    //============ !! NEEDS IMPLEMENTATION !! ============
 
-    public void draw(Graphics g){}
+
+    public void draw(Graphics g){
+        river.draw(g);
+    }
+
+    //============ !! NEEDS IMPLEMENTATION !! ============
 
     public int storeEvent(Buyable source, int type){return -1;}
 

@@ -1,5 +1,6 @@
 package Models.GameModels.Buyable;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -33,8 +34,11 @@ public class Character implements Buyable {
 
 
     //PUBLIC METHODS
-    public void draw(Graphics g){
-        //TODO
+    /*This method parameters are changed, because in order to draw a character, the locations are needed where to draw them.
+    * so, the UserCharacter draw method passes these parameters as this method does not have x and y locations of the character.*/
+    public void draw(Graphics g, int xLoc, int yLoc, int xSize, int ySize){
+        Image img = new ImageIcon("image/userCharacter/" + getName() + ".png").getImage();
+        g.drawImage(img, xLoc, yLoc, xSize, ySize, null);
     }
 
 

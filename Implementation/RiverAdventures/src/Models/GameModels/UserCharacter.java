@@ -3,6 +3,7 @@ package Models.GameModels;
 import Models.GameModels.Buyable.Character;
 import Models.GameModels.RealModels.RiverObject;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -10,25 +11,41 @@ import java.awt.*;
  */
 public class UserCharacter {
     private double health;
-    private double size;
-    private double activeEffects[][];
+    private int ySize;//these are added, while drawing the characters, we need the both x and y locations
+    private int xSize;
+    private int activeEffects[][];
     private int shield;
     private Character character;
-    private double position;
+    private int xPosition;
+
+
+    private final static int yPosition = 400;
+    private final static int DEFAULT_CHARACTER_YSIZE = 60;
+    private final static int DEFAULT_CHARACTER_XSIZE = 80;
+    private final static int DEFAULT_CHARACTER_SHIELD = 10;
+    private final static int DEFAULT_CHARACTER_XPOSITION = 50;
 
     //CONSTRUCTOR
 
     public UserCharacter(){
-
+        this.health = 100;
+        this.ySize = DEFAULT_CHARACTER_YSIZE;
+        this.xSize = DEFAULT_CHARACTER_XSIZE;
+        this.shield = DEFAULT_CHARACTER_SHIELD;
+        this.xPosition = DEFAULT_CHARACTER_XPOSITION;
+        this.activeEffects = new int[0][0];
+        this.character = new Character();
+        character.setName("duck");
     }
 
-    public UserCharacter(double health, double size, double[][] activeEffects, int shield, Character character, double position) {
+    public UserCharacter(double health, int xSize, int ySize, int[][] activeEffects, int shield, Character character, int xPosition) {
         this.health = health;
-        this.size = size;
+        this.ySize = ySize;
+        this.xSize = xSize;
         this.activeEffects = activeEffects;
         this.shield = shield;
         this.character = character;
-        this.position = position;
+        this.xPosition = xPosition;
     }
 
     public boolean hasShield(){
@@ -48,7 +65,7 @@ public class UserCharacter {
     }
 
     public void draw(Graphics g){
-
+        character.draw(g, xPosition, yPosition, xSize, ySize);
     }
 
 
@@ -62,19 +79,31 @@ public class UserCharacter {
         this.health = health;
     }
 
-    public double getSize() {
-        return size;
+    public int getySize() {
+        return ySize;
     }
 
-    public void setSize(double size) {
-        this.size = size;
+    public void setySize(int ySize) {
+        this.ySize = ySize;
     }
 
-    public double[][] getActiveEffects() {
+    public int getxSize() {
+        return xSize;
+    }
+
+    public void setxSize(int xSize) {
+        this.xSize = xSize;
+    }
+
+    public void setxPosition(int xPosition) {
+        this.xPosition = xPosition;
+    }
+
+    public int[][] getActiveEffects() {
         return activeEffects;
     }
 
-    public void setActiveEffects(double[][] activeEffects) {
+    public void setActiveEffects(int[][] activeEffects) {
         this.activeEffects = activeEffects;
     }
 
@@ -94,11 +123,11 @@ public class UserCharacter {
         this.character = character;
     }
 
-    public double getPosition() {
-        return position;
+    public int getxPosition() {
+        return xPosition;
     }
 
-    public void setPosition(double position) {
-        this.position = position;
+    public int getyPosition(){
+        return yPosition;
     }
 }

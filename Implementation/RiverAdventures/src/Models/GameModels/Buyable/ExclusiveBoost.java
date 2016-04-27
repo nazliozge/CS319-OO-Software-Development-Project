@@ -1,6 +1,6 @@
 package Models.GameModels.Buyable;
 import java.awt.*;
-
+import Models.GameModels.RealModels.Boost.Boost;
 
 /**
  * Created by Meder on 23/04/16.

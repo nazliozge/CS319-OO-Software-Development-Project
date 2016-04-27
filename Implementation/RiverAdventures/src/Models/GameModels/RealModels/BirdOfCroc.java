@@ -1,4 +1,6 @@
 package Models.GameModels.RealModels;
+import Models.GameModels.RealModels.Boost.CharacterSpecifiedBoost;
+
 import java.awt.Graphics;
 
 /**
@@ -6,7 +8,7 @@ import java.awt.Graphics;
  */
 
 
-public class BirdOfCroc extends CharacterSpecifiedBoost{
+public class BirdOfCroc extends CharacterSpecifiedBoost {
 
     //constructors
     public BirdOfCroc()

@@ -1,9 +1,11 @@
 package Models.GameModels.RealModels;
 
+import Models.GameModels.RealModels.Boost.RareBoost;
+
 import java.awt.Graphics;
 
 
-public class RandomBox extends RareBoost{
+public class RandomBox extends RareBoost {
 
     public RandomBox()
     {
