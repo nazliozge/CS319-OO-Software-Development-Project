@@ -23,7 +23,7 @@ public class Line implements Drawable {
 
     //THESE VARIABLES' MAGNITUDES SHOULD CHANGE LATER.z
     final static int MOVE_BY = 1;
-    final static int LINE_WIDTH = 400;
+    final static int LINE_WIDTH = 200;
 
     private int yLoc;
     private ArrayList<RiverObject> objects;

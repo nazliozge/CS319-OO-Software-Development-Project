@@ -21,6 +21,7 @@ public class River {
     private final static int DISTANCE_BETWEEN_LINES = 150;
     private final static int MAX_LINE_NUMBER_ON_SCREEN = 15;
     private final static int SCREEN_HEIGHT = 500;
+    private final static int SCREEN_WIDTH = 300;
     private final static int DEFAULT_LINE_STARTING_YPOSITION = -10;
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
@@ -61,10 +62,12 @@ public class River {
 
     public void move(String direction){
         if(direction == "LEFT"){
-            character.setxPosition(character.getxPosition() - UserCharacter_MOVE);
+            if (character.getxPosition() > 0)
+                character.setxPosition(character.getxPosition() - UserCharacter_MOVE);
         }
         if(direction == "RIGHT"){
-            character.setxPosition(character.getxPosition() + UserCharacter_MOVE);
+            if (character.getxPosition() < SCREEN_WIDTH - character.getxSize())
+                character.setxPosition(character.getxPosition() + UserCharacter_MOVE);
         }
     }
 
