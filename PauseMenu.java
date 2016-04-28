@@ -60,7 +60,7 @@ class PauseMenu extends Menu{
 			highscoreScreen();
 		}
 	});
-	tutorialButton.addActionListener(new ActionListener(){
+	helpButton.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			helpScreen();
 		}
@@ -78,7 +78,7 @@ class PauseMenu extends Menu{
 	add(newGameButton);
 	add(settingsButton);
 	add(highscoreButton);
-	add(tutorialButton);
+	add(helpButton);
 	add(storeButton);
 	}
 
@@ -97,7 +97,7 @@ class PauseMenu extends Menu{
 	public void highscoreScreen(){
 		frame.highscores();
 	}
-	public void tutorialScreen(){
+	public void helpScreen(){
 		frame.help();
 	}
 	public void storeScreen(){
@@ -107,6 +107,19 @@ class PauseMenu extends Menu{
 		frame.settings();
 	}
 }
+	
+		
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 		
 
