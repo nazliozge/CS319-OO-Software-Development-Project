@@ -34,6 +34,10 @@ public class GamePanel extends JPanel {
         this.add(right, BorderLayout.LINE_END);
     }
 
+    //TODO:
+    public GamePanel( RiverGame rm){
+    };
+
 
     public void draw(Graphics g){
         Image img = new ImageIcon("image/tree/tree1.png").getImage();

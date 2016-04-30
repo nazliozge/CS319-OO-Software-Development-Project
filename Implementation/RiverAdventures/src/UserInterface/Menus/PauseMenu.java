@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-class PauseMenu extends Menu{
+public class PauseMenu extends Menu{
 	
 	public void update(){
 		//TODO
