@@ -17,8 +17,8 @@ public class River {
     private Collectible totalCoins;
 
     // THESE VARIABLES' MAGNITUDES SHOULD CHANGE, THEY ARE RANDOMLY SET
-    private final static int UserCharacter_MOVE = 5;
-    private final static int DISTANCE_BETWEEN_LINES = 150;
+    private final static int UserCharacter_MOVE = 20;
+    private final static int DISTANCE_BETWEEN_LINES = 200;
     private final static int MAX_LINE_NUMBER_ON_SCREEN = 15;
     private final static int SCREEN_HEIGHT = 500;
     private final static int SCREEN_WIDTH = 300;
@@ -32,8 +32,6 @@ public class River {
         character = new UserCharacter();
         speedMode = 5; //just a random number
         lines = new ArrayList<Line>();
-
-
         totalCoins = new Collectible();
     }
     public River(UserCharacter character, double speedMode, Collectible totalCoins) {
@@ -154,9 +152,12 @@ public class River {
     }
 
     public void gainCoin(Collectible c){
-        System.out.println("gainCoin, before " + totalCoins.getAmount());
         totalCoins.setAmount(totalCoins.getAmount() + c.getAmount());
-        System.out.println("gainCoin, after " + totalCoins.getAmount());
+    }
+
+    public int getTotalCoins(){
+        System.out.println("Coins: River " + this.totalCoins.getAmount());
+        return  this.totalCoins.getAmount();
     }
     //============ !! NEEDS IMPLEMENTATION !! ============
     public void endMe(){}

@@ -26,13 +26,11 @@ public class RiverGame {
     public RiverGame(){
         river = new River();
         store = new Store();
-        tempWallet = new Collectible();
     }
 
-    public RiverGame(River river, Store store, Collectible tempWallet) {
+    public RiverGame(River river, Store store) {
         this.river = river;
         this.store = store;
-        this.tempWallet = tempWallet;
     }
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
@@ -70,6 +68,10 @@ public class RiverGame {
         tempWallet.setAmount(amount);
     }
 
+    public int getTempWallet(){
+        System.out.println("Coins: RiverGame " + river.getTotalCoins());
+        return river.getTotalCoins();
+    }
 
     public void updateSpeedMode( double rate){
         river.setSpeedMode(rate);

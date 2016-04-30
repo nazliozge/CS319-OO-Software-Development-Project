@@ -18,8 +18,16 @@ public class GamePanel extends JPanel {
     private RiverGame riverGame;
     private Timer stream;
     private boolean isTimerOn = true;//for pausing
+    private final static int DELAY_DECREMENT = 1;
+    private int counter = 0;
+    private int speedLimit = 200;
+    private int speedIncrement = 50;
+    private RiverCenter center;
+    private int coins;
 
     public GamePanel(){
+
+        coins = 0;
 
         BorderLayout layout = new BorderLayout(0,0);
         setLayout(layout);
@@ -27,7 +35,7 @@ public class GamePanel extends JPanel {
         RiverLeft left = new RiverLeft();
         this.add(left, BorderLayout.BEFORE_LINE_BEGINS);
 
-        RiverCenter center = new RiverCenter();
+        center = new RiverCenter();
         this.add(center, BorderLayout.CENTER);
 
         RiverRight right = new RiverRight();
@@ -40,7 +48,7 @@ public class GamePanel extends JPanel {
         Image img1 = new ImageIcon("image/tree/tree2.png").getImage();
         int xSize = 100;
         int ySize = 130;
-        g.drawImage(img1, 20, 10, xSize, ySize, null);
+        g.drawImage(img1, 20, 30, xSize, ySize, null);
         g.drawImage(img, 100, 80, xSize, ySize, null);
         g.drawImage(img, 50, 230, xSize, ySize, null);
         g.drawImage(img1, 10, 380, xSize, ySize, null);
@@ -54,6 +62,9 @@ public class GamePanel extends JPanel {
             setBackground(newColor);
             setPreferredSize(new Dimension(200,500));
 
+            setLayout(new BorderLayout(0,0));
+            JButton pause = new JButton("Pause");
+            add(pause, BorderLayout.NORTH);
         }
 
         public void paintComponent(Graphics g){
@@ -63,12 +74,24 @@ public class GamePanel extends JPanel {
 
     }
 
-    private class RiverRight extends JPanel{
+    private class RiverRight extends JPanel implements ActionListener{
 
         public RiverRight(){
             Color newColor = new Color(34, 195, 114);
             setBackground(newColor);
             setPreferredSize(new Dimension(200,500));
+
+            stream = new Timer(15, this);
+            setLayout(new BorderLayout(0,0));
+            JLabel points = new JLabel("Points: " + coins);
+            add(points, BorderLayout.NORTH);
+
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent event)
+        {
+            repaint();
         }
 
         public void paintComponent(Graphics g){
@@ -86,13 +109,15 @@ public class GamePanel extends JPanel {
             setPreferredSize(new Dimension(300,500));
 
             riverGame = new RiverGame();
-            stream = new Timer(20, new TimerListener());
+            stream = new Timer(15, new TimerListener());
             stream.start();
 
             this.addKeyListener(new MyKeyListener());
             this.setFocusable(true);
             this.requestFocusInWindow();
         }
+
+
 
         public void paintComponent(Graphics g){
             super.paintComponent(g);
@@ -103,12 +128,24 @@ public class GamePanel extends JPanel {
             riverGame.update();
         }
 
+        public void updateCoins(){
+            coins = riverGame.getTempWallet();
+        }
+
         private class TimerListener implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent event)
             {
+                counter ++;
                 update(riverGame);
+                updateCoins();
                 repaint();
+
+                if (counter > speedLimit){
+                    stream.setDelay((stream.getDelay() - DELAY_DECREMENT));
+                    counter = 0;
+                    speedLimit += speedIncrement;
+                }
             }
         }
 
