@@ -12,11 +12,16 @@ import javax.swing.JPanel;
 
 public abstract class Menu extends JPanel{
 
-	public FrameManager frameManager;
-	public Menu(RiverFrame riverFrame){};
-	public void back(){
-		frameManager.returnToPrev();
-	}
+	public FrameManager mng;
+	public RiverFrame frame;
+	public Menu(RiverFrame riverFrame, FrameManager mng){
+		this.mng = mng;
+		this.frame = riverFrame;
+
+	};
+	//public void back(){
+	//	frameManager.returnToPrev();
+	//}
 	
 	public abstract void update();
 }

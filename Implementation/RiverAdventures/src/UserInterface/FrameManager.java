@@ -35,14 +35,14 @@ public class FrameManager {
 		ctrl.toMenu();
 	}
 	public void toMain(){
-		MainMenu a = new MainMenu( frame ); // TODO: add const to Main Menu
+		MainMenu a = new MainMenu( frame, this ); // TODO: add const to Main Menu
 		frame.replacePanel( a );
 	}
-	public void requestHighscores{
+	public void requestHighscores(){
 		ctrl.toHighscores();
 	}
 	public void toHighscores( int score){
-		GameOverPanel a = new GameOverPanel(frame, score);
+		GameOverPanel a = new GameOverPanel(frame, this, score);
 		frame.replacePanel( a );
 	}
 	public void requestHelp() {
@@ -50,7 +50,7 @@ public class FrameManager {
 	}
 
 	public void help(){
-		HelpMenu a = new HelpMenu(frame);
+		HelpMenu a = new HelpMenu(frame, this);
 		frame.replacePanel( a );
 	}
 	/*
@@ -66,7 +66,7 @@ public class FrameManager {
 		ctrl.toSettings();
 	}
 	public void toSettings(){
-		HelpMenu a = new HelpMenu(frame);
+		HelpMenu a = new HelpMenu(frame, this);
 		frame.replacePanel( a );
 	}
 	/*	Was related to stack
@@ -116,7 +116,7 @@ public class FrameManager {
 	}
 
 	public void toPause(){
-		PauseMenu a = new PauseMenu(frame);
+		PauseMenu a = new PauseMenu(frame, this);
 		frame.replacePanel(a);
 	}
 
@@ -125,7 +125,7 @@ public class FrameManager {
 	}
 
 	public void toStore( Store store){
-		StoreMenu a = new StoreMenu(frame, Store);
+		StoreMenu a = new StoreMenu(frame, this, store);
 		frame.replacePanel(a);
 	}
 	///////////////TODO storeEvent
