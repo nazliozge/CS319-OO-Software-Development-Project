@@ -1,39 +1,42 @@
-package userInterface;
+package UserInterface;
 
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class FrameManager extends JFrame {
+import UserInterface.Menus.*;
+
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+
+public class FrameManager {
 	
-	private JPanel currentPanel;
-	private GameDynamicsEngine gde;
+
+	private GameDynamicsEngine gde; // TODO keylistener
+	private RiverFrame frame;
 	
-	public MainFrame(JPanel currentPanel,String title){
-		super(title);
-		setLocation(50,50);
-		setSize(1000,600);
-		setLayout(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.currentPanel=currentPanel;
-		add(currentPanel);
-		setVisible(true);
+	public FrameManager(Menu currentPanel, String title){
+		frame = new RiverFrame(title);
+		frame.setLocation(50,50);
+		frame.setSize(1000,600);
+		frame.setLayout(null);
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame.setCurrentPanel( currentPanel );
+		frame.add(currentPanel);
+		frame.setVisible(true);
 	}
 	
 	public void startGame(){
-		remove(currentPanel);
-		currentPanel=new SelectModePanel(this);
-		add(currentPanel);
-		repaint();
-		
+		MainMenu a = new MainMenu( frame ); // TODO: add const to Main Menu
+		frame.replacePanel( a );
 	}
 
 	public void highscores(){
-		//TODO	
+		GameOverPanel a = new GameOverPanel(frame);
+		frame.replacePanel( a );
 	}
 	
-	
+	//TODO: transform others according to top methods, by using replace()
 	public void help(){			
 		remove(currentPanel);
 		currentPanel=new HelpMenu(this);
@@ -60,7 +63,7 @@ public class FrameManager extends JFrame {
 		
 			removeKeyListener(gde);
 			remove(currentPanel);
-			currentPanel=new MainMenu();/////////prev olarak main menuye döner
+			currentPanel=new MainMenu();/////////prev olarak main menuye dï¿½ner
 			((MainMenu)currentPanel).setFrame(this);
 			add(currentPanel);
 			repaint();
@@ -79,7 +82,7 @@ public class FrameManager extends JFrame {
 		gde.start();
 		repaint();
 	}
-	public void gameOver(int score){/////Gameover Paneli lazým
+	public void gameOver(int score){/////Gameover Paneli lazï¿½m
 		removeKeyListener(gde);
 		remove(currentPanel);
 		currentPanel=new GameOverPanel(this,score);

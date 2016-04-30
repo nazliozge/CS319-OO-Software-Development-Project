@@ -15,7 +15,8 @@ public class RiverGame {
 
     private River river;
     private Store store;
-    //private Timer stream; We don't need this attribute
+    private Timer stream; //We don't need this attribute, but why?
+
     private Collectible tempWallet;
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
@@ -87,5 +88,25 @@ public class RiverGame {
 
     public int storeEvent(Buyable source, int type){return -1;}
 
+    // NEW METHDOS
+
+    public double getScore(){
+        return tempWallet.getAmount();
+    }
+
+    //TODO
+    public void pause(){
+        stream.cancel();
+    }
+
+    //TODO
+    public void goOn(){
+        stream = makeTimer();
+    }
+
+    //TODO
+    private Timer makeTimer(){
+        return new Timer();
+    }
 
 }
