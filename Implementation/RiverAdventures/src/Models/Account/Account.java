@@ -190,5 +190,19 @@ public class Account {
         return boostStates;
     }
 
+    // ARAS: ADDED
+    public int[] getHighScores() {
+        return highScores;
+    }
+
+    public void addHighScore( int newScore) {
+
+        for ( int i = numOfHighscores - 1; i >= 0; i--){
+            if( highScores[i] < newScore ){
+                highScores[i] = newScore;
+                i = -1;
+            }
+        }
+    }
 
 }
