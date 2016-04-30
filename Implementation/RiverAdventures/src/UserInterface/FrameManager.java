@@ -39,7 +39,7 @@ public class FrameManager {
 		frame.replacePanel( a );
 	}
 	public void requestHighscores(){
-		ctrl.toHighscores();
+		ctrl.endGame();
 	}
 	public void toHighscores( int score){
 		GameOverPanel a = new GameOverPanel(frame, this, score);
