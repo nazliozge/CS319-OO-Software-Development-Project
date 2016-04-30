@@ -51,7 +51,7 @@ package UserInterface.Menus;
 			//g.drawImage(img,0,0,getWidth(),getHeight(),null);
 		}
 		public void menu(){
-			frameManager.requestMain();
+			mng.requestMain();
 		}
 
 		@Override

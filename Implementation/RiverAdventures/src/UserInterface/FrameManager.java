@@ -119,6 +119,9 @@ public class FrameManager {
 		PauseMenu a = new PauseMenu(frame, this);
 		frame.replacePanel(a);
 	}
+	public void requestUnpause(){
+		ctrl.unpauseGame();
+	}
 
 	public void requestStore(){
 		ctrl.accessToStore();

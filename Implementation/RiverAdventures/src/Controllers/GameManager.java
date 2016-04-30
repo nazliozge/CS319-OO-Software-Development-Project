@@ -50,66 +50,104 @@ public class GameManager {
     public boolean initializeGame(){
         /*It creates a new RiverGame object, connects the riverGame attribute to it,
         calls the riverGame object’s related methods and calls the FrameManager’s toGame() method.*/
-        riverGame = new RiverGame();
-        //TODO: set frame manager
-        startGameLoop();
-        return true;}
+        if( gameState == state.MENU){
+            riverGame = new RiverGame();
+            //TODO: set frame manager = RESOLVED?
+            frameManager.toGame(riverGame);
+            startGameLoop();
+            gameState = state.GAME;
+            return true;
+        }
+        return false;
+    }
 
     public boolean startGameLoop(){
         /* It starts the timer. */
-        gameState = state.GAME;
         riverGame.goOn();
-        return true;}
+        return true;
+    }
 
     public boolean pauseGame(){
         /* Stops the timer and updates the UI by calling the FrameManager’s toPause() method */
-        riverGame.pause();
-        //TODO: set frame manager
-        gameState = state.PAUSE;
-        return true;}
+        if( gameState == state.GAME){
+            riverGame.pause();
+            //TODO: set frame manager= RESOLVED?
+            frameManager.toPause();
+            gameState = state.PAUSE;
+            return true;
+        }
+        return false;
+    }
 
     public boolean unpauseGame(){
         /* Restarts the timer and updates the UI */
-        riverGame.goOn();
-        //TODO: set frame manager
-        gameState = state.GAME;
-        return true;}
+        if( gameState == state.PAUSE){
+            riverGame.goOn();
+            //TODO: set frame manager= RESOLVED?
+            frameManager.toGame( riverGame );
+            gameState = state.GAME;
+            return true;
+        }
+        return false;
+    }
 
     public boolean endGame(){
         /* Stops the timer and updates the UI */
         double score = riverGame.getScore();
         account.addHighScore( (int)score );
+        riverGame.pause();
         gameState = state.END_GAME;
         //...
-        toHighscores();
+        toHighscores( (int) score );
         return true;}
 
+    //TODO: is it needed?
     public boolean updateAccount(){
         /* Updates UI by calling the FrameManager’s toStore() method. */
         return true;}
 
+    //TODO
     public boolean accessToStore(){
         /* Updates UI by calling the FrameManager’s toStore() method. */
-        gameState = state.STORE;
-        return true;}
+        // gameState = state.STORE;
+        return true;
+    }
 
-    public boolean toHighscores(){
+    public boolean toHighscores( int a){
         /* Starts the process of screening scores at the end of the game. */
         //TODO: set frame manager
-        return true;}
+        frameManager.toHighscores( a );
+        return true;
+    }
 
     public boolean toMenu(){
-        /* Updates UI by calling the FrameManager’s toMain() method. */
-        gameState = state.MENU;
-        //TODO: set frame manager
-        return true;}
+        if( gameState == state.PAUSE){
+            endGame();
+            return true;
+        }
+        else if( gameState == state.SETTINGS_M){
+            //TODO
+            return true;
+        }
+        else if( gameState == state.HELP){
+            gameState = state.MENU;
+            frameManager.requestMain();
+        }
+        //TODO: for each change
+        return false;
+    }
 
     public boolean toHelp(){
         /* Updates UI by calling the FrameManager’s toHelp() method */
-        gameState = state.HELP;
-        //TODO: set frame manager
-        return true;}
+        if( gameState == state.MENU){
+            //TODO: set frame manager= RESOLVED?
+            gameState = state.HELP;
+            return true;
+        }
+        return false;
+    }
 
+    //TODO:
     public boolean toSettings(){
         /* Updates the UI by calling the FrameManager’s toSettings(settingsManager: Object) method */
         if( gameState == state.PAUSE)
