@@ -41,8 +41,8 @@ public class FrameManager {
 	public void requestHighscores{
 		ctrl.toHighscores();
 	}
-	public void toHighscores(){
-		GameOverPanel a = new GameOverPanel(frame);
+	public void toHighscores( int score){
+		GameOverPanel a = new GameOverPanel(frame, score);
 		frame.replacePanel( a );
 	}
 	public void requestHelp() {

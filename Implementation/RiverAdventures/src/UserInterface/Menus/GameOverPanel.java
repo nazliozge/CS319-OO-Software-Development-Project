@@ -10,6 +10,9 @@ public class GameOverPanel extends Menu {
         super(riverFrame);
     }
 
+    public GameOverPanel(RiverFrame riverFrame, int score) {
+        super(riverFrame);
+    }
     @Override
     public void update() {
 
