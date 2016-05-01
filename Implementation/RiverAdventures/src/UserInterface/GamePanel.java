@@ -17,6 +17,8 @@ public class GamePanel extends JPanel {
 
     private RiverGame riverGame;
     private Timer stream;
+    boolean killTimer = false;
+    boolean restartTimer = false;
     private boolean isTimerOn = true;//for pausing
     private final static int DELAY_DECREMENT = 1;
     private int counter = 0;
@@ -151,6 +153,21 @@ public class GamePanel extends JPanel {
                     counter = 0;
                     speedLimit += speedIncrement;
                 }
+                if( killTimer && isTimerOn)
+                {
+                    System.out.println( " Timer is on!" );
+                    stream.stop();
+                    killTimer = false;
+                    isTimerOn = false;
+                }
+
+                if( restartTimer && !isTimerOn)
+                {
+                    System.out.println( " Timer is off!" );
+                    stream.start();
+                    restartTimer = false;
+                    isTimerOn = true;
+                }
             }
         }
 
@@ -174,12 +191,10 @@ public class GamePanel extends JPanel {
                     riverGame.move("LEFT");
                 if (e.getKeyCode() == KeyEvent.VK_SPACE){
                     if (isTimerOn){
-                        stream.stop();
-                        isTimerOn = !isTimerOn;
+                        killTimer = true;
                     }
                     else{
-                        stream.start();
-                        isTimerOn = !isTimerOn;
+                        restartTimer = true;
                     }
 
                 }
