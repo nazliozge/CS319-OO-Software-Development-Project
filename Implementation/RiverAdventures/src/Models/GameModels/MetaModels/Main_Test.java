@@ -21,6 +21,10 @@ public class Main_Test {
         frame.getContentPane().add(test);
         frame.pack();
         frame.setVisible(true);
+
+        frame.addKeyListener(test.kl);
+        frame.setFocusable(true);
+        frame.requestFocusInWindow();
     }
 }
 

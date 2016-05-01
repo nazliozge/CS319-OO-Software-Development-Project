@@ -22,8 +22,9 @@ public class GamePanel extends JPanel {
     private int counter = 0;
     private int speedLimit = 200;
     private int speedIncrement = 50;
-    private RiverCenter center;
+    public RiverCenter center;
     private int coins;
+    public KeyListener kl;
 
     public GamePanel(){
 
@@ -104,7 +105,7 @@ public class GamePanel extends JPanel {
 
     }
 
-    private class RiverCenter extends JPanel{
+    public class RiverCenter extends JPanel{
 
         public RiverCenter(){
             Color newColor = new Color(64, 55, 255);
@@ -115,7 +116,8 @@ public class GamePanel extends JPanel {
             stream = new Timer(15, new TimerListener());
             stream.start();
 
-            this.addKeyListener(new MyKeyListener());
+            kl = new MyKeyListener();
+            this.addKeyListener(kl);
             this.setFocusable(true);
             this.requestFocusInWindow();
         }
@@ -152,7 +154,7 @@ public class GamePanel extends JPanel {
             }
         }
 
-        private class MyKeyListener implements KeyListener{
+        public class MyKeyListener implements KeyListener{
 
             @Override
             public void keyTyped(KeyEvent e) {
