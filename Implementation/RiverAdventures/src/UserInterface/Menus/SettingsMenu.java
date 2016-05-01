@@ -83,7 +83,7 @@ public class SettingsMenu extends Menu {
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.drawImage(img,0,0,getWidth(),getHeight(),null);
+		//g.drawImage(img,0,0,getWidth(),getHeight(),null);
 	}
 	public void menu(){
 		mng.toMain();
@@ -91,6 +91,7 @@ public class SettingsMenu extends Menu {
 
 	@Override
 	public void update() {
-
+		//TODO:
+		paintComponent( super.g );
 	}
 }

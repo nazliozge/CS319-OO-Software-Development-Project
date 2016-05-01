@@ -87,6 +87,7 @@ public class PauseMenu extends Menu{
 
 	public void update(){
 		//TODO
+		paintComponent(super.g);
 	}
 
 
@@ -97,7 +98,7 @@ public class PauseMenu extends Menu{
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.drawImage(img,0,0,getWidth(),getHeight(),null);
+		//g.drawImage(img,0,0,getWidth(),getHeight(),null);
 	}
 	public void resumeGame(){
 		mng.requestGame();

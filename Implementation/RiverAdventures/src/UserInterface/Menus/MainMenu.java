@@ -34,7 +34,7 @@ public class MainMenu extends Menu{
 		JButton newGameButton=new JButton("PLAY GAME");
 		JButton settingsButton=new JButton("SETTINGS");
 		JButton highscoreButton=new JButton("HIGHSCORES");
-		JButton tutorialButton=new JButton("TUTORIAL");
+		JButton tutorialButton=new JButton("HELP");
 		JButton creditButton=new JButton("CREDITS");
 
 
@@ -99,9 +99,8 @@ public class MainMenu extends Menu{
 	//+++++++++++++++++METHODS+++++++++++++++++++++++++++++++++++++++++++++
 	public void update(){
 		//TODO
+		paintComponent(super.g);
 	}
-	
-
 
 	public void setFrame(RiverFrame frame) {
 		this.frame = frame;
@@ -110,8 +109,9 @@ public class MainMenu extends Menu{
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.drawImage(img,0,0,getWidth(),getHeight(),null);
+		//g.drawImage(img,0,0,getWidth(),getHeight(),null);
 	}
+
 	public void startGame(){
 		mng.requestGame();
 	}
@@ -121,9 +121,9 @@ public class MainMenu extends Menu{
 	public void tutorialScreen(){
 		mng.requestHelp();
 	}
-	//public void creditScreen(){
-	//)	frame.credits();
-	//}
+	public void creditScreen(){
+	//	frame.credits();
+	}
 	public void settingScreen(){
 		mng.requestSettings();
 	}

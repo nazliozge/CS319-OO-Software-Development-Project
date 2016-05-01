@@ -12,8 +12,9 @@ import javax.swing.JPanel;
 
 public abstract class Menu extends JPanel{
 
-	public FrameManager mng;
-	public RiverFrame frame;
+	protected Graphics g;
+	protected FrameManager mng;
+	private RiverFrame frame;
 	public Menu(RiverFrame riverFrame, FrameManager mng){
 		this.mng = mng;
 		this.frame = riverFrame;
@@ -22,6 +23,9 @@ public abstract class Menu extends JPanel{
 	//public void back(){
 	//	frameManager.returnToPrev();
 	//}
-	
+
+	public void setGraphics( Graphics g ){
+		this.g = g;
+	}
 	public abstract void update();
 }

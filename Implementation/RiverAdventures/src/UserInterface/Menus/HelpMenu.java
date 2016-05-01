@@ -56,5 +56,6 @@ package UserInterface.Menus;
 
 		@Override
 		public void update() {
+			paintComponent( super.g);
 		}
 	}
