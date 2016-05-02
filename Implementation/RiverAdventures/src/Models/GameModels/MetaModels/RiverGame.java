@@ -13,20 +13,9 @@ import java.util.Timer;
  */
 public class RiverGame {
 
-    long totalTicks = 0;
-
-    static final int TICK_PER_MOVE = 16;
-    static final long SPEED_CHANGE_TICK_NO = 3000;
-
-    private long speedMod = 0;
-    private int tickCount = 0;
-
     private River river;
     private Store store;
-    private Stream stream;
-
-
-
+    private Timer stream; //We don't need this attribute, but why?
 
     private Collectible tempWallet;
 
@@ -65,23 +54,17 @@ public class RiverGame {
 
 
     public void move(String direction){
-        river.move(direction);
+        if(direction == "LEFT")
+            river.move("LEFT");
+        if(direction == "RIGHT")
+            river.move("RIGHT");
     }
-
+    public River getRiver()
+    {
+        return this.river;
+    }
     public void update(){
         river.update();
-    }
-
-    // TODO: reorganzie to not do stuff for each tick
-    // this is for timer ticks
-    public void work(){
-        totalTicks ++;
-        tickCount ++;
-        if( TICK_PER_MOVE - speedMod == tickCount || TICK_PER_MOVE - speedMod <= 0 ){
-            update();
-            tickCount = 0;
-        }
-        speedMod = totalTicks / SPEED_CHANGE_TICK_NO;
     }
 
     public void updateWallet (int amount){
@@ -118,15 +101,13 @@ public class RiverGame {
 
     //TODO
     public void pause(){
-        stream.pause();
+        stream.cancel();
     }
 
     //TODO
     public void goOn(){
-        stream.unpause();
+        stream = makeTimer();
     }
-
-    public void start() { stream.start();}
 
     //TODO
     private Timer makeTimer(){

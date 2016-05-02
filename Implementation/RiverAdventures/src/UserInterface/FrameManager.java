@@ -19,7 +19,6 @@ public class FrameManager {
 	//private Stack<Menu> menuStack; // not all menus are stackable
 	private GameManager ctrl;
 	private RiverFrame frame;
-	private RiverKey key;
 
 	public FrameManager(Menu currentPanel, String title){
 		frame = new RiverFrame(title);
@@ -131,10 +130,6 @@ public class FrameManager {
 	public void toStore( Store store){
 		StoreMenu a = new StoreMenu(frame, this, store);
 		frame.replacePanel(a);
-	}
-
-	public void move(String direction){
-			ctrl.move(direction);
 	}
 	///////////////TODO storeEvent
 

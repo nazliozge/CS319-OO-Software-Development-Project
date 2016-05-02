@@ -9,6 +9,7 @@ import UserInterface.Menus.Menu;
 public class RiverFrame extends JFrame{
     private JPanel currentPanel;
     public RiverFrame( String title ){
+
         super(title);
     }
 

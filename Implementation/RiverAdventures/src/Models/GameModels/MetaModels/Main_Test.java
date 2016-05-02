@@ -1,6 +1,7 @@
 package Models.GameModels.MetaModels;
 
 import UserInterface.GamePanel;
+import UserInterface.*;
 
 import javax.swing.*;
 
