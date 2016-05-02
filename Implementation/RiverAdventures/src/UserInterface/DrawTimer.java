@@ -44,7 +44,7 @@ public class DrawTimer implements ActionListener
         {
             System.out.println( " Timer is off!" );
             start();
-            pauseIt = false;
+            restartIt = false;
             running = true;
         }
 
