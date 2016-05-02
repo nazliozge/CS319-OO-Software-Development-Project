@@ -96,7 +96,11 @@ public class GamePanel extends JPanel {
             g.drawImage(img, 50, 230, xSize, ySize, null);
             g.drawImage(img1, 10, 340, xSize, ySize, null);
 
-            shieldLimitLabel.setText("Shield Limit: " + shieldLimit);
+            if (shieldLimit == -1){
+                shieldLimitLabel.setText("Shield Limit: INFINITY" );
+            }else{
+                shieldLimitLabel.setText("Shield Limit: " + shieldLimit);
+            }
 
         }
         @Override

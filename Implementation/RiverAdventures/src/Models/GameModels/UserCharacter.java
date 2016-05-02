@@ -1,8 +1,7 @@
 package Models.GameModels;
 
+import Models.GameModels.Buyable.*;
 import Models.GameModels.Buyable.Character;
-import Models.GameModels.Buyable.MinimisationPower;
-import Models.GameModels.Buyable.Shield;
 import Models.GameModels.RealModels.Collectible.Collectible;
 import Models.GameModels.RealModels.Obstacle.Obstacle;
 import Models.GameModels.RealModels.RiverObject;
@@ -24,7 +23,9 @@ public class UserCharacter {
     private int shieldLimit;
     private Character character;
     private int xPosition;
-    private Timer timer;
+    private Timer timerMinimisation;
+    private Timer timerInvincibility;
+    private int invincibilityCheck;
 
     private final static int yPosition = 400;
     private final static int DEFAULT_CHARACTER_YSIZE = 80;
@@ -44,6 +45,7 @@ public class UserCharacter {
         this.character = new Character();
         character.setName("duck");
         shieldLimit = 0;
+        invincibilityCheck = 0;
     }
 
     public UserCharacter(int health, int xSize, int ySize, int[][] activeEffects, Character character, int xPosition) {
@@ -71,23 +73,44 @@ public class UserCharacter {
     public void executeEffect(RiverObject object){
         System.out.println("executeEffect, before " + getHealth());
         if (object instanceof Shield){
-            shieldLimit += ((Shield) object).getLimit();
+            if (shieldLimit == -1){
+                invincibilityCheck += ((Shield) object).getLimit();
+            }else{
+                shieldLimit += ((Shield) object).getLimit();
+            }
         }
         else if (object instanceof Obstacle){
             if( shieldLimit > 0){
                 shieldLimit--;
             }
-            else {
+            else if (shieldLimit == -1){
 
+            }
+
+            else {
                 receiveDamage(((Obstacle) object).getHealthDecAmount());
             }
         }
         else if (object instanceof MinimisationPower){
             setxSize(DEFAULT_CHARACTER_SMALL_XSIZE);
             setySize(DEFAULT_CHARACTER_SMALL_YSIZE);
-            timer = new Timer(((MinimisationPower) object).getDuration(), new MyActionListener());
-            timer.start();
+            timerMinimisation = new Timer(((MinimisationPower) object).getDuration() * 2000, new MyActionListenerMinimisation());
+            timerMinimisation.start();
         }
+        else if (object instanceof Deceleration){
+
+        }
+        else if (object instanceof Invincibility){
+            invincibilityCheck = shieldLimit;
+            shieldLimit = -1;
+
+            timerInvincibility = new Timer(((Invincibility) object).getDuration() * 2000, new MyActionListenerInvincibility());
+            timerInvincibility.start();
+        }
+        else if (object instanceof HealthPack){
+            health += ((HealthPack) object).getHealthIncAmount();
+        }
+
         System.out.println("executeEffect, after " + getHealth());
     }
 
@@ -155,13 +178,23 @@ public class UserCharacter {
         return yPosition;
     }
 
-    private class MyActionListener implements ActionListener{
+    private class MyActionListenerMinimisation implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent event)
         {
             setySize(DEFAULT_CHARACTER_YSIZE);
             setxSize(DEFAULT_CHARACTER_XSIZE);
+        }
+
+    }
+
+    private class MyActionListenerInvincibility implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent event)
+        {
+            shieldLimit = invincibilityCheck;
         }
 
     }
