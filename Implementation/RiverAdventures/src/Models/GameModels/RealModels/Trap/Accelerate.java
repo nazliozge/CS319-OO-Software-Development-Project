@@ -1,6 +1,7 @@
 package Models.GameModels.RealModels.Trap;
 import Models.GameModels.RealModels.Trap.Trap;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -18,7 +19,8 @@ public class Accelerate extends Trap {
     }
 
     public void draw(Graphics g){
-        //TODO-- for accelerate trap
+        Image img_lvl1 = new ImageIcon("image/trap/speedup.png").getImage();
+        g.drawImage(img_lvl1, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
     }
 
 }

@@ -1,6 +1,7 @@
 package Models.GameModels.RealModels.Trap;
 import Models.GameModels.RealModels.Trap.Trap;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -18,7 +19,9 @@ public class Maximise extends Trap {
     }
 
     public void draw(Graphics g){
-        //TODO-- for Maximise trap
+        Image img_lvl1 = new ImageIcon("image/trap/maxic.png").getImage();
+        g.drawImage(img_lvl1, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
+
     }
 
 }

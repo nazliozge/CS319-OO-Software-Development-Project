@@ -9,6 +9,9 @@ import Models.GameModels.RealModels.Obstacle.Log;
 import Models.GameModels.RealModels.Obstacle.NuclearBomb;
 import Models.GameModels.RealModels.Obstacle.Stone;
 import Models.GameModels.RealModels.RiverObject;
+import Models.GameModels.RealModels.Trap.Accelerate;
+import Models.GameModels.RealModels.Trap.Maximise;
+import Models.GameModels.RealModels.Trap.Trap;
 
 import javax.swing.*;
 import java.awt.*;
@@ -119,7 +122,7 @@ public class Line implements Drawable {
         int range = (end - start) + 1;
         int Xlocation = (int)(Math.random() * range) + start;
 
-        int random = (int)(Math.random() * 10) + 1;
+        int random = (int)(Math.random() * 12) + 1;
 
         if(random == 0){
             ChemicalHazard chemical = new ChemicalHazard();
@@ -190,6 +193,20 @@ public class Line implements Drawable {
             health.setyLoc(Xlocation);
             health.setyLoc(yLoc);
             objects.add(health);
+        }
+        if(random == 11)
+        {
+            Trap max = new Maximise();
+            max.setyLoc(Xlocation);
+            max.setyLoc(yLoc);
+            objects.add(max);
+        }
+        if(random == 12)
+        {
+            Trap acc = new Accelerate();
+            acc.setyLoc(Xlocation);
+            acc.setyLoc(yLoc);
+            objects.add(acc);
         }
         /*
         This continues...
