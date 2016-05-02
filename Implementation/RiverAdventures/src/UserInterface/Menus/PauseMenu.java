@@ -75,7 +75,7 @@ public class PauseMenu extends Menu{
 
 		});
 
-		//add(newGameButton);
+		add(resumeButton);
 		add(settingsButton);
 		add(highscoreButton);
 		add(helpButton);
@@ -101,7 +101,7 @@ public class PauseMenu extends Menu{
 		//g.drawImage(img,0,0,getWidth(),getHeight(),null);
 	}
 	public void resumeGame(){
-		mng.requestGame();
+		mng.requestUnpause();
 	}
 	public void highscoreScreen(){
 		mng.requestHighscores();
