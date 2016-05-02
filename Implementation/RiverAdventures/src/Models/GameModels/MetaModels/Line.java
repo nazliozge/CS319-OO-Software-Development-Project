@@ -1,5 +1,7 @@
 package Models.GameModels.MetaModels;
 
+import Models.GameModels.Buyable.ExclusiveBoost;
+import Models.GameModels.Buyable.Shield;
 import Models.GameModels.Drawable;
 import Models.GameModels.RealModels.Collectible.Coin;
 import Models.GameModels.RealModels.Collectible.CoinBag;
@@ -118,7 +120,7 @@ public class Line implements Drawable {
         int range = (end - start) + 1;
         int Xlocation = (int)(Math.random() * range) + start;
 
-        int random = (int)(Math.random() * 5) + 1;
+        int random = (int)(Math.random() * 6) + 1;
 
         if(random == 0){
             ChemicalHazard chemical = new ChemicalHazard();
@@ -155,6 +157,12 @@ public class Line implements Drawable {
             coinbag.setxLoc(Xlocation);
             coinbag.setyLoc(yLoc);
             objects.add(coinbag);
+        }
+        if (random == 6){
+            ExclusiveBoost shield = new Shield();
+            shield.setyLoc(Xlocation);
+            shield.setyLoc(yLoc);
+            objects.add(shield);
         }
         /*
         This continues...

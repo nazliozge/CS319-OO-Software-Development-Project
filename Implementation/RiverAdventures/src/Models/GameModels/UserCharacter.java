@@ -1,6 +1,7 @@
 package Models.GameModels;
 
 import Models.GameModels.Buyable.Character;
+import Models.GameModels.Buyable.Shield;
 import Models.GameModels.RealModels.Collectible.Collectible;
 import Models.GameModels.RealModels.Obstacle.Obstacle;
 import Models.GameModels.RealModels.RiverObject;
@@ -16,7 +17,7 @@ public class UserCharacter {
     private int ySize;//these are added, while drawing the characters, we need the both x and y locations
     private int xSize;
     private int activeEffects[][];
-    private int shield;
+    private int shieldLimit;
     private Character character;
     private int xPosition;
 
@@ -33,19 +34,18 @@ public class UserCharacter {
         this.health = 100;
         this.ySize = DEFAULT_CHARACTER_YSIZE;
         this.xSize = DEFAULT_CHARACTER_XSIZE;
-        this.shield = DEFAULT_CHARACTER_SHIELD;
         this.xPosition = DEFAULT_CHARACTER_XPOSITION;
         this.activeEffects = new int[0][0];
         this.character = new Character();
         character.setName("duck");
+        shieldLimit = 0;
     }
 
-    public UserCharacter(int health, int xSize, int ySize, int[][] activeEffects, int shield, Character character, int xPosition) {
+    public UserCharacter(int health, int xSize, int ySize, int[][] activeEffects, Character character, int xPosition) {
         this.health = health;
         this.ySize = ySize;
         this.xSize = xSize;
         this.activeEffects = activeEffects;
-        this.shield = shield;
         this.character = character;
         this.xPosition = xPosition;
     }
@@ -65,8 +65,16 @@ public class UserCharacter {
 
     public void executeEffect(RiverObject object){
         System.out.println("executeEffect, before " + getHealth());
-        if (object instanceof Obstacle){
-            receiveDamage(((Obstacle) object).getHealthDecAmount());
+        if (object instanceof Shield){
+            shieldLimit += ((Shield) object).getLimit();
+        }
+        else if (object instanceof Obstacle){
+            if( shieldLimit > 0){
+                shieldLimit--;
+            }
+            else {
+                receiveDamage(((Obstacle) object).getHealthDecAmount());
+            }
         }
         System.out.println("executeEffect, after " + getHealth());
     }
@@ -80,6 +88,10 @@ public class UserCharacter {
 
     public int getHealth() {
         return health;
+    }
+
+    public int getShieldLimit(){
+        return shieldLimit;
     }
 
     public void setHealth(int health) {
@@ -114,13 +126,6 @@ public class UserCharacter {
         this.activeEffects = activeEffects;
     }
 
-    public int getShield() {
-        return shield;
-    }
-
-    public void setShield(int shield) {
-        this.shield = shield;
-    }
 
     public Character getCharacter() {
         return character;

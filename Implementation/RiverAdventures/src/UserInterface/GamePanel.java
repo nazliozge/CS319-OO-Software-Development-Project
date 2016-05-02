@@ -56,27 +56,10 @@ public class GamePanel extends JPanel {
     }
 
 
-    public void drawLeft(Graphics g)
-    {
-        Image img = new ImageIcon("image/tree/tree1.png").getImage();
-        Image img1 = new ImageIcon("image/tree/tree2.png").getImage();
-        int xSize = 100;
-        int ySize = 130;
-        g.drawImage(img1, 20, 30, xSize, ySize, null);
-        g.drawImage(img, 100, 80, xSize, ySize, null);
-        g.drawImage(img, 50, 230, xSize, ySize, null);
-        g.drawImage(img1, 10, 380, xSize, ySize, null);
-
-    }
-
-    public void draw(Graphics g){
-
-        drawLeft(g);
-
-    }
-
     //RIVER LEFT
-    private class RiverLeft extends JPanel{
+    private class RiverLeft extends JPanel implements ActionListener{
+
+        private JLabel shieldLimitLabel;
 
         public RiverLeft(){
             Color newColor = new Color(34, 195, 114);
@@ -86,6 +69,8 @@ public class GamePanel extends JPanel {
             setLayout(new BorderLayout(0,0));
             JButton pause = new JButton("Pause");
             add(pause, BorderLayout.NORTH);
+
+            shieldLimitLabel = new JLabel("Shield limit: 0");
         }
 
         public void paintComponent(Graphics g){
@@ -93,13 +78,31 @@ public class GamePanel extends JPanel {
             draw(g);
         }
 
+        public void draw(Graphics g)
+        {
+            Image img = new ImageIcon("image/tree/tree1.png").getImage();
+            Image img1 = new ImageIcon("image/tree/tree2.png").getImage();
+            int xSize = 100;
+            int ySize = 130;
+            g.drawImage(img1, 20, 30, xSize, ySize, null);
+            g.drawImage(img, 100, 80, xSize, ySize, null);
+            g.drawImage(img, 50, 230, xSize, ySize, null);
+            g.drawImage(img1, 10, 380, xSize, ySize, null);
+
+
+        }
+        @Override
+        public void actionPerformed(ActionEvent event)
+        {
+            repaint(); //calls paintComponent
+        }
+
     }
 
     //RIVER RIGHT
     private class RiverRight extends JPanel implements ActionListener{
-        JLabel points;
-        JLabel healthLabel;
-        JLabel common;
+        private JLabel points;
+        private JLabel healthLabel;
 
         public RiverRight(){
             Color newColor = new Color(34, 195, 114);
