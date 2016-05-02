@@ -62,7 +62,7 @@ public class FrameManager {
 		ctrl.toHelp();
 	}
 
-	public void help(){
+	public void toHelp(){
 		HelpMenu a = new HelpMenu(frame, this);
 		frame.replacePanel( a );
 	}
@@ -149,7 +149,7 @@ public class FrameManager {
 	}
 
 	public void move(String direction){
-			ctrl.move(direction);
+		ctrl.move(direction);
 	}
 
 	public RiverKey getKeyListener(){

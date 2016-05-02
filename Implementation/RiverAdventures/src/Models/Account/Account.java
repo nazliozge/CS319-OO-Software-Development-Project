@@ -181,11 +181,11 @@ public class Account {
         return false;
 
     }
-    
+
     public int[] getCharStates(){
-        return charStates; 
+        return charStates;
     }
-    
+
     public int[] getBoostStates(){
         return boostStates;
     }
@@ -204,5 +204,9 @@ public class Account {
             }
         }
     }
+
+    public CoinWallet getWallet(){
+        return wallet;
+    };
 
 }
