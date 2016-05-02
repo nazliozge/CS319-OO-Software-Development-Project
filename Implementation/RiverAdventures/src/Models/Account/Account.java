@@ -50,11 +50,6 @@ public class Account {
 
     //methods
 
-    public CoinWallet getWallet()
-    {
-        return wallet;
-    }
-
     /*Reads each line in the text file and store them in the String array list.
     * Then, from that array list, fills all the regarding arrays
     */

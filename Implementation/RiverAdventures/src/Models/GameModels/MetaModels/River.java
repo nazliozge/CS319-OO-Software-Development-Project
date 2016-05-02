@@ -35,7 +35,6 @@ public class River {
         totalCoins = new Collectible();
     }
     public River(UserCharacter character, double speedMode, Collectible totalCoins) {
-        //character = new UserCharacter();
         this.character = character;
         this.speedMode = speedMode;
         this.totalCoins = totalCoins;
@@ -157,7 +156,7 @@ public class River {
     }
 
     public int getTotalCoins(){
-        //System.out.println("Coins: River " + this.totalCoins.getAmount());
+        System.out.println("Coins: River " + this.totalCoins.getAmount());
         return  this.totalCoins.getAmount();
     }
     //============ !! NEEDS IMPLEMENTATION !! ============
