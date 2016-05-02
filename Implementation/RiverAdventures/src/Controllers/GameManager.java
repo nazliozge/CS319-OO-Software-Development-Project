@@ -163,6 +163,7 @@ public class GameManager {
 
     public void move( String direction){
         /*  Parameter direction could be either “left” or “right”. Calls move method of the RiverGame object. */
+        if( gameState == state.GAME)
         riverGame.move(direction);
     }
 
