@@ -1,6 +1,8 @@
 package UserInterface;
 
 import javax.swing.*;
+
+import UserInterface.Menus.MainMenu;
 import UserInterface.Menus.Menu;
 
 /**
@@ -10,6 +12,11 @@ public class RiverFrame extends JFrame{
     private JPanel currentPanel;
     public RiverFrame( String title ){
         super(title);
+        setLocation(50,50);
+        setSize(1000,600);
+        setLayout(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
     }
 
     public JPanel getCurrentPanel() {

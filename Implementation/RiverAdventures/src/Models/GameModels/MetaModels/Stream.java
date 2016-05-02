@@ -19,8 +19,9 @@ public class Stream implements ActionListener
     private RiverGame gm;
 
 
-    public Stream(){
+    public Stream(RiverGame g){
         timer = new Timer(15, this);
+        gm = g;
     }
 
     public void start(){
@@ -57,7 +58,9 @@ public class Stream implements ActionListener
         else if( running){
             //TODO
             gm.work();
+            System.out.println( " Timer is on!" );
         }
+        System.out.println( " Timer is on!" );
     }
 
     //public boolean isTimeToStop(){

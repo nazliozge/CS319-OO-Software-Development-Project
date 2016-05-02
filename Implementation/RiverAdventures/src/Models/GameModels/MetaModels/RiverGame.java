@@ -37,6 +37,7 @@ public class RiverGame {
     public RiverGame(){
         river = new River();
         store = new Store();
+        stream = new Stream(this);
     }
 
     public RiverGame(River river, Store store) {

@@ -11,14 +11,14 @@ import java.awt.*;
 public class RiverAdventures {
 
     //TODO: NOT COMPETIBLE ATM
-   /* public static void main(String[] args)
+    public static void main(String[] args)
     {
-        RiverFrame riverFrame;
-        MainMenu mainMenu;
-        FrameManager frameManager;
-        GameManager gameManager;
+        FrameManager mng;
+        RiverFrame rf = new RiverFrame("hello");
+        GameManager ctrl = new GameManager();
 
-        //riverFrame = new RiverFrame();
+        mng = new FrameManager( rf , ctrl);
+        ctrl.addFrameManager(mng);
         //mainMenu = new MainMenu( riverFrame );
 
 
@@ -32,5 +32,5 @@ public class RiverAdventures {
         //frame.setResizable( false );
        // riverFrame.setVisible(true);
     }
-    */
+
 }
