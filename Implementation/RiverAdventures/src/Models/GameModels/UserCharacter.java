@@ -1,6 +1,7 @@
 package Models.GameModels;
 
 import Models.GameModels.Buyable.Character;
+import Models.GameModels.Buyable.MinimisationPower;
 import Models.GameModels.Buyable.Shield;
 import Models.GameModels.RealModels.Collectible.Collectible;
 import Models.GameModels.RealModels.Obstacle.Obstacle;
@@ -8,6 +9,9 @@ import Models.GameModels.RealModels.RiverObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Time;
 
 /**
  * Created by Meder on 23/04/16.
@@ -20,13 +24,14 @@ public class UserCharacter {
     private int shieldLimit;
     private Character character;
     private int xPosition;
-
+    private Timer timer;
 
     private final static int yPosition = 400;
     private final static int DEFAULT_CHARACTER_YSIZE = 80;
     private final static int DEFAULT_CHARACTER_XSIZE = 80;
-    private final static int DEFAULT_CHARACTER_SHIELD = 10;
     private final static int DEFAULT_CHARACTER_XPOSITION = 50;
+    private final static int DEFAULT_CHARACTER_SMALL_YSIZE = 50;
+    private final static int DEFAULT_CHARACTER_SMALL_XSIZE = 50;
 
     //CONSTRUCTOR
 
@@ -73,8 +78,15 @@ public class UserCharacter {
                 shieldLimit--;
             }
             else {
+
                 receiveDamage(((Obstacle) object).getHealthDecAmount());
             }
+        }
+        else if (object instanceof MinimisationPower){
+            setxSize(DEFAULT_CHARACTER_SMALL_XSIZE);
+            setySize(DEFAULT_CHARACTER_SMALL_YSIZE);
+            timer = new Timer(((MinimisationPower) object).getDuration(), new MyActionListener());
+            timer.start();
         }
         System.out.println("executeEffect, after " + getHealth());
     }
@@ -141,5 +153,16 @@ public class UserCharacter {
 
     public int getyPosition(){
         return yPosition;
+    }
+
+    private class MyActionListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent event)
+        {
+            setySize(DEFAULT_CHARACTER_YSIZE);
+            setxSize(DEFAULT_CHARACTER_XSIZE);
+        }
+
     }
 }
