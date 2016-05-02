@@ -15,7 +15,7 @@ public class Coin extends Collectible {
     //overwritten method from RiverObject
     public void draw(Graphics g){
         Image img = new ImageIcon("image/collectible/coin.png").getImage();
-        g.drawImage(img, super.getxLoc() , super.getyLoc(), super.getxSize(), super.getySize(), null);
+        g.drawImage(img, super.getxLoc() , super.getyLoc(), (int)(super.getxSize()*0.7),(int)(super.getySize()*0.7), null);
     }
 
 

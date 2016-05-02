@@ -68,6 +68,10 @@ public class RiverGame {
         river.getUserCharacter().setCharacter(character);
     }
 
+    public River getRiver()
+    {
+        return river;
+    }
 
 
     public void move(String direction){
