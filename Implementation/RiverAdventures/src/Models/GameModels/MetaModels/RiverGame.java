@@ -76,6 +76,7 @@ public class RiverGame {
     }
 
     // TODO: reorganzie to not do stuff for each tick
+    // this is for timer ticks
     public void work(){
         totalTicks ++;
         tickCount ++;

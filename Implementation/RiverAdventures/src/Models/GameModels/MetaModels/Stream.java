@@ -56,7 +56,7 @@ public class Stream implements ActionListener
 
         else if( running){
             //TODO
-            gm.update();
+            gm.work();
         }
     }
 
