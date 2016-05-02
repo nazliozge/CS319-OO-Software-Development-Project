@@ -4,6 +4,7 @@ import Models.GameModels.Buyable.Buyable;
 import Models.GameModels.RealModels.Collectible.Collectible;
 import Models.Account.Account;
 import Models.GameModels.Buyable.Character;
+import Models.GameModels.UserCharacter;
 
 import java.awt.*;
 import java.util.Timer;
@@ -24,10 +25,6 @@ public class RiverGame {
     private River river;
     private Store store;
     private Stream stream;
-
-
-
-
     private Collectible tempWallet;
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
@@ -54,6 +51,11 @@ public class RiverGame {
     //++++++++++++++++++++++++++++++++++++++++++++++++
     //=================== METHODS ====================
     //++++++++++++++++++++++++++++++++++++++++++++++++
+
+    public River getRiver()
+    {
+        return river;
+    }
 
     public void increaseGold(Collectible collectible){
         updateWallet((int)collectible.getAmount());
@@ -127,7 +129,9 @@ public class RiverGame {
         stream.unpause();
     }
 
-    public void start() { stream.start();}
+    public void start() {
+        stream.start();
+    }
 
     //TODO
     private Timer makeTimer(){

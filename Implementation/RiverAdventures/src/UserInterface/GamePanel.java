@@ -2,6 +2,8 @@ package UserInterface;
 
 import Models.GameModels.MetaModels.River;
 import Models.GameModels.MetaModels.RiverGame;
+import Models.GameModels.MetaModels.Store;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +18,8 @@ import java.awt.event.KeyListener;
 public class GamePanel extends JPanel {
 
     private RiverGame riverGame;
+    private River river;
+    private Store store;
     private Timer stream;
     boolean killTimer = false;
     boolean restartTimer = false;
