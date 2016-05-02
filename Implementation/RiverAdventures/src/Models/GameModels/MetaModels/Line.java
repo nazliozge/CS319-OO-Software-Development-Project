@@ -1,7 +1,6 @@
 package Models.GameModels.MetaModels;
 
-import Models.GameModels.Buyable.ExclusiveBoost;
-import Models.GameModels.Buyable.Shield;
+import Models.GameModels.Buyable.*;
 import Models.GameModels.Drawable;
 import Models.GameModels.RealModels.Collectible.Coin;
 import Models.GameModels.RealModels.Collectible.CoinBag;
@@ -120,7 +119,7 @@ public class Line implements Drawable {
         int range = (end - start) + 1;
         int Xlocation = (int)(Math.random() * range) + start;
 
-        int random = (int)(Math.random() * 6) + 1;
+        int random = (int)(Math.random() * 10) + 1;
 
         if(random == 0){
             ChemicalHazard chemical = new ChemicalHazard();
@@ -163,6 +162,34 @@ public class Line implements Drawable {
             shield.setyLoc(Xlocation);
             shield.setyLoc(yLoc);
             objects.add(shield);
+        }
+        if(random == 7)
+        {
+            ExclusiveBoost mini = new MinimisationPower();
+            mini.setyLoc(Xlocation);
+            mini.setyLoc(yLoc);
+            objects.add(mini);
+        }
+        if(random == 8)
+        {
+            ExclusiveBoost deceleration = new Deceleration();
+            deceleration.setyLoc(Xlocation);
+            deceleration.setyLoc(yLoc);
+            objects.add(deceleration);
+        }
+        if(random == 9)
+        {
+            ExclusiveBoost invic = new Invincibility();
+            invic.setyLoc(Xlocation);
+            invic.setyLoc(yLoc);
+            objects.add(invic);
+        }
+        if(random == 10)
+        {
+            ExclusiveBoost health = new HealthPack();
+            health.setyLoc(Xlocation);
+            health.setyLoc(yLoc);
+            objects.add(health);
         }
         /*
         This continues...
