@@ -34,9 +34,14 @@ public class RiverGame {
     //============== CONSTRUCTOR - START =============
     //++++++++++++++++++++++++++++++++++++++++++++++++
 
+    public RiverGame(Account account){
+        river = new River();
+        store = new Store( account );
+        stream = new Stream(this);
+    }
     public RiverGame(){
         river = new River();
-        store = new Store();
+        store = new Store( );
         stream = new Stream(this);
     }
 
@@ -114,7 +119,8 @@ public class RiverGame {
     // NEW METHDOS
 
     public double getScore(){
-        return tempWallet.getAmount();
+        //return tempWallet.getAmount();
+        return .0;
     }
 
     //TODO

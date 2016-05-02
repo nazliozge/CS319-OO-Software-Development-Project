@@ -24,7 +24,7 @@ public class PauseMenu extends Menu{
 
 
 		JButton resumeButton=new JButton("RESUME");
-		JButton storeButton=new JButton("STORE");
+		JButton mainButton=new JButton("EXIT");
 		JButton settingsButton=new JButton("SETTINGS");
 		JButton highscoreButton=new JButton("HIGHSCORES");
 		JButton helpButton=new JButton("HELP");
@@ -42,8 +42,8 @@ public class PauseMenu extends Menu{
 		helpButton.setSize(310,50);
 		helpButton.setLocation(140,295);
 
-		storeButton.setSize(300,50);
-		storeButton.setLocation(140,355);
+		mainButton.setSize(300,50);
+		mainButton.setLocation(140,355);
 
 
 		resumeButton.addActionListener(new ActionListener(){
@@ -68,9 +68,9 @@ public class PauseMenu extends Menu{
 
 		});
 
-		storeButton.addActionListener(new ActionListener(){
+		mainButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				storeScreen();
+				mainScreen();
 			}
 
 		});
@@ -79,7 +79,7 @@ public class PauseMenu extends Menu{
 		add(settingsButton);
 		add(highscoreButton);
 		add(helpButton);
-		add(storeButton);
+		add(mainButton);
 
 	};
 
@@ -109,8 +109,8 @@ public class PauseMenu extends Menu{
 	public void helpScreen(){
 		mng.requestHelp();
 	}
-	public void storeScreen(){
-		mng.requestStore();
+	public void mainScreen(){
+		mng.requestMain();
 	}
 	public void settingScreen(){
 		mng.requestSettings();

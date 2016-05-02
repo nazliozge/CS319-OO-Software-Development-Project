@@ -55,7 +55,7 @@ public class GameManager {
         calls the riverGame object’s related methods and calls the FrameManager’s toGame() method.*/
         System.out.println( gameState);
         if( gameState == state.MENU){
-            riverGame = new RiverGame();
+            riverGame = new RiverGame( account );
             //TODO: set frame manager = RESOLVED?
             frameManager.toGame(riverGame);
             startGameLoop();
@@ -135,9 +135,19 @@ public class GameManager {
         }
         else if( gameState == state.HELP){
             gameState = state.MENU;
-            frameManager.requestMain();
+            frameManager.toMain();
+            return true;
         }
-        //TODO: for each change
+        else if( gameState == state.STORE){
+            gameState = state.MENU;
+            frameManager.toMain();
+            return true;
+        }
+        else if( gameState == state.END_GAME){
+            gameState = state.MENU;
+            frameManager.toMain();
+            return true;
+        }
         return false;
     }
 
@@ -146,6 +156,7 @@ public class GameManager {
         if( gameState == state.MENU){
             //TODO: set frame manager= RESOLVED?
             gameState = state.HELP;
+            frameManager.toHelp();
             return true;
         }
         return false;

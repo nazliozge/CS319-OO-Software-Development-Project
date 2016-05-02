@@ -25,7 +25,7 @@ public class MainMenu extends Menu{
 	public MainMenu(RiverFrame frame, FrameManager frameManager) {
 		super( frame, frameManager);
 		setLocation(0,0);
-		setSize(800,500);
+		setSize(1000,800);
 		setLayout(null);
 
 
@@ -35,7 +35,7 @@ public class MainMenu extends Menu{
 		JButton highscoreButton=new JButton("HIGHSCORES");
 		JButton tutorialButton=new JButton("HELP");
 		JButton creditButton=new JButton("CREDITS");
-
+		JButton storeButton=new JButton("STORE");
 
 
 		newGameButton.setSize(330,50);
@@ -53,11 +53,15 @@ public class MainMenu extends Menu{
 		creditButton.setSize(300,50);
 		creditButton.setLocation(140,355);
 
+		storeButton.setSize(300,50);
+		storeButton.setLocation(140,400);
+
 		buttonList.add(newGameButton);
 		buttonList.add(settingsButton);
 		buttonList.add(highscoreButton);
 		buttonList.add(tutorialButton);
 		buttonList.add(creditButton);
+		buttonList.add(storeButton);
 
 
 		newGameButton.addActionListener(new ActionListener(){
@@ -81,6 +85,12 @@ public class MainMenu extends Menu{
 			}
 
 		});
+		storeButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				storeScreen();
+			}
+
+		});
 		/*creditButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				creditScreen();
@@ -92,6 +102,7 @@ public class MainMenu extends Menu{
 		add(highscoreButton);
 		add(tutorialButton);
 		add(creditButton);
+		add( storeButton);
 	}
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -123,6 +134,10 @@ public class MainMenu extends Menu{
 	}
 	public void creditScreen(){
 	//	frame.credits();
+	}
+	public void storeScreen(){
+		mng.requestStore();
+		System.out.println("STORE");
 	}
 	public void settingScreen(){
 		mng.requestSettings();

@@ -205,4 +205,8 @@ public class Account {
         }
     }
 
+    public CoinWallet getWallet(){
+        return wallet;
+    };
+
 }
