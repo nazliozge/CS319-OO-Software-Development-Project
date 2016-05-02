@@ -92,7 +92,6 @@ public class RiverGame {
     }
 
     public int getTempWallet(){
-        System.out.println("Coins: RiverGame " + river.getTotalCoins());
         return river.getTotalCoins();
     }
 
@@ -103,6 +102,10 @@ public class RiverGame {
     public void loadStore(Account account){
         store.setCharacters(account.getCharStates());
         store.setBoosts(account.getBoostStates());
+    }
+
+    public River getRiver(){
+        return river;
     }
 
     public void draw(Graphics g){

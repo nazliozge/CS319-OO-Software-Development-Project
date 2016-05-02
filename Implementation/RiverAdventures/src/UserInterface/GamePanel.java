@@ -30,13 +30,14 @@ public class GamePanel extends JPanel {
     private int speedIncrement = 50;
     public RiverCenter center;
     private int coins;
+    private int health;
     public KeyListener kl;
     public int stop;
 
     public GamePanel(){
 
         coins = 0;
-
+        health = 100;
         BorderLayout layout = new BorderLayout(0,0);
         setLayout(layout);
 
@@ -96,8 +97,9 @@ public class GamePanel extends JPanel {
 
     //RIVER RIGHT
     private class RiverRight extends JPanel implements ActionListener{
-        int i=0;
         JLabel points;
+        JLabel healthLabel;
+        JLabel common;
 
         public RiverRight(){
             Color newColor = new Color(34, 195, 114);
@@ -108,21 +110,16 @@ public class GamePanel extends JPanel {
             stream.start();
             setLayout(new BorderLayout(0,0));
 
-            points = new JLabel();
+            points = new JLabel("Coins: 0");
+            healthLabel = new JLabel("Health: 100");
+            this.add(points, BorderLayout.NORTH);
+            this.add(healthLabel, BorderLayout.SOUTH);
             //JLabel points = new JLabel("Coins: " + riverGame.getTempWallet() + " " + i);
             // this.upCoin();
             // add(points, BorderLayout.NORTH);
 
         }
 
-        public void upCoin()
-        {
-            JLabel points = new JLabel("Coins: " + riverGame.getTempWallet() + " " + i);
-            i+=2;
-            points.setText("Coins: " + riverGame.getTempWallet() + " " + i);
-            this.add(points, BorderLayout.NORTH);
-
-        }
 
         @Override
         public void actionPerformed(ActionEvent event)
@@ -144,11 +141,15 @@ public class GamePanel extends JPanel {
             g.drawImage(img1, 20, 30, xSize, ySize, null);
             g.drawImage(img, 100, 80, xSize, ySize, null);
             g.drawImage(img, 50, 230, xSize, ySize, null);
-            g.drawImage(img1, 10, 380, xSize, ySize, null);
+            g.drawImage(img1, 10, 350, xSize, ySize, null);
 
             points.setText("Coins: " + riverGame.getTempWallet());
-            System.out.println("sldsad:  " + riverGame.getTempWallet());
-            this.add(points, BorderLayout.NORTH);
+            healthLabel.setText("Health: " + health);
+
+
+//            this.add(common,BorderLayout.NORTH);
+            //this.add(points, BorderLayout.NORTH);
+            //this.add(healthLabel, BorderLayout.NORTH);
         }
     }
 
@@ -185,6 +186,11 @@ public class GamePanel extends JPanel {
             coins = riverGame.getTempWallet();
         }
 
+        public void updateHealth(){
+//            System.out.println("Health: GamePanel " + health);
+            health = riverGame.getRiver().getUserCharacter().getHealth();
+        }
+
         private class TimerListener implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent event)
@@ -192,6 +198,7 @@ public class GamePanel extends JPanel {
                 counter ++;
                 update(riverGame);
                 updateCoins();
+                updateHealth();
                 repaint();
 
                 if (counter > speedLimit){

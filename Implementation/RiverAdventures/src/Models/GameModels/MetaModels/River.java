@@ -93,6 +93,7 @@ public class River {
         return this.character;
     }
 
+
     public boolean checkCollision(){
 
         Rectangle userCharacter = new Rectangle(character.getxPosition(), character.getyPosition(), character.getxSize(), character.getyPosition());
@@ -156,7 +157,6 @@ public class River {
     }
 
     public int getTotalCoins(){
-        System.out.println("Coins: River " + this.totalCoins.getAmount());
         return  this.totalCoins.getAmount();
     }
     //============ !! NEEDS IMPLEMENTATION !! ============
