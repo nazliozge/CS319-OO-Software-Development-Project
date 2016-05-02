@@ -14,7 +14,7 @@ public abstract class Menu extends JPanel{
 
 	protected Graphics g;
 	protected FrameManager mng;
-	private RiverFrame frame;
+	protected RiverFrame frame;
 	public Menu(RiverFrame riverFrame, FrameManager mng){
 		this.mng = mng;
 		this.frame = riverFrame;

@@ -21,17 +21,22 @@ public class FrameManager {
 	private RiverFrame frame;
 	private RiverKey key;
 
-	public FrameManager(Menu currentPanel, String title){
-		frame = new RiverFrame(title);
-		frame.setLocation(50,50);
-		frame.setSize(1000,600);
-		frame.setLayout(null);
-		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		frame.setCurrentPanel( currentPanel );
-		frame.add(currentPanel);
-		frame.setVisible(true);
+
+	public FrameManager( RiverFrame rf, GameManager ctrl){
+		frame = rf;
+		this.ctrl = ctrl;
+		MainMenu a = new MainMenu(frame,this);
+		System.out.println( a);
+		frame.setCurrentPanel(a );
+		frame.add(frame.getCurrentPanel());
 		toMain();
+		key = new RiverKey(this);
+		frame.addKeyListener(key);
+		frame.setFocusable(true);
+		frame.requestFocusInWindow();
 	}
+
+
 	public void requestMain(){
 		ctrl.toMenu();
 	}
@@ -60,7 +65,6 @@ public class FrameManager {
             currentPanel=new CreditPanel(this);
             add(currentPanel);
             repaint();
-
         }
     */
 	public void requestSettings(){
@@ -83,7 +87,7 @@ public class FrameManager {
         }
     */
 	public void requestGame(){
-		ctrl.initializeGame();
+		System.out.println(ctrl.initializeGame());
 	}
 
 	public void toGame( RiverGame gm ){
@@ -101,6 +105,7 @@ public class FrameManager {
 		//gde.start();
 		//repaint();
 		ctrl.startGameLoop();
+		key.unpSuccess();
 	}
 	/*
         public void gameOver(int score){/////Gameover Paneli laz�m
@@ -112,6 +117,7 @@ public class FrameManager {
 
         }
     */
+
 	public void requestPause(){
 		ctrl.pauseGame();
 	}
@@ -119,6 +125,7 @@ public class FrameManager {
 	public void toPause(){
 		PauseMenu a = new PauseMenu(frame, this);
 		frame.replacePanel(a);
+		key.pSuccess();
 	}
 	public void requestUnpause(){
 		ctrl.unpauseGame();

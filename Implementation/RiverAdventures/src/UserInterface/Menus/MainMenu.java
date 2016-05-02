@@ -16,8 +16,6 @@ public class MainMenu extends Menu{
 	ArrayList<JButton> buttonList = new ArrayList<>();
 
 	private static final long serialVersionUID = 1L;
-	private RiverFrame frame;
-	private FrameManager mng;
 	private BufferedImage img;
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -29,6 +27,7 @@ public class MainMenu extends Menu{
 		setLocation(0,0);
 		setSize(800,500);
 		setLayout(null);
+
 
 
 		JButton newGameButton=new JButton("PLAY GAME");
@@ -103,7 +102,7 @@ public class MainMenu extends Menu{
 	}
 
 	public void setFrame(RiverFrame frame) {
-		this.frame = frame;
+		super.frame = frame;
 	}
 	
 	@Override
@@ -113,6 +112,7 @@ public class MainMenu extends Menu{
 	}
 
 	public void startGame(){
+		System.out.println(mng);
 		mng.requestGame();
 	}
 	public void highscoreScreen(){

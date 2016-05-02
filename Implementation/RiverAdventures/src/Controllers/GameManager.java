@@ -15,6 +15,7 @@ import static Controllers.GameManager.state;
  */
 public class GameManager {
 
+    // INIT, MENU, SETTINGS_M, SETTINGS_P, PAUSE, END_GAME, STORE, GAME, HELP
 
     public enum state { INIT, MENU, SETTINGS_M, SETTINGS_P, PAUSE, END_GAME, STORE, GAME, HELP };
 
@@ -29,27 +30,30 @@ public class GameManager {
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++     CONSTRUCTORS    +++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    public GameManager( FrameManager frameManager, SettingsManager settingsManager ){
-        this.frameManager = frameManager;
-        this.settingsManager = settingsManager;
+    public GameManager(){
+        settingsManager = new SettingsManager("sadas");
         gameState = state.MENU;
+        System.out.println( "game satte : " + gameState);
         account = new Account();
         time = 0;
         highscores = account.getHighScores();
         //TODO
     }
-    //test:
-    public GameManager(){
 
-    }
+    //test:
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++     METHODS     +++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+    public void addFrameManager(FrameManager fm){
+        this.frameManager = fm;
+    }
+
     public boolean initializeGame(){
         /*It creates a new RiverGame object, connects the riverGame attribute to it,
         calls the riverGame object’s related methods and calls the FrameManager’s toGame() method.*/
+        System.out.println( gameState);
         if( gameState == state.MENU){
             riverGame = new RiverGame();
             //TODO: set frame manager = RESOLVED?
