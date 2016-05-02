@@ -14,9 +14,8 @@ public class DrawTimer implements ActionListener
     {
 
         private Timer timer;
-        private boolean pauseIt;
-        private boolean restartIt;
-        private boolean running;
+        private boolean pauseIt = false;
+        private boolean running = false;
         private GamePanel gp;
 
 
@@ -26,30 +25,38 @@ public class DrawTimer implements ActionListener
 
     public void start(){
         timer.start();
+        running = true;
     }
 
-    public void stop(){
+    private void stop(){
         timer.stop();
+    }
+
+    public void unpause(){
+        if( !running )
+        {
+            System.out.println( " Timer is off!" );
+            running = true;
+            timer.start();
+        }
+    }
+
+    public void pause(){
+        pauseIt = true;
     }
 
     public void actionPerformed(ActionEvent e){
         if( pauseIt && running)
         {
             System.out.println( " Timer is on!" );
-            stop();
             pauseIt = false;
             running = false;
-        }
-        else if( restartIt && !running)
-        {
-            System.out.println( " Timer is off!" );
-            start();
-            restartIt = false;
-            running = true;
+            timer.stop();
         }
 
-        if( running){
+        else if( running){
             //TODO
+            gp.repaint();
         }
     }
 
