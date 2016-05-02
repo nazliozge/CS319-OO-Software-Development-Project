@@ -16,28 +16,18 @@ import java.awt.event.KeyListener;
 public class GamePanel extends JPanel {
 
     private RiverGame riverGame;
-    private int coins;
-
-    public RiverCenter center;
-    public RiverRight right;
-    public RiverLeft left;
-
-    //TOBE REMOVED
-    public KeyListener kl;
-
-    //TOBE TRANSFERED TO RIVERGAME
-    private final static int DELAY_DECREMENT = 1;
-    private int counter = 0;
-    private int speedLimit = 200;
-    private int speedIncrement = 50;
-
-    //TOBE REMOVED: TIMER
     private Timer stream;
     boolean killTimer = false;
     boolean restartTimer = false;
     private boolean isTimerOn = true;//for pausing
-
-
+    private final static int DELAY_DECREMENT = 1;
+    private int counter = 0;
+    private int speedLimit = 200;
+    private int speedIncrement = 50;
+    public RiverCenter center;
+    private int coins;
+    public KeyListener kl;
+    public int stop;
 
     public GamePanel(){
 
@@ -46,21 +36,23 @@ public class GamePanel extends JPanel {
         BorderLayout layout = new BorderLayout(0,0);
         setLayout(layout);
 
-        left = new RiverLeft();
+        RiverLeft left = new RiverLeft();
         this.add(left, BorderLayout.BEFORE_LINE_BEGINS);
 
         center = new RiverCenter();
         this.add(center, BorderLayout.CENTER);
 
-        right = new RiverRight();
+        RiverRight right = new RiverRight();
         this.add(right, BorderLayout.LINE_END);
+
     }
 
     public GamePanel(RiverGame gm) {
     }
 
 
-    public void draw(Graphics g){
+    public void drawLeft(Graphics g)
+    {
         Image img = new ImageIcon("image/tree/tree1.png").getImage();
         Image img1 = new ImageIcon("image/tree/tree2.png").getImage();
         int xSize = 100;
@@ -72,6 +64,13 @@ public class GamePanel extends JPanel {
 
     }
 
+    public void draw(Graphics g){
+
+        drawLeft(g);
+
+    }
+
+    //RIVER LEFT
     private class RiverLeft extends JPanel{
 
         public RiverLeft(){
@@ -91,7 +90,10 @@ public class GamePanel extends JPanel {
 
     }
 
+    //RIVER RIGHT
     private class RiverRight extends JPanel implements ActionListener{
+        int i=0;
+        JLabel points;
 
         public RiverRight(){
             Color newColor = new Color(34, 195, 114);
@@ -99,16 +101,29 @@ public class GamePanel extends JPanel {
             setPreferredSize(new Dimension(200,500));
 
             stream = new Timer(15, this);
+            stream.start();
             setLayout(new BorderLayout(0,0));
-            JLabel points = new JLabel("Points: " + coins);
-            add(points, BorderLayout.NORTH);
+
+            points = new JLabel();
+            //JLabel points = new JLabel("Coins: " + riverGame.getTempWallet() + " " + i);
+            // this.upCoin();
+            // add(points, BorderLayout.NORTH);
+
+        }
+
+        public void upCoin()
+        {
+            JLabel points = new JLabel("Coins: " + riverGame.getTempWallet() + " " + i);
+            i+=2;
+            points.setText("Coins: " + riverGame.getTempWallet() + " " + i);
+            this.add(points, BorderLayout.NORTH);
 
         }
 
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            repaint();
+            repaint(); //calls paintComponent
         }
 
         public void paintComponent(Graphics g){
@@ -116,8 +131,24 @@ public class GamePanel extends JPanel {
             draw(g);
         }
 
+        public void draw(Graphics g)
+        {
+            Image img = new ImageIcon("image/tree/tree1.png").getImage();
+            Image img1 = new ImageIcon("image/tree/tree2.png").getImage();
+            int xSize = 100;
+            int ySize = 130;
+            g.drawImage(img1, 20, 30, xSize, ySize, null);
+            g.drawImage(img, 100, 80, xSize, ySize, null);
+            g.drawImage(img, 50, 230, xSize, ySize, null);
+            g.drawImage(img1, 10, 380, xSize, ySize, null);
+
+            points.setText("Coins: " + riverGame.getTempWallet());
+            System.out.println("sldsad:  " + riverGame.getTempWallet());
+            this.add(points, BorderLayout.NORTH);
+        }
     }
 
+    //CENTER RIVER
     public class RiverCenter extends JPanel{
 
         public RiverCenter(){
@@ -142,7 +173,7 @@ public class GamePanel extends JPanel {
             riverGame.draw(g);
         }
 
-        public void update(){
+        public void update(RiverGame riverGame){
             riverGame.update();
         }
 
@@ -155,7 +186,7 @@ public class GamePanel extends JPanel {
             public void actionPerformed(ActionEvent event)
             {
                 counter ++;
-                update();
+                update(riverGame);
                 updateCoins();
                 repaint();
 
@@ -218,11 +249,4 @@ public class GamePanel extends JPanel {
         }
 
     }
-
-    public void update(){
-        center.repaint();
-        left.repaint();
-        right.repaint();
-    }
-
 }
