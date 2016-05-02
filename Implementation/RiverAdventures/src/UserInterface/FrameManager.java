@@ -22,18 +22,25 @@ public class FrameManager {
 	private RiverKey key;
 
 
-	public FrameManager( RiverFrame rf, GameManager ctrl){
-		frame = rf;
+	public FrameManager( GameManager ctrl){
+
 		this.ctrl = ctrl;
+
+	}
+	public void setRiverFrame( RiverFrame rf){
+		frame = rf;
 		MainMenu a = new MainMenu(frame,this);
 		System.out.println( a);
 		frame.setCurrentPanel(a );
 		frame.add(frame.getCurrentPanel());
 		toMain();
 		key = new RiverKey(this);
+		System.out.println( key);
 		frame.addKeyListener(key);
 		frame.setFocusable(true);
 		frame.requestFocusInWindow();
+		frame.repaint();
+
 	}
 
 
@@ -93,6 +100,7 @@ public class FrameManager {
 	public void toGame( RiverGame gm ){
 
 		GamePanel a = new GamePanel(gm);
+
 		frame.toGamePanel(a);
 		//remove(currentPanel);
 		//currentPanel=new ////(this);
@@ -142,6 +150,10 @@ public class FrameManager {
 
 	public void move(String direction){
 			ctrl.move(direction);
+	}
+
+	public RiverKey getKeyListener(){
+		return key;
 	}
 	///////////////TODO storeEvent
 

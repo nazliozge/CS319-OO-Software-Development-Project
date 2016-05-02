@@ -27,6 +27,7 @@ public class RiverKey implements KeyListener {
     /** Handle the key-pressed event from the text field. */
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println( " KEYS BE HITTTTTTTTTTEEEEEEEEEEEN" );
         if (e.getKeyCode() == KeyEvent.VK_RIGHT)
             fm.move("RIGHT");
         if (e.getKeyCode() == KeyEvent.VK_LEFT)

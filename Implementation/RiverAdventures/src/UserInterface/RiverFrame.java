@@ -10,8 +10,10 @@ import UserInterface.Menus.Menu;
  */
 public class RiverFrame extends JFrame{
     private JPanel currentPanel;
-    public RiverFrame( String title ){
+    private FrameManager mng;
+    public RiverFrame( String title, FrameManager fm ){
         super(title);
+        mng =fm;
         setLocation(50,50);
         setSize(1000,600);
         setLayout(null);
@@ -31,13 +33,19 @@ public class RiverFrame extends JFrame{
         remove(currentPanel);
         currentPanel=menu;
         add(currentPanel);
+        menu.addKeyListener(mng.getKeyListener());
         repaint();
+    }
+
+    public void setFrameManager( FrameManager fm){
+        mng = fm;
     }
 
     public void toGamePanel( GamePanel gp){
         remove(currentPanel);
         currentPanel=gp;
         add(gp);
+        gp.addKeyListener(mng.getKeyListener());
         repaint();
         gp.requestFocusInWindow();
     }

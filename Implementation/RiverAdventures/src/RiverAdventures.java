@@ -14,11 +14,16 @@ public class RiverAdventures {
     public static void main(String[] args)
     {
         FrameManager mng;
-        RiverFrame rf = new RiverFrame("hello");
         GameManager ctrl = new GameManager();
-
-        mng = new FrameManager( rf , ctrl);
+        mng = new FrameManager(ctrl);
         ctrl.addFrameManager(mng);
+
+        RiverFrame rf = new RiverFrame("hello", mng);
+        mng.setRiverFrame(rf);
+
+
+
+
         //mainMenu = new MainMenu( riverFrame );
 
 
