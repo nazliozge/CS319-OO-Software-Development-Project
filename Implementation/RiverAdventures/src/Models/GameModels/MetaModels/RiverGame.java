@@ -104,9 +104,6 @@ public class RiverGame {
         store.setBoosts(account.getBoostStates());
     }
 
-    public River getRiver(){
-        return river;
-    }
 
     public void draw(Graphics g){
         river.draw(g);

@@ -1,5 +1,6 @@
 package Models.GameModels.Buyable;
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by Nazli on 24/04/16.
@@ -18,7 +19,16 @@ public class Invincibility extends ExclusiveBoost{
     }
 
     public void draw(Graphics g){
-        //TODO-- for
+        Image img_lvl1 = new ImageIcon("image/boost/invincibility1.png").getImage();
+        Image img_lvl2 = new ImageIcon("image/boost/invincibility2.png").getImage();
+        Image img_lvl3 = new ImageIcon("image/boost/invincibility3.png").getImage();
+
+        if(this.getLevel() == 1)
+            g.drawImage(img_lvl1, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
+        else if(this.getLevel() == 2)
+            g.drawImage(img_lvl2, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
+        else
+            g.drawImage(img_lvl3, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
     }
 
 
