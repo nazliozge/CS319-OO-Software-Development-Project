@@ -24,9 +24,9 @@ public class Deceleration extends ExclusiveBoost{
         Image img_lvl2 = new ImageIcon("image/boost/slowdown22.png").getImage();
         Image img_lvl3 = new ImageIcon("image/boost/slowdown23.png").getImage();
 
-        if(this.getLevel() == 1)
+        if(this.getLevel() == 0)
             g.drawImage(img_lvl1, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
-        else if(this.getLevel() == 2)
+        else if(this.getLevel() == 1)
             g.drawImage(img_lvl2, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
         else
             g.drawImage(img_lvl3, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
