@@ -20,7 +20,7 @@ public class Maximise extends Trap {
 
     public void draw(Graphics g){
         Image img_lvl1 = new ImageIcon("image/trap/maxic.png").getImage();
-        g.drawImage(img_lvl1, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
+        g.drawImage(img_lvl1, super.getxLoc(), super.getyLoc(),(int) (super.getxSize()*0.7), (int) (super.getySize()*0.7), null);
 
     }
 

@@ -124,6 +124,15 @@ public class Line implements Drawable {
 
         int random = (int)(Math.random() * 12) + 1;
 
+        //all exclusive boosts
+        ExclusiveBoost shield = new Shield();
+        ExclusiveBoost mini = new MinimisationPower();
+        ExclusiveBoost deceleration = new Deceleration();
+        ExclusiveBoost invic = new Invincibility();
+        ExclusiveBoost healthp = new HealthPack();
+
+
+
         if(random == 0){
             ChemicalHazard chemical = new ChemicalHazard();
             chemical.setxLoc(Xlocation);
@@ -160,39 +169,73 @@ public class Line implements Drawable {
             coinbag.setyLoc(yLoc);
             objects.add(coinbag);
         }
-        if (random == 6){
-            ExclusiveBoost shield = new Shield();
-            shield.setyLoc(Xlocation);
-            shield.setyLoc(yLoc);
-            objects.add(shield);
+        if (random == 6 ){
+            if(shield.isUnlocked())
+            {
+                shield.setyLoc(Xlocation);
+                shield.setyLoc(yLoc);
+                objects.add(shield);
+            }
+            else
+            {
+                this.fillLine(userCharacterWidth);
+            }
         }
+
         if(random == 7)
         {
-            ExclusiveBoost mini = new MinimisationPower();
-            mini.setyLoc(Xlocation);
-            mini.setyLoc(yLoc);
-            objects.add(mini);
+            if(mini.isUnlocked())
+            {
+                mini.setyLoc(Xlocation);
+                mini.setyLoc(yLoc);
+                objects.add(mini);
+            }
+            else
+            {
+                this.fillLine(userCharacterWidth);
+            }
         }
         if(random == 8)
         {
-            ExclusiveBoost deceleration = new Deceleration();
-            deceleration.setyLoc(Xlocation);
-            deceleration.setyLoc(yLoc);
-            objects.add(deceleration);
+            if(deceleration.isUnlocked())
+            {
+                deceleration.setyLoc(Xlocation);
+                deceleration.setyLoc(yLoc);
+                objects.add(deceleration);
+            }
+            else
+            {
+                this.fillLine(userCharacterWidth);
+            }
+
         }
         if(random == 9)
         {
-            ExclusiveBoost invic = new Invincibility();
-            invic.setyLoc(Xlocation);
-            invic.setyLoc(yLoc);
-            objects.add(invic);
+            if(invic.isUnlocked())
+            {
+                invic.setyLoc(Xlocation);
+                invic.setyLoc(yLoc);
+                objects.add(invic);
+            }
+            else
+            {
+                this.fillLine(userCharacterWidth);
+            }
+
         }
         if(random == 10)
         {
-            ExclusiveBoost health = new HealthPack();
-            health.setyLoc(Xlocation);
-            health.setyLoc(yLoc);
-            objects.add(health);
+            if(healthp.isUnlocked())
+            {
+                healthp.setyLoc(Xlocation);
+                healthp.setyLoc(yLoc);
+                objects.add(healthp);
+            }
+            else
+            {
+                this.fillLine(userCharacterWidth);
+            }
+
         }
         if(random == 11)
         {
