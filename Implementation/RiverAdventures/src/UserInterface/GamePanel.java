@@ -16,17 +16,28 @@ import java.awt.event.KeyListener;
 public class GamePanel extends JPanel {
 
     private RiverGame riverGame;
-    private Timer stream;
-    boolean killTimer = false;
-    boolean restartTimer = false;
-    private boolean isTimerOn = true;//for pausing
+    private int coins;
+
+    public RiverCenter center;
+    public RiverRight right;
+    public RiverLeft left;
+
+    //TOBE REMOVED
+    public KeyListener kl;
+
+    //TOBE TRANSFERED TO RIVERGAME
     private final static int DELAY_DECREMENT = 1;
     private int counter = 0;
     private int speedLimit = 200;
     private int speedIncrement = 50;
-    public RiverCenter center;
-    private int coins;
-    public KeyListener kl;
+
+    //TOBE REMOVED: TIMER
+    private Timer stream;
+    boolean killTimer = false;
+    boolean restartTimer = false;
+    private boolean isTimerOn = true;//for pausing
+
+
 
     public GamePanel(){
 
@@ -35,13 +46,13 @@ public class GamePanel extends JPanel {
         BorderLayout layout = new BorderLayout(0,0);
         setLayout(layout);
 
-        RiverLeft left = new RiverLeft();
+        left = new RiverLeft();
         this.add(left, BorderLayout.BEFORE_LINE_BEGINS);
 
         center = new RiverCenter();
         this.add(center, BorderLayout.CENTER);
 
-        RiverRight right = new RiverRight();
+        right = new RiverRight();
         this.add(right, BorderLayout.LINE_END);
     }
 
@@ -131,7 +142,7 @@ public class GamePanel extends JPanel {
             riverGame.draw(g);
         }
 
-        public void update(RiverGame riverGame){
+        public void update(){
             riverGame.update();
         }
 
@@ -144,7 +155,7 @@ public class GamePanel extends JPanel {
             public void actionPerformed(ActionEvent event)
             {
                 counter ++;
-                update(riverGame);
+                update();
                 updateCoins();
                 repaint();
 
@@ -207,4 +218,11 @@ public class GamePanel extends JPanel {
         }
 
     }
+
+    public void update(){
+        center.repaint();
+        left.repaint();
+        right.repaint();
+    }
+
 }
