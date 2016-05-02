@@ -65,10 +65,7 @@ public class RiverGame {
 
 
     public void move(String direction){
-        if(direction == "LEFT")
-            river.move("LEFT");
-        if(direction == "RIGHT")
-            river.move("RIGHT");
+        river.move(direction);
     }
 
     public void update(){
@@ -85,7 +82,6 @@ public class RiverGame {
             tickCount = 0;
         }
         speedMod = totalTicks / SPEED_CHANGE_TICK_NO;
-
     }
 
     public void updateWallet (int amount){
