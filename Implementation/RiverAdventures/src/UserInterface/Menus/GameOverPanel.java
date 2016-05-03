@@ -28,8 +28,15 @@ public class GameOverPanel extends Menu {
         setLayout(null);
         this.frame=frame;
 
+        JLabel theName = new JLabel("GAME OVER");
+        theName.setLocation(20,20);
+        theName.setSize(100,200);
 
-        JButton backButton = new JButton("BACK");
+        JLabel score = new JLabel("SCORE:" + scores);
+        score.setLocation(20, 250);
+        score.setSize(100,200);
+
+        JButton backButton = new JButton("TO MAIN MENU");
         backButton.setLocation(20,465);
         backButton.setSize(80,30);
         backButton.addActionListener(new ActionListener(){
@@ -41,6 +48,8 @@ public class GameOverPanel extends Menu {
 
         });
         add(backButton);
+        add(theName);
+        add(score);
 
     }
 
