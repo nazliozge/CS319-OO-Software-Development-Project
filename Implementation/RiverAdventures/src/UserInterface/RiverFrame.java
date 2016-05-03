@@ -5,6 +5,8 @@ import javax.swing.*;
 import UserInterface.Menus.MainMenu;
 import UserInterface.Menus.Menu;
 
+import java.awt.*;
+
 /**
  * Created by Magus on 29.04.2016.
  */
@@ -15,8 +17,9 @@ public class RiverFrame extends JFrame{
         super(title);
         mng =fm;
         setLocation(50,50);
-        setSize(700,500);
-        setLayout(null);
+        setSize(700,520);
+        Color newColor = new Color(74, 192, 195);
+        setBackground(newColor);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }

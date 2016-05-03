@@ -3,7 +3,7 @@ package UserInterface.Menus;
 import UserInterface.FrameManager;
 import UserInterface.RiverFrame;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -31,7 +31,8 @@ public class MainMenu extends Menu{
 		setSize(1000,800);
 		setLayout(null);
 
-
+		Color newColor = new Color(74, 192, 195);
+		setBackground(newColor);
 
 		JButton newGameButton=new JButton("PLAY GAME");
 		JButton settingsButton=new JButton("SETTINGS");
