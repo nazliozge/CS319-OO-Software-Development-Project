@@ -87,12 +87,12 @@ public class MainMenu extends Menu{
 			}
 
 		});
-		/*creditButton.addActionListener(new ActionListener(){
+		creditButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				creditScreen();
 			}
 
-		});*/
+		});
 		add(newGameButton);
 		add(settingsButton);
 		add(tutorialButton);
@@ -128,7 +128,7 @@ public class MainMenu extends Menu{
 		mng.requestHelp();
 	}
 	public void creditScreen(){
-		//	frame.credits();
+			mng.requestCredits();
 	}
 	public void storeScreen(){
 		mng.requestStore();

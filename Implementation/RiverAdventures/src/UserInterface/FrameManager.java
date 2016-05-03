@@ -162,6 +162,15 @@ public class FrameManager {
 	public RiverKey getKeyListener(){
 		return key;
 	}
+
+	public void requestCredits() {
+		ctrl.toCred();
+	}
+
+	public void toCred() {
+		CreditsMenu a = new CreditsMenu(frame, this);
+		frame.replacePanel(a);
+	}
 	///////////////TODO storeEvent
 
 }

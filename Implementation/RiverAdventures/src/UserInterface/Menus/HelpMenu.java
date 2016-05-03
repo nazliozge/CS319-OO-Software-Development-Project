@@ -10,12 +10,10 @@ package UserInterface.Menus;
 	import java.awt.image.BufferedImage;
 	import java.io.FileNotFoundException;
 
-	import javax.swing.JButton;
-	import javax.swing.JPanel;
+	import javax.swing.*;
 
 
-
-	public class HelpMenu extends Menu {
+public class HelpMenu extends Menu {
 		/**
 		 * 
 		 */
@@ -30,6 +28,9 @@ package UserInterface.Menus;
 			setLayout(null);
 			this.frame=frame;
 
+			JLabel theName = new JLabel("HELP YOURSELF!");
+			theName.setLocation(20,20);
+			theName.setSize(300,399);
 
 			JButton backButton = new JButton("BACK");
 			backButton.setLocation(20,465);
@@ -47,6 +48,7 @@ package UserInterface.Menus;
 
 			});
 			add(backButton);
+			add(theName);
 
 		}
 

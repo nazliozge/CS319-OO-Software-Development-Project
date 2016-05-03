@@ -18,7 +18,7 @@ public class GameManager {
 
     // INIT, MENU, SETTINGS_M, SETTINGS_P, PAUSE, END_GAME, STORE, GAME, HELP
 
-    public enum state { INIT, MENU, SETTINGS_M, SETTINGS_P, PAUSE, END_GAME, STORE, GAME, HELP };
+    public enum state { INIT, MENU, SETTINGS_M, SETTINGS_P, PAUSE, END_GAME, STORE, GAME, HELP, CRED };
 
     private SettingsManager settingsManager;
     private FrameManager frameManager;
@@ -132,6 +132,16 @@ public class GameManager {
         return true;
     }
 
+    public boolean toCred() {
+        if( gameState == state.MENU){
+            //TODO: set frame manager= RESOLVED?
+            gameState = state.CRED;
+            frameManager.toCred();
+            return true;
+        }
+        return false;
+    }
+
     public boolean toMenu(){
         if( gameState == state.PAUSE){
             endGame();
@@ -153,6 +163,11 @@ public class GameManager {
             return true;
         }
         else if( gameState == state.END_GAME){
+            gameState = state.MENU;
+            frameManager.toMain();
+            return true;
+        }
+        else if( gameState == state.CRED){
             gameState = state.MENU;
             frameManager.toMain();
             return true;
