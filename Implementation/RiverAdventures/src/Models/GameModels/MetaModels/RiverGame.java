@@ -6,6 +6,7 @@ import Models.Account.Account;
 import Models.GameModels.Buyable.Character;
 
 import java.awt.*;
+import java.io.FileNotFoundException;
 import java.util.Timer;
 
 /**
@@ -48,6 +49,7 @@ public class RiverGame {
     public RiverGame(River river, Store store) {
         this.river = river;
         this.store = store;
+
     }
 
     //++++++++++++++++++++++++++++++++++++++++++++++++

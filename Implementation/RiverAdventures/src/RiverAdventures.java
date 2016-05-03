@@ -4,6 +4,7 @@ import UserInterface.Menus.MainMenu;
 import UserInterface.RiverFrame;
 
 import java.awt.*;
+import java.io.FileNotFoundException;
 
 /**
  * Created by Magus on 27.04.2016.
@@ -11,8 +12,7 @@ import java.awt.*;
 public class RiverAdventures {
 
     //TODO: NOT COMPETIBLE ATM
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws FileNotFoundException {
         FrameManager mng;
         GameManager ctrl = new GameManager();
         mng = new FrameManager(ctrl);
