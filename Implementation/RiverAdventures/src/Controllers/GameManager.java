@@ -114,6 +114,11 @@ public class GameManager {
     public boolean accessToStore(){
         /* Updates UI by calling the FrameManager’s toStore() method. */
         // gameState = state.STORE;
+        if( gameState == state.MENU){
+            gameState = state.STORE;
+            riverGame = new RiverGame( account );
+            frameManager.toStore( riverGame.getStore() );
+            return true;}
         return true;
     }
 
