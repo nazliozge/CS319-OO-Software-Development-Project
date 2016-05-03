@@ -209,11 +209,13 @@ public class GamePanel extends JPanel {
 
         public void updateAcceleration(){
 
+            /*
             if (riverGame.getRiver().getUserCharacter().isAccelerated()){
                 stream3 = new Timer(DEFAULT_DELAY_ACCELERATED, new TimerListener());
                 stream = stream3;
                 stream.start();
             }
+            */
 
             //stream.setDelay(stream.getDelay() - 1);
 //            if (riverGame.getRiver().getUserCharacter().isAccelerated()){
@@ -236,6 +238,7 @@ public class GamePanel extends JPanel {
                 updateAcceleration();
                 repaint();
 
+               /*
                 if (counter > speedLimit){
                     System.out.println("LLOLOLOL: COUNTER: " + counter + "  SPEEDLIMITT: " +  speedLimit);
                    // stream.setDelay((stream.getDelay() - DELAY_DECREMENT));
@@ -248,6 +251,7 @@ public class GamePanel extends JPanel {
                     speedLimit = speedLimit*speedIncrement;
                     speedIncrement++;
                 }
+                */
 //                if( killTimer && isTimerOn)
 //                {
 //                    System.out.println( " Timer is on!" );
