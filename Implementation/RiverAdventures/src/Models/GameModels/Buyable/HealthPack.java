@@ -25,9 +25,9 @@ public class HealthPack extends ExclusiveBoost{
         Image img_lvl2 = new ImageIcon("image/boost/health2.png").getImage();
         Image img_lvl3 = new ImageIcon("image/boost/health3.png").getImage();
 
-        if(this.getLevel() == 0)
+        if(this.getLevel() < 2)
             g.drawImage(img_lvl1, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
-        else if(this.getLevel() == 1)
+        else if(this.getLevel() == 2)
             g.drawImage(img_lvl2, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);
         else
             g.drawImage(img_lvl3, super.getxLoc(), super.getyLoc(), super.getxSize(), super.getySize(), null);

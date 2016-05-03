@@ -3,6 +3,7 @@ package Models.GameModels.MetaModels;
 import Models.Account.Account;
 import Models.GameModels.Buyable.*;
 import Models.GameModels.Buyable.Character;
+import Models.GameModels.RealModels.Boost.Boost;
 
 import java.awt.*;
 import java.io.FileNotFoundException;
@@ -66,7 +67,7 @@ public class Store {
             System.out.println( "undefined store-char state: DUCK" );
         duckEquip = true;
         duckUnlock = true;
-        characters[0] = new Character( DUCK_PRICE,"Duck","nothing",duckEquip, duckUnlock);
+        characters[0] = new Character( DUCK_PRICE,"duck","nothing",duckEquip, duckUnlock);
 
         //BEAVER
         boolean beaverEquip = false;
@@ -85,7 +86,7 @@ public class Store {
         }
         else
             System.out.println( "undefined store-char state: beaver" );
-        characters[1] = new Character( BEAVER_PRICE,"Beaver","nothing",beaverEquip, beaverUnlock);
+        characters[1] = new Character( BEAVER_PRICE,"beaver","nothing",beaverEquip, beaverUnlock);
 
         //DEER
         boolean deerEquip = false;
@@ -123,7 +124,7 @@ public class Store {
         }
         else
             System.out.println( "undefined store-char state: croc" );
-        characters[3] = new Character( CROC_PRICE,"croc","nothing",crocEquip, crocUnlock);
+        characters[3] = new Character( CROC_PRICE,"crocodile","nothing",crocEquip, crocUnlock);
 
         //HIPPO
         boolean hippoEquip = false;
@@ -142,16 +143,17 @@ public class Store {
         }
         else
             System.out.println( "undefined store-char state: hippo" );
-        characters[4] = new Character( HIPPO_PRICE,"hippo","nothing",hippoEquip, hippoUnlock);
+        characters[4] = new Character( HIPPO_PRICE,"hippopotamus","nothing",hippoEquip, hippoUnlock);
 
         //BOOOOOOOOSSSSTTTSSSSS
 
         //Shield
         boolean shieldUnlocked = false;
         int shieldLevel = 0;
+
         if( boostStates[0] == 0  ){
             shieldUnlocked = false;
-            shieldLevel = 1;
+            shieldLevel = 0;
         }
         else if ( boostStates[0] == 1){
             shieldUnlocked = true;
@@ -168,23 +170,25 @@ public class Store {
         else
             System.out.println( "undefined store-boost state: shield" );
         boosts[0] = new Shield();
+        System.out.println("BOOST: " +boosts[0].getName());
+
 
         //Minimisation Power
         boolean miniUnlocked = false;
         int miniLevel = 0;
-        if( boostStates[0] == 0  ){
+        if( boostStates[1] == 0  ){
             miniUnlocked = false;
-            miniLevel = 1;
+            miniLevel = 0;
         }
-        else if ( boostStates[0] == 1){
+        else if ( boostStates[1] == 1){
             miniUnlocked = true;
             miniLevel = 1;
         }
-        else if (  boostStates[0] == 2 ){
+        else if (  boostStates[1] == 2 ){
             miniUnlocked = true;
             miniLevel = 2;
         }
-        else if (  boostStates[0] == 3 ){
+        else if (  boostStates[1] == 3 ){
             miniUnlocked = true;
             miniLevel = 3;
         }
@@ -195,19 +199,19 @@ public class Store {
         //Deceleration
         boolean decUnlocked = false;
         int decLevel = 0;
-        if( boostStates[0] == 0  ){
+        if( boostStates[2] == 0  ){
             decUnlocked = false;
-            decLevel = 1;
+            decLevel = 0;
         }
-        else if ( boostStates[0] == 1){
+        else if ( boostStates[2] == 1){
             decUnlocked = true;
             decLevel = 1;
         }
-        else if (  boostStates[0] == 2 ){
+        else if (  boostStates[2] == 2 ){
             decUnlocked = true;
             decLevel = 2;
         }
-        else if (  boostStates[0] == 3 ){
+        else if (  boostStates[2] == 3 ){
             decUnlocked = true;
             decLevel = 3;
         }
@@ -218,19 +222,19 @@ public class Store {
         //Invincibility
         boolean invicUnlocked = false;
         int invicLevel = 0;
-        if( boostStates[0] == 0  ){
+        if( boostStates[3] == 0  ){
             invicUnlocked = false;
-            invicLevel = 1;
+            invicLevel = 0;
         }
-        else if ( boostStates[0] == 1){
+        else if ( boostStates[3] == 1){
             invicUnlocked = true;
             invicLevel = 1;
         }
-        else if (  boostStates[0] == 2 ){
+        else if (  boostStates[3] == 2 ){
             invicUnlocked = true;
             invicLevel = 2;
         }
-        else if (  boostStates[0] == 3 ){
+        else if (  boostStates[3] == 3 ){
             invicUnlocked = true;
             invicLevel = 3;
         }
@@ -241,19 +245,19 @@ public class Store {
         //Health Pack
         boolean hpUnlocked = false;
         int hpLevel = 0;
-        if( boostStates[0] == 0  ){
+        if( boostStates[4] == 0  ){
             hpUnlocked = false;
-            hpLevel = 1;
+            hpLevel = 0;
         }
-        else if ( boostStates[0] == 1){
+        else if ( boostStates[4] == 1){
             hpUnlocked = true;
             hpLevel = 1;
         }
-        else if (  boostStates[0] == 2 ){
+        else if (  boostStates[4] == 2 ){
             hpUnlocked = true;
             hpLevel = 2;
         }
-        else if (  boostStates[0] == 3 ){
+        else if (  boostStates[4] == 3 ){
             hpUnlocked = true;
             hpLevel = 3;
         }
@@ -281,6 +285,15 @@ public class Store {
         }
     }
 
+    public void unlock( ExclusiveBoost eb){
+        if( !eb.isUnlocked()){
+            if( eb.getPrice() <= account.getWallet().getCoinAmount()){
+                eb.setIsUnlocked(true);
+                account.getWallet().spendCoin(eb.getPrice());
+            }
+        }
+    }
+
     public void equip(Character character){
         if( character.isUnlocked()){
             for ( int i = 0; i < numOfCharacters; i++ ){
@@ -292,6 +305,10 @@ public class Store {
 
     public Character[] getCharacters(){
         return characters;
+    }
+
+    public ExclusiveBoost[] getBoosts(){
+        return boosts;
     }
     public void setCharacters(int [] characters){
         this.characterStates = characters;
@@ -313,8 +330,11 @@ public class Store {
         return true;
     }
 
-    public boolean upgrade(ExclusiveBoost exclusiveBoost){
-        return exclusiveBoost.upgrade();
+    public boolean upgrade(ExclusiveBoost eb){
+        if (eb.getPrice() <= account.getWallet().getCoinAmount())
+            return eb.upgrade();
+        else
+            return false;
     }
 
     public void draw (Graphics g){}

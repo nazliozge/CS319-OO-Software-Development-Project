@@ -3,7 +3,7 @@ package UserInterface.Menus;
 import UserInterface.FrameManager;
 import UserInterface.RiverFrame;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -15,6 +15,9 @@ public class PauseMenu extends Menu{
 	private static final long serialVersionUID = 1L;
 	private RiverFrame frame;
 	private BufferedImage img;
+	private final static int XLocation = 140;
+	private final static int XSize = 380;
+	private final static int YSize = 50;
 
 	public PauseMenu(RiverFrame frame, FrameManager frameManager) {
 		super( frame, frameManager);
@@ -26,24 +29,40 @@ public class PauseMenu extends Menu{
 		JButton resumeButton=new JButton("RESUME");
 		JButton mainButton=new JButton("EXIT");
 		JButton settingsButton=new JButton("SETTINGS");
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 		//JButton highscoreButton=new JButton("HIGHSCORES");
 		JButton helpButton=new JButton("HELP");
+>>>>>>> origin/master
+
+		Color newColor = new Color(74, 192, 195);
+		setBackground(newColor);
 
 
-		resumeButton.setSize(330,50);
-		resumeButton.setLocation(140,130);
 
-		settingsButton.setSize(300,50);
-		settingsButton.setLocation(140,185);
-
+<<<<<<< Updated upstream
 		//highscoreButton.setSize(390,50);
 		//highscoreButton.setLocation(140,240);
+=======
+<<<<<<< HEAD
+		resumeButton.setSize(XSize,YSize);
+		resumeButton.setLocation(XLocation,130);
+=======
+		//highscoreButton.setSize(390,50);
+		//highscoreButton.setLocation(140,240);
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 
-		helpButton.setSize(310,50);
-		helpButton.setLocation(140,295);
+		settingsButton.setSize(XSize,YSize);
+		settingsButton.setLocation(XLocation,180);
 
-		mainButton.setSize(300,50);
-		mainButton.setLocation(140,355);
+
+		mainButton.setSize(XSize,YSize);
+		mainButton.setLocation(XLocation,230);
+
 
 
 		resumeButton.addActionListener(new ActionListener(){
@@ -56,6 +75,11 @@ public class PauseMenu extends Menu{
 				settingScreen();
 			}
 		});
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 		//highscoreButton.addActionListener(new ActionListener(){
 		//	public void actionPerformed(ActionEvent e){
 			//	highscoreScreen();
@@ -65,8 +89,8 @@ public class PauseMenu extends Menu{
 			public void actionPerformed(ActionEvent e){
 				helpScreen();
 			}
+>>>>>>> origin/master
 
-		});
 
 		mainButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -77,8 +101,14 @@ public class PauseMenu extends Menu{
 
 		add(resumeButton);
 		add(settingsButton);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 		//add(highscoreButton);
 		add(helpButton);
+>>>>>>> origin/master
 		add(mainButton);
 
 	};
@@ -103,12 +133,19 @@ public class PauseMenu extends Menu{
 	public void resumeGame(){
 		mng.requestUnpause();
 	}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> Stashed changes
 	//public void highscoreScreen(){
 		//mng.requestHighscores();
 	//}
 	public void helpScreen(){
 		mng.requestHelp();
 	}
+>>>>>>> origin/master
 	public void mainScreen(){
 		mng.requestMain();
 	}

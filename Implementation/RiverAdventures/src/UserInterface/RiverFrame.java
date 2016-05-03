@@ -18,8 +18,6 @@ public class RiverFrame extends JFrame{
         mng =fm;
         setLocation(50,50);
         setSize(700,520);
-        Color newColor = new Color(74, 192, 195);
-        setBackground(newColor);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
