@@ -62,6 +62,7 @@ public class GameManager {
             frameManager.toGame(riverGame);
             startGameLoop();
             gameState = state.GAME;
+            riverGame.setGameManager(this);
             return true;
         }
         return false;
@@ -185,6 +186,12 @@ public class GameManager {
         /*  Parameter direction could be either “left” or “right”. Calls move method of the RiverGame object. */
         if( gameState == state.GAME)
             riverGame.move(direction);
+    }
+
+    public void requestDeath( RiverGame rg){
+        if( rg.getHp() <= 0){
+            endGame();
+        }
     }
 
 }
