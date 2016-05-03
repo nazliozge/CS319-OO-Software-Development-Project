@@ -181,6 +181,7 @@ public class GameManager {
         return true;}
 
     public void move( String direction){
+        System.out.println("CONT MOVED");
         /*  Parameter direction could be either “left” or “right”. Calls move method of the RiverGame object. */
         if( gameState == state.GAME)
             riverGame.move(direction);

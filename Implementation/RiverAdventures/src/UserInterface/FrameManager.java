@@ -20,6 +20,7 @@ public class FrameManager {
 	private GameManager ctrl;
 	private RiverFrame frame;
 	private RiverKey key;
+	private DrawTimer drawT;
 
 
 	public FrameManager( GameManager ctrl){
@@ -40,6 +41,7 @@ public class FrameManager {
 		frame.setFocusable(true);
 		frame.requestFocusInWindow();
 		frame.repaint();
+
 
 	}
 
@@ -99,8 +101,9 @@ public class FrameManager {
 
 	public void toGame( RiverGame gm ){
 
-		GamePanel a = new GamePanel(gm);
+		GamePanel a = new GamePanel(gm, key, frame);
 
+		drawT = new DrawTimer(a);
 		frame.toGamePanel(a);
 		//remove(currentPanel);
 		//currentPanel=new ////(this);
@@ -114,6 +117,7 @@ public class FrameManager {
 		//repaint();
 		ctrl.startGameLoop();
 		key.unpSuccess();
+		drawT.start();
 	}
 	/*
         public void gameOver(int score){/////Gameover Paneli laz�m
@@ -134,6 +138,7 @@ public class FrameManager {
 		PauseMenu a = new PauseMenu(frame, this);
 		frame.replacePanel(a);
 		key.pSuccess();
+		drawT.pause();
 	}
 	public void requestUnpause(){
 		ctrl.unpauseGame();
@@ -150,6 +155,7 @@ public class FrameManager {
 
 	public void move(String direction){
 		ctrl.move(direction);
+		System.out.println("FrameMoved");
 	}
 
 	public RiverKey getKeyListener(){

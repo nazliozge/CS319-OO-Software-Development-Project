@@ -36,7 +36,7 @@ public class Stream implements ActionListener
     public void unpause(){
         if( !running )
         {
-            System.out.println( " Timer is off!" );
+            //System.out.println( " Timer is off!" );
             running = true;
             timer.start();
         }
@@ -49,7 +49,7 @@ public class Stream implements ActionListener
     public void actionPerformed(ActionEvent e){
         if( pauseIt && running)
         {
-            System.out.println( " Timer is on!" );
+            System.out.println( " Timer is offf!" );
             pauseIt = false;
             running = false;
             timer.stop();
@@ -60,7 +60,7 @@ public class Stream implements ActionListener
             gm.work();
             System.out.println( " Timer is on!" );
         }
-        System.out.println( " Timer is on!" );
+        //System.out.println( " Timer is on!" );
     }
 
     //public boolean isTimeToStop(){

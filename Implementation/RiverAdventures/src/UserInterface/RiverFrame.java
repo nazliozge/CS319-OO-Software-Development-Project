@@ -35,6 +35,8 @@ public class RiverFrame extends JFrame{
         add(currentPanel);
         menu.addKeyListener(mng.getKeyListener());
         repaint();
+
+
     }
 
     public void setFrameManager( FrameManager fm){
@@ -44,9 +46,12 @@ public class RiverFrame extends JFrame{
     public void toGamePanel( GamePanel gp){
         remove(currentPanel);
         currentPanel=gp;
-        add(gp);
+        getContentPane().add(gp);
+        setVisible(true);
         gp.addKeyListener(mng.getKeyListener());
         repaint();
         gp.requestFocusInWindow();
+        System.out.println(gp);
+
     }
 }
