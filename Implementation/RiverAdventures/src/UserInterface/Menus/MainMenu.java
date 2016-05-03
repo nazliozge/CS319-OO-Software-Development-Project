@@ -17,6 +17,9 @@ public class MainMenu extends Menu{
 
 	private static final long serialVersionUID = 1L;
 	private BufferedImage img;
+	private final static int XLocation = 140;
+	private final static int XSize = 380;
+	private final static int YSize = 50;
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//+++++++Constructor+++++++++++++++++++++++++++++++++++++++++++++++
@@ -32,33 +35,29 @@ public class MainMenu extends Menu{
 
 		JButton newGameButton=new JButton("PLAY GAME");
 		JButton settingsButton=new JButton("SETTINGS");
-		JButton highscoreButton=new JButton("HIGHSCORES");
 		JButton tutorialButton=new JButton("HELP");
 		JButton creditButton=new JButton("CREDITS");
 		JButton storeButton=new JButton("STORE");
 
 
-		newGameButton.setSize(330,50);
-		newGameButton.setLocation(140,130);
+		newGameButton.setSize(XSize,YSize);
+		newGameButton.setLocation(XLocation,130);
 
-		settingsButton.setSize(300,50);
-		settingsButton.setLocation(140,185);
+		settingsButton.setSize(XSize,YSize);
+		settingsButton.setLocation(XLocation,180);
 
-		highscoreButton.setSize(390,50);
-		highscoreButton.setLocation(140,240);
 
-		tutorialButton.setSize(310,50);
-		tutorialButton.setLocation(140,295);
+		tutorialButton.setSize(XSize,YSize);
+		tutorialButton.setLocation(XLocation,230);
 
-		creditButton.setSize(300,50);
-		creditButton.setLocation(140,355);
+		creditButton.setSize(XSize,YSize);
+		creditButton.setLocation(XLocation,280);
 
-		storeButton.setSize(300,50);
-		storeButton.setLocation(140,400);
+		storeButton.setSize(XSize,YSize);
+		storeButton.setLocation(XLocation,330);
 
 		buttonList.add(newGameButton);
 		buttonList.add(settingsButton);
-		buttonList.add(highscoreButton);
 		buttonList.add(tutorialButton);
 		buttonList.add(creditButton);
 		buttonList.add(storeButton);
@@ -74,11 +73,7 @@ public class MainMenu extends Menu{
 				settingScreen();
 			}
 		});
-		highscoreButton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				highscoreScreen();
-			}
-		});
+
 		tutorialButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				tutorialScreen();
@@ -99,7 +94,6 @@ public class MainMenu extends Menu{
 		});*/
 		add(newGameButton);
 		add(settingsButton);
-		add(highscoreButton);
 		add(tutorialButton);
 		add(creditButton);
 		add( storeButton);

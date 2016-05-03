@@ -15,7 +15,7 @@ public class RiverFrame extends JFrame{
         super(title);
         mng =fm;
         setLocation(50,50);
-        setSize(1000,600);
+        setSize(700,500);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
