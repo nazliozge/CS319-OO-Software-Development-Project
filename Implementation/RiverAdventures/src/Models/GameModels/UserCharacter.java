@@ -5,6 +5,8 @@ import Models.GameModels.Buyable.Character;
 import Models.GameModels.RealModels.Collectible.Collectible;
 import Models.GameModels.RealModels.Obstacle.Obstacle;
 import Models.GameModels.RealModels.RiverObject;
+import Models.GameModels.RealModels.Trap.Accelerate;
+import Models.GameModels.RealModels.Trap.Maximise;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,9 +25,9 @@ public class UserCharacter {
     private int shieldLimit;
     private Character character;
     private int xPosition;
-    private Timer timerMinimisation;
-    private Timer timerInvincibility;
+    private Timer timer;
     private int invincibilityCheck;
+    private boolean accelerationCheck;
 
     private final static int yPosition = 400;
     private final static int DEFAULT_CHARACTER_YSIZE = 80;
@@ -33,6 +35,8 @@ public class UserCharacter {
     private final static int DEFAULT_CHARACTER_XPOSITION = 50;
     private final static int DEFAULT_CHARACTER_SMALL_YSIZE = 50;
     private final static int DEFAULT_CHARACTER_SMALL_XSIZE = 50;
+    private final static int DEFAULT_CHARACTER_BIG_XSIZE = 100;
+    private final static int DEFAULT_CHARACTER_BIG_YSIZE = 100;
 
     //CONSTRUCTOR
 
@@ -46,6 +50,7 @@ public class UserCharacter {
         character.setName("duck");
         shieldLimit = 0;
         invincibilityCheck = 0;
+        accelerationCheck = false;
     }
 
     public UserCharacter(int health, int xSize, int ySize, int[][] activeEffects, Character character, int xPosition) {
@@ -71,7 +76,6 @@ public class UserCharacter {
     }
 
     public void executeEffect(RiverObject object){
-        System.out.println("executeEffect, before " + getHealth());
         if (object instanceof Shield){
             if (shieldLimit == -1){
                 invincibilityCheck += ((Shield) object).getLimit();
@@ -94,8 +98,8 @@ public class UserCharacter {
         else if (object instanceof MinimisationPower){
             setxSize(DEFAULT_CHARACTER_SMALL_XSIZE);
             setySize(DEFAULT_CHARACTER_SMALL_YSIZE);
-            timerMinimisation = new Timer(((MinimisationPower) object).getDuration() * 2000, new MyActionListenerMinimisation());
-            timerMinimisation.start();
+            timer = new Timer(((MinimisationPower) object).getDuration() * 2000, new MyActionListenerMinimisation());
+            timer.start();
         }
         else if (object instanceof Deceleration){
 
@@ -104,16 +108,29 @@ public class UserCharacter {
             invincibilityCheck = shieldLimit;
             shieldLimit = -1;
 
-            timerInvincibility = new Timer(((Invincibility) object).getDuration() * 2000, new MyActionListenerInvincibility());
-            timerInvincibility.start();
+            timer = new Timer(((Invincibility) object).getDuration() * 2000, new MyActionListenerInvincibility());
+            timer.start();
         }
         else if (object instanceof HealthPack){
             health += ((HealthPack) object).getHealthIncAmount();
         }
+        else if (object instanceof Maximise){
+            setxSize(DEFAULT_CHARACTER_BIG_XSIZE);
+            setySize(DEFAULT_CHARACTER_BIG_YSIZE);
+            timer = new Timer(((Maximise) object).getDuration() * 2000, new MyActionListenerMinimisation());
+            timer.start();
 
-        System.out.println("executeEffect, after " + getHealth());
+        }
+        else if (object instanceof Accelerate){
+            accelerationCheck = true;
+            timer = new Timer(((Accelerate) object).getDuration() * 4000, new MyActionListenerAcceleration());
+            timer.start();
+        }
     }
 
+    public boolean isAccelerated(){
+        return accelerationCheck;
+    }
     public void draw(Graphics g){
         character.draw(g, xPosition, yPosition, xSize, ySize);
     }
@@ -188,7 +205,6 @@ public class UserCharacter {
         }
 
     }
-
     private class MyActionListenerInvincibility implements ActionListener{
 
         @Override
@@ -197,5 +213,12 @@ public class UserCharacter {
             shieldLimit = invincibilityCheck;
         }
 
+    }
+    private class MyActionListenerAcceleration implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent event){
+            accelerationCheck = false;
+        }
     }
 }

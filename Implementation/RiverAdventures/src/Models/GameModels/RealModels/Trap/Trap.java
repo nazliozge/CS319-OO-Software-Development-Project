@@ -12,12 +12,12 @@ public class Trap extends RiverObject {
 
 
     //attributes
-    private double duration;
+    private int duration;
 
     //constructors
     public Trap()
     {
-        duration = 5.0;
+        duration = 5;
     }   //duration time is initially 5 seconds
 
     //overwritten method from RiverObject
@@ -26,12 +26,12 @@ public class Trap extends RiverObject {
     }
 
     //setters & getters
-    public void setDuration(double time)
+    public void setDuration(int time)
     {
         duration = time;
     }
 
-    public double getDuration()
+    public int getDuration()
     {
         return duration;
     }

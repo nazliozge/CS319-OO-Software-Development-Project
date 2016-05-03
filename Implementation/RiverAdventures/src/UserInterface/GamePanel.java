@@ -34,6 +34,8 @@ public class GamePanel extends JPanel {
     public KeyListener kl;
     public int stop;
     private int shieldLimit;
+    private final static int DEFAULT_DELAY = 10;
+    private final static int DEFAULT_DELAY_ACCELERATED = 5;
 
     public GamePanel(){
 
@@ -68,7 +70,7 @@ public class GamePanel extends JPanel {
             setBackground(newColor);
             setPreferredSize(new Dimension(200,500));
 
-            stream = new Timer(15, this);
+            stream = new Timer(DEFAULT_DELAY, this);
             stream.start();
             setLayout(new BorderLayout(0,0));
 
@@ -121,7 +123,7 @@ public class GamePanel extends JPanel {
             setBackground(newColor);
             setPreferredSize(new Dimension(200,500));
 
-            stream = new Timer(15, this);
+            stream = new Timer(DEFAULT_DELAY, this);
             stream.start();
             setLayout(new BorderLayout(0,0));
 
@@ -170,13 +172,15 @@ public class GamePanel extends JPanel {
             setPreferredSize(new Dimension(300,500));
 
             riverGame = new RiverGame();
-            stream = new Timer(15, new TimerListener());
+            stream = new Timer(DEFAULT_DELAY, new TimerListener());
             stream.start();
+
 
             kl = new MyKeyListener();
             this.addKeyListener(kl);
             this.setFocusable(true);
             this.requestFocusInWindow();
+
         }
 
 
@@ -201,6 +205,20 @@ public class GamePanel extends JPanel {
         public void updateShieldLimit(){
             shieldLimit = riverGame.getRiver().getUserCharacter().getShieldLimit();
         }
+
+        public void updateAcceleration(){
+
+//            stream.setDelay(stream.getDelay() - 1);
+            if (riverGame.getRiver().getUserCharacter().isAccelerated()){
+                stream.stop();
+                stream.setDelay(DEFAULT_DELAY_ACCELERATED);
+                stream.start();
+            }else{
+                stream.stop();
+                stream.setDelay(DEFAULT_DELAY);
+                stream.start();
+            }
+        }
         private class TimerListener implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent event)
@@ -210,6 +228,7 @@ public class GamePanel extends JPanel {
                 updateCoins();
                 updateHealth();
                 updateShieldLimit();
+                updateAcceleration();
                 repaint();
 
                 if (counter > speedLimit){
