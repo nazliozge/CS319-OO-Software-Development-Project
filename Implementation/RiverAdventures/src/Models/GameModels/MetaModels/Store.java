@@ -297,8 +297,8 @@ public class Store {
         this.characterStates = characters;
     }
 
-    public void setBoosts( ExclusiveBoost[] boosts){
-        this.boosts = boosts;
+    public void setBoosts( int[] boosts){
+        this.boostStates = boosts;
     }
 
     //============ !! NEEDS IMPLEMENTATION !! ============
