@@ -26,7 +26,7 @@ public class PauseMenu extends Menu{
 		JButton resumeButton=new JButton("RESUME");
 		JButton mainButton=new JButton("EXIT");
 		JButton settingsButton=new JButton("SETTINGS");
-		JButton highscoreButton=new JButton("HIGHSCORES");
+		//JButton highscoreButton=new JButton("HIGHSCORES");
 		JButton helpButton=new JButton("HELP");
 
 
@@ -36,8 +36,8 @@ public class PauseMenu extends Menu{
 		settingsButton.setSize(300,50);
 		settingsButton.setLocation(140,185);
 
-		highscoreButton.setSize(390,50);
-		highscoreButton.setLocation(140,240);
+		//highscoreButton.setSize(390,50);
+		//highscoreButton.setLocation(140,240);
 
 		helpButton.setSize(310,50);
 		helpButton.setLocation(140,295);
@@ -56,11 +56,11 @@ public class PauseMenu extends Menu{
 				settingScreen();
 			}
 		});
-		highscoreButton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				highscoreScreen();
-			}
-		});
+		//highscoreButton.addActionListener(new ActionListener(){
+		//	public void actionPerformed(ActionEvent e){
+			//	highscoreScreen();
+			//}
+		//});
 		helpButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				helpScreen();
@@ -77,7 +77,7 @@ public class PauseMenu extends Menu{
 
 		add(resumeButton);
 		add(settingsButton);
-		add(highscoreButton);
+		//add(highscoreButton);
 		add(helpButton);
 		add(mainButton);
 
@@ -103,9 +103,9 @@ public class PauseMenu extends Menu{
 	public void resumeGame(){
 		mng.requestUnpause();
 	}
-	public void highscoreScreen(){
-		mng.requestHighscores();
-	}
+	//public void highscoreScreen(){
+		//mng.requestHighscores();
+	//}
 	public void helpScreen(){
 		mng.requestHelp();
 	}

@@ -100,12 +100,13 @@ public class GameManager {
 
     public boolean endGame(){
         /* Stops the timer and updates the UI */
-        double score = riverGame.getScore();
+        double score = riverGame.getCoin();
         account.addHighScore( (int)score );
         riverGame.pause();
         gameState = state.END_GAME;
         //...
         toHighscores( (int) score );
+        account.getWallet().addCoin( (int) score);
         return true;}
 
     //TODO: is it needed?
