@@ -15,6 +15,7 @@ public class Shield extends ExclusiveBoost{
         this.setLimit(3);
         this.setName("Shield");
         this.setPrice(15);	//initial price to unlock
+        this.setIsUnlocked(true);
     }
 
     public void draw(Graphics g){

@@ -16,6 +16,8 @@ public class HealthPack extends ExclusiveBoost{
         this.setName("HealthPack");
         this.setHealthIncAmount(10);
         this.setPrice(15);	//initial price to unlock
+        this.setIsUnlocked(true);
+
     }
 
     public void draw(Graphics g){

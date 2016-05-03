@@ -16,6 +16,8 @@ public class MinimisationPower extends ExclusiveBoost{
         this.setDuration(5);
         this.setName("MinimisationPower");
         this.setPrice(30);	//initial price to unlock
+        this.setIsUnlocked(true);
+
     }
 
     public void draw(Graphics g){

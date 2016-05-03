@@ -13,8 +13,8 @@ public class ExclusiveBoost extends Boost implements Buyable{
     private int duration; 	//for others
     private int limit;	//for shield
     private int price;
-    private int level;
-    private boolean isUnlocked;
+    private static int level;
+    private static boolean isUnlocked;
     private int healthIncAmount;
 
 

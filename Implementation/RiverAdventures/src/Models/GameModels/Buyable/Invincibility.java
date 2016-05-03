@@ -16,6 +16,8 @@ public class Invincibility extends ExclusiveBoost{
         this.setDuration(5);
         this.setName("Invincibility");
         this.setPrice(40);	//initial price to unlock
+        this.setIsUnlocked(true);
+
     }
 
     public void draw(Graphics g){
