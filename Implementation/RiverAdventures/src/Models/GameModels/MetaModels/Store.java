@@ -5,6 +5,7 @@ import Models.GameModels.Buyable.Character;
 import Models.GameModels.Buyable.ExclusiveBoost;
 
 import java.awt.*;
+import java.io.FileNotFoundException;
 
 /**
  * Created by Meder on 23/04/16.
@@ -138,6 +139,10 @@ public class Store {
         else
             System.out.println( "undefined store-char state: hippo" );
         characters[4] = new Character( HIPPO_PRICE,"hippo","nothing",hippoEquip, hippoUnlock);
+
+        //BOOOOOOOOSSSSTTTSSSSS
+
+
     }
 
     public Store() {
@@ -196,5 +201,24 @@ public class Store {
     }
 
     public void draw (Graphics g){}
+
+    public void save() throws FileNotFoundException {
+        for( int i = 0; i < numOfCharacters; i++){
+            if( characters[i].isUnlocked() ){
+                if(characters[i].isEquipped())
+                    account.equip(i);
+                else
+                    account.purchaseChar(i);
+            }
+            else{
+                if(characters[i].isEquipped())
+                    account.equip(i);
+                else
+                    account.purchaseChar(i);
+            }
+        }
+        //TODO
+        //account.save();
+    }
 
 }

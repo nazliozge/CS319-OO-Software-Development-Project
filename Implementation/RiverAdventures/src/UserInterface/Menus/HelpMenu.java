@@ -8,6 +8,7 @@ package UserInterface.Menus;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 	import java.awt.image.BufferedImage;
+	import java.io.FileNotFoundException;
 
 	import javax.swing.JButton;
 	import javax.swing.JPanel;
@@ -37,7 +38,11 @@ package UserInterface.Menus;
 
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					menu();
+					try {
+						menu();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
 				}
 
 			});
@@ -50,7 +55,7 @@ package UserInterface.Menus;
 			super.paintComponent(g);
 			//g.drawImage(img,0,0,getWidth(),getHeight(),null);
 		}
-		public void menu(){
+		public void menu() throws FileNotFoundException {
 			mng.requestMain();
 		}
 

@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
 
 /**
  * Created by Magus on 30.04.2016.
@@ -62,9 +63,12 @@ public class StoreMenu extends Menu{
         charYsize = charXsize;
         for( int i = 0; i < charNo; i++){
             Character character = store.getCharacters()[i];
-            charButtons[i] = new JButton( store.getCharacters()[i].getName());
             charEq[i] = new JButton( "E" );
             charUl[i] = new JButton( "U" );
+            JButton ref = charEq[i];
+            JButton ref1 = charUl[i];
+            charButtons[i] = new JButton( store.getCharacters()[i].getName());
+
 
             charButtons[i].setSize( charXsize, charYsize);
             charEq[i].setSize( charXsize/2, charYsize/2);
@@ -77,6 +81,9 @@ public class StoreMenu extends Menu{
             charEq[i].addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     store.equip( character);
+                    System.out.println(character);
+                    System.out.println(ref);
+                    ref.setText("E" + character.isEquipped());
                 }
             });
             charUl[i].addActionListener(new ActionListener(){
@@ -104,7 +111,11 @@ public class StoreMenu extends Menu{
 
         backButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                backScreen();
+                try {
+                    backScreen();
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
             }
 
         });
@@ -140,7 +151,8 @@ public class StoreMenu extends Menu{
     public void highscoreScreen(){
         mng.requestHighscores();
     }
-    public void backScreen(){
+    public void backScreen() throws FileNotFoundException {
+        store.save();
         mng.requestMain();
     }
     public void storeScreen(){

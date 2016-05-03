@@ -4,6 +4,7 @@ import Models.Account.Account;
 import Models.GameModels.MetaModels.RiverGame;
 import UserInterface.FrameManager;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import static Controllers.GameManager.state;
@@ -30,11 +31,12 @@ public class GameManager {
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++     CONSTRUCTORS    +++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    public GameManager(){
+    public GameManager() throws FileNotFoundException {
         settingsManager = new SettingsManager("sadas");
         gameState = state.MENU;
         System.out.println( "game satte : " + gameState);
         account = new Account();
+        account.load();
         time = 0;
         highscores = account.getHighScores();
         //TODO
@@ -50,7 +52,7 @@ public class GameManager {
         this.frameManager = fm;
     }
 
-    public boolean initializeGame(){
+    public boolean initializeGame() {
         /*It creates a new RiverGame object, connects the riverGame attribute to it,
         calls the riverGame object’s related methods and calls the FrameManager’s toGame() method.*/
         System.out.println( gameState);
@@ -111,7 +113,7 @@ public class GameManager {
         return true;}
 
     //TODO
-    public boolean accessToStore(){
+    public boolean accessToStore() {
         /* Updates UI by calling the FrameManager’s toStore() method. */
         // gameState = state.STORE;
         if( gameState == state.MENU){
@@ -145,6 +147,7 @@ public class GameManager {
         }
         else if( gameState == state.STORE){
             gameState = state.MENU;
+            riverGame = null;
             frameManager.toMain();
             return true;
         }
