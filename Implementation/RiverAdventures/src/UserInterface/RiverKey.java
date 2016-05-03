@@ -18,9 +18,9 @@ public class RiverKey implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT && !isPaused)
             fm.move("RIGHT");
-        if (e.getKeyCode() == KeyEvent.VK_LEFT)
+        if (e.getKeyCode() == KeyEvent.VK_LEFT && !isPaused)
             fm.move("LEFT");
 
     }
@@ -28,9 +28,9 @@ public class RiverKey implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         System.out.println( " KEYS BE HITTTTTTTTTTEEEEEEEEEEEN" );
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT && !isPaused)
             fm.move("RIGHT");
-        if (e.getKeyCode() == KeyEvent.VK_LEFT)
+        if (e.getKeyCode() == KeyEvent.VK_LEFT && !isPaused)
             fm.move("LEFT");
         if (e.getKeyCode() == KeyEvent.VK_SPACE){
             if (!isPaused){

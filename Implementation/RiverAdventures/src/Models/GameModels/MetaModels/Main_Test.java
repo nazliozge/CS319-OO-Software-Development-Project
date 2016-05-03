@@ -11,7 +11,7 @@ public class Main_Test {
 
     private static JFrame frame;
 
-    public static void main( String[] args){
+    /*public static void main( String[] args){
 
         frame = new JFrame("Line");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
@@ -25,6 +25,10 @@ public class Main_Test {
         frame.addKeyListener(test.kl);
         frame.setFocusable(true);
         frame.requestFocusInWindow();
-    }
+
+        frame.getContentPane()
+        frame.pack();
+        frame.setVisible(true);
+    }*/
 }
 

@@ -59,6 +59,7 @@ public class River {
 
 
     public void move(String direction){
+        System.out.println("I move: " + direction);
         if(direction == "LEFT"){
             if (character.getxPosition() > 0)
                 character.setxPosition(character.getxPosition() - UserCharacter_MOVE);
@@ -72,8 +73,8 @@ public class River {
 
     public void update(){
 
-
-
+        System.out.println("RİVEBELOW");
+        System.out.println( lines);
         for(Line line: lines){
             line.move();
         }

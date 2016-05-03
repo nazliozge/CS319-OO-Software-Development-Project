@@ -17,7 +17,7 @@ public class RiverGame {
     long totalTicks = 0;
 
     static final int TICK_PER_MOVE = 16;
-    static final long SPEED_CHANGE_TICK_NO = 3000;
+    static final long SPEED_CHANGE_TICK_NO = 50;
 
     private long speedMod = 0;
     private int tickCount = 0;
@@ -77,11 +77,13 @@ public class RiverGame {
 
 
     public void move(String direction){
+        System.out.println("riverGame moved");
         river.move(direction);
     }
 
     public void update(){
         river.update();
+        System.out.println("riverupdates");
     }
 
     // TODO: reorganzie to not do stuff for each tick
@@ -90,6 +92,7 @@ public class RiverGame {
         totalTicks ++;
         tickCount ++;
         if( TICK_PER_MOVE - speedMod == tickCount || TICK_PER_MOVE - speedMod <= 0 ){
+            System.out.println("riverupdates");
             update();
             tickCount = 0;
         }
@@ -148,6 +151,16 @@ public class RiverGame {
 
     public Store getStore(){
         return store;
+    }
+
+    public int getHp(){
+        return river.getUserCharacter().getHealth();
+    }
+    public int getCoin(){
+        return river.getTotalCoins();
+    }
+    public int getShield(){
+        return river.getUserCharacter().getShieldLimit();
     }
 
 }
