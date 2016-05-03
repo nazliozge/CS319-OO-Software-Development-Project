@@ -1,5 +1,6 @@
 package Models.GameModels.MetaModels;
 
+import Controllers.GameManager;
 import Models.GameModels.Buyable.Buyable;
 import Models.GameModels.RealModels.Collectible.Collectible;
 import Models.Account.Account;
@@ -17,7 +18,7 @@ public class RiverGame {
     long totalTicks = 0;
 
     static final int TICK_PER_MOVE = 16;
-    static final long SPEED_CHANGE_TICK_NO = 50;
+    static final long SPEED_CHANGE_TICK_NO = 3000;
 
     private long speedMod = 0;
     private int tickCount = 0;
@@ -25,6 +26,8 @@ public class RiverGame {
     private River river;
     private Store store;
     private Stream stream;
+
+    GameManager ctrl;
 
 
 
@@ -91,10 +94,13 @@ public class RiverGame {
     public void work(){
         totalTicks ++;
         tickCount ++;
-        if( TICK_PER_MOVE - speedMod == tickCount || TICK_PER_MOVE - speedMod <= 0 ){
-            System.out.println("riverupdates");
+        if( TICK_PER_MOVE - speedMod <= tickCount || TICK_PER_MOVE - speedMod <= 0 ){
+            System.out.println("riverupdates:" + speedMod+ "Tick Count :" + tickCount);
             update();
             tickCount = 0;
+            if(getHp() <= 0){
+                ctrl.requestDeath(this);
+            }
         }
         speedMod = totalTicks / SPEED_CHANGE_TICK_NO;
     }
@@ -161,6 +167,10 @@ public class RiverGame {
     }
     public int getShield(){
         return river.getUserCharacter().getShieldLimit();
+    }
+
+    public void setGameManager( GameManager ctrl){
+        this.ctrl = ctrl;
     }
 
 }

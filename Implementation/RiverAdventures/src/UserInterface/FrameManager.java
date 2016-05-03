@@ -58,6 +58,7 @@ public class FrameManager {
 	}
 	public void toHighscores( int score){
 		GameOverPanel a = new GameOverPanel(frame, this, score);
+		drawT.pause();
 		frame.replacePanel( a );
 	}
 	public void requestHelp() {

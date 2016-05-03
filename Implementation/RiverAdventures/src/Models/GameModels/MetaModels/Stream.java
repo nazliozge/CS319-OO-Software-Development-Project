@@ -20,7 +20,7 @@ public class Stream implements ActionListener
 
 
     public Stream(RiverGame g){
-        timer = new Timer(15, this);
+        timer = new Timer(2, this);
         gm = g;
     }
 
