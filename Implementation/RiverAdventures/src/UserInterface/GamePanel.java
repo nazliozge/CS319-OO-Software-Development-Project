@@ -20,14 +20,14 @@ public class GamePanel extends JPanel {
     private RiverGame riverGame;
     private River river;
     private Store store;
-    private Timer stream;
+    private Timer stream, stream2, stream3;
     boolean killTimer = false;
     boolean restartTimer = false;
     private boolean isTimerOn = true;//for pausing
     private final static int DELAY_DECREMENT = 1;
     private int counter = 0;
-    private int speedLimit = 200;
-    private int speedIncrement = 50;
+    private int speedLimit = 2000;
+    private int speedIncrement = 3;
     public RiverCenter center;
     private int coins;
     private int health;
@@ -35,7 +35,7 @@ public class GamePanel extends JPanel {
     public int stop;
     private int shieldLimit;
     private final static int DEFAULT_DELAY = 10;
-    private final static int DEFAULT_DELAY_ACCELERATED = 5;
+    private final static int DEFAULT_DELAY_ACCELERATED = 9;
 
     public GamePanel(){
 
@@ -165,6 +165,7 @@ public class GamePanel extends JPanel {
 
     //CENTER RIVER
     public class RiverCenter extends JPanel{
+        TimerListener tl = new TimerListener();
 
         public RiverCenter(){
             Color newColor = new Color(64, 55, 255);
@@ -172,7 +173,7 @@ public class GamePanel extends JPanel {
             setPreferredSize(new Dimension(300,500));
 
             riverGame = new RiverGame();
-            stream = new Timer(DEFAULT_DELAY, new TimerListener());
+            stream = new Timer(DEFAULT_DELAY, tl);
             stream.start();
 
 
@@ -208,16 +209,20 @@ public class GamePanel extends JPanel {
 
         public void updateAcceleration(){
 
-//            stream.setDelay(stream.getDelay() - 1);
             if (riverGame.getRiver().getUserCharacter().isAccelerated()){
-                stream.stop();
-                stream.setDelay(DEFAULT_DELAY_ACCELERATED);
-                stream.start();
-            }else{
-                stream.stop();
-                stream.setDelay(DEFAULT_DELAY);
+                stream3 = new Timer(DEFAULT_DELAY_ACCELERATED, new TimerListener());
+                stream = stream3;
                 stream.start();
             }
+
+            //stream.setDelay(stream.getDelay() - 1);
+//            if (riverGame.getRiver().getUserCharacter().isAccelerated()){
+//                stream = new Timer(DEFAULT_DELAY_ACCELERATED,tl);
+//                stream.start();
+//            }else{
+//                stream = new Timer(DEFAULT_DELAY, tl);
+//                stream.start();
+//            }
         }
         private class TimerListener implements ActionListener {
             @Override
@@ -232,25 +237,32 @@ public class GamePanel extends JPanel {
                 repaint();
 
                 if (counter > speedLimit){
-                    stream.setDelay((stream.getDelay() - DELAY_DECREMENT));
-                    counter = 0;
-                    speedLimit += speedIncrement;
-                }
-                if( killTimer && isTimerOn)
-                {
-                    System.out.println( " Timer is on!" );
-                    stream.stop();
-                    killTimer = false;
-                    isTimerOn = false;
-                }
-
-                if( restartTimer && !isTimerOn)
-                {
-                    System.out.println( " Timer is off!" );
+                    System.out.println("LLOLOLOL: COUNTER: " + counter + "  SPEEDLIMITT: " +  speedLimit);
+                   // stream.setDelay((stream.getDelay() - DELAY_DECREMENT));
+                    int dec = (stream.getDelay() - DELAY_DECREMENT);
+                    stream2 = new Timer(dec, new TimerListener());
+                    stream = stream2;
                     stream.start();
-                    restartTimer = false;
-                    isTimerOn = true;
+                    counter = 0;
+                    //speedLimit += speedIncrement;
+                    speedLimit = speedLimit*speedIncrement;
+                    speedIncrement++;
                 }
+//                if( killTimer && isTimerOn)
+//                {
+//                    System.out.println( " Timer is on!" );
+//                    stream.stop();
+//                    killTimer = false;
+//                    isTimerOn = false;
+//                }
+//
+//                if( restartTimer && !isTimerOn)
+//                {
+//                    System.out.println( " Timer is off!" );
+//                    stream.start();
+//                    restartTimer = false;
+//                    isTimerOn = true;
+//                }
             }
         }
 
