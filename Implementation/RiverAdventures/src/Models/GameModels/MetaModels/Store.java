@@ -62,6 +62,8 @@ public class Store {
         }
         else
             System.out.println( "undefined store-char state: DUCK" );
+        duckEquip = true;
+        duckUnlock = true;
         characters[0] = new Character( DUCK_PRICE,"Duck","nothing",duckEquip, duckUnlock);
 
         //BEAVER
@@ -165,7 +167,7 @@ public class Store {
     }
 
     public void equip(Character character){
-        if( !character.isEquipped()&& character.isUnlocked()){
+        if( character.isUnlocked()){
             for ( int i = 0; i < numOfCharacters; i++ ){
                 characters[i].setEquipped(false);
             }

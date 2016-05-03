@@ -63,7 +63,14 @@ public class StoreMenu extends Menu{
         charYsize = charXsize;
         for( int i = 0; i < charNo; i++){
             Character character = store.getCharacters()[i];
-            charEq[i] = new JButton( "E" );
+            charEq[i] = new JButton( "E" ){
+                @Override
+                public void paintComponent(Graphics g){
+                    super.paintComponent(g);
+                    setText("E" + character.isEquipped());
+                    System.out.println("repaiiiint");
+                }
+            };
             charUl[i] = new JButton( "U" );
             JButton ref = charEq[i];
             JButton ref1 = charUl[i];
@@ -83,9 +90,12 @@ public class StoreMenu extends Menu{
                     store.equip( character);
                     System.out.println(character);
                     System.out.println(ref);
+                    System.out.println("character: " + character.isEquipped());
                     ref.setText("E" + character.isEquipped());
+                    repaint();
                 }
             });
+
             charUl[i].addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     store.unlock( character);
@@ -143,6 +153,11 @@ public class StoreMenu extends Menu{
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        for( int i = 0; i < charNo; i++){
+            charEq[i].repaint();
+            Character character = store.getCharacters()[i];
+            System.out.println(i + "" + character.isEquipped());
+        }
         //g.drawImage(img,0,0,getWidth(),getHeight(),null);
     }
     public void resumeGame(){

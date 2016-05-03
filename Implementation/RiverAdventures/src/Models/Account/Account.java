@@ -45,6 +45,7 @@ public class Account {
         saveFile = "accountInfo.txt";   //Put text file in the same directory!
         wallet = new CoinWallet();
         highScores = new int[numOfHighscores];
+        updateWallet(10000);
     }
 
 
