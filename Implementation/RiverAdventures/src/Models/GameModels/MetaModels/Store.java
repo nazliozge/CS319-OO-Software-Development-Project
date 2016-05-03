@@ -1,8 +1,8 @@
 package Models.GameModels.MetaModels;
 
 import Models.Account.Account;
+import Models.GameModels.Buyable.*;
 import Models.GameModels.Buyable.Character;
-import Models.GameModels.Buyable.ExclusiveBoost;
 
 import java.awt.*;
 import java.io.FileNotFoundException;
@@ -26,8 +26,9 @@ public class Store {
 
 
     private int[] characterStates;
+    private int[] boostStates;
     private Character[] characters;
-    private int[] boosts;
+    private ExclusiveBoost[] boosts;
     private Account account;
 
     //public final int numOfHighscores = 5;
@@ -41,8 +42,9 @@ public class Store {
 
     public Store( Account account ) {
         characterStates = account.getCharStates();
+        boostStates = account.getBoostStates();
         characters = new Character[numOfCharacters];
-        boosts = new int[numOfBoosts];
+        boosts = new ExclusiveBoost[numOfBoosts];
         this.account = account;
 
         //DUCK
@@ -144,7 +146,120 @@ public class Store {
 
         //BOOOOOOOOSSSSTTTSSSSS
 
+        //Shield
+        boolean shieldUnlocked = false;
+        int shieldLevel = 0;
+        if( boostStates[0] == 0  ){
+            shieldUnlocked = false;
+            shieldLevel = 1;
+        }
+        else if ( boostStates[0] == 1){
+            shieldUnlocked = true;
+            shieldLevel = 1;
+        }
+        else if (  boostStates[0] == 2 ){
+            shieldUnlocked = true;
+            shieldLevel = 2;
+        }
+        else if (  boostStates[0] == 3 ){
+            shieldUnlocked = true;
+            shieldLevel = 3;
+        }
+        else
+            System.out.println( "undefined store-boost state: shield" );
+        boosts[0] = new Shield();
 
+        //Minimisation Power
+        boolean miniUnlocked = false;
+        int miniLevel = 0;
+        if( boostStates[0] == 0  ){
+            miniUnlocked = false;
+            miniLevel = 1;
+        }
+        else if ( boostStates[0] == 1){
+            miniUnlocked = true;
+            miniLevel = 1;
+        }
+        else if (  boostStates[0] == 2 ){
+            miniUnlocked = true;
+            miniLevel = 2;
+        }
+        else if (  boostStates[0] == 3 ){
+            miniUnlocked = true;
+            miniLevel = 3;
+        }
+        else
+            System.out.println( "undefined store-boost state: minimisation power" );
+        boosts[1] = new MinimisationPower();
+
+        //Deceleration
+        boolean decUnlocked = false;
+        int decLevel = 0;
+        if( boostStates[0] == 0  ){
+            decUnlocked = false;
+            decLevel = 1;
+        }
+        else if ( boostStates[0] == 1){
+            decUnlocked = true;
+            decLevel = 1;
+        }
+        else if (  boostStates[0] == 2 ){
+            decUnlocked = true;
+            decLevel = 2;
+        }
+        else if (  boostStates[0] == 3 ){
+            decUnlocked = true;
+            decLevel = 3;
+        }
+        else
+            System.out.println( "undefined store-boost state: deceleration" );
+        boosts[2] = new Deceleration();
+
+        //Invincibility
+        boolean invicUnlocked = false;
+        int invicLevel = 0;
+        if( boostStates[0] == 0  ){
+            invicUnlocked = false;
+            invicLevel = 1;
+        }
+        else if ( boostStates[0] == 1){
+            invicUnlocked = true;
+            invicLevel = 1;
+        }
+        else if (  boostStates[0] == 2 ){
+            invicUnlocked = true;
+            invicLevel = 2;
+        }
+        else if (  boostStates[0] == 3 ){
+            invicUnlocked = true;
+            invicLevel = 3;
+        }
+        else
+            System.out.println( "undefined store-boost state: invincibility" );
+        boosts[3] = new Invincibility();
+
+        //Health Pack
+        boolean hpUnlocked = false;
+        int hpLevel = 0;
+        if( boostStates[0] == 0  ){
+            hpUnlocked = false;
+            hpLevel = 1;
+        }
+        else if ( boostStates[0] == 1){
+            hpUnlocked = true;
+            hpLevel = 1;
+        }
+        else if (  boostStates[0] == 2 ){
+            hpUnlocked = true;
+            hpLevel = 2;
+        }
+        else if (  boostStates[0] == 3 ){
+            hpUnlocked = true;
+            hpLevel = 3;
+        }
+        else
+            System.out.println( "undefined store-boost state: health pack" );
+        boosts[3] = new HealthPack();
     }
 
     public Store() {
@@ -182,7 +297,7 @@ public class Store {
         this.characterStates = characters;
     }
 
-    public void setBoosts( int[] boosts){
+    public void setBoosts( ExclusiveBoost[] boosts){
         this.boosts = boosts;
     }
 

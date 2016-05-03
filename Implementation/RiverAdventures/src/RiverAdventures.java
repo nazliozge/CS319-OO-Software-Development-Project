@@ -18,7 +18,7 @@ public class RiverAdventures {
         mng = new FrameManager(ctrl);
         ctrl.addFrameManager(mng);
 
-        RiverFrame rf = new RiverFrame("hello", mng);
+        RiverFrame rf = new RiverFrame("River Adventure ", mng);
         mng.setRiverFrame(rf);
 
 
