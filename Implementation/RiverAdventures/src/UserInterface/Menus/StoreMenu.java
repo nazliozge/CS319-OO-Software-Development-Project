@@ -140,6 +140,7 @@ public class StoreMenu extends Menu{
 
 
 
+
     public void update(){
         //TODO
         paintComponent(super.g);
