@@ -3,6 +3,7 @@ package UserInterface.Menus;
 import Models.GameModels.MetaModels.Store;
 import UserInterface.FrameManager;
 import UserInterface.RiverFrame;
+import Models.GameModels.Buyable.Character;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,76 +15,105 @@ import java.awt.image.BufferedImage;
  * Created by Magus on 30.04.2016.
  */
 public class StoreMenu extends Menu{
+
+    private final static  int X = 800;
+    private final static  int Y = 600;
+    private final static int GAP = 5;
+
+    private static int CHARYSTART = 10;
+    private static int CHARXSTART = 10;
+
+    private static int BOOSTYSTART = 310;
+    private static int BOOSTXSTART = 310;
+
+    private  int charXsize;
+    private int charYsize;
+
     private static final long serialVersionUID = 1L;
     private RiverFrame frame;
     private BufferedImage img;
     private Store store;
+    private int charNo;
+    private int boostNo;
+
+    private JButton[] charButtons;
+    private JButton[] charEq;
+    private JButton[] charUl;
+
+    private JButton[] boostButtons;
+
 
     public StoreMenu(RiverFrame frame, FrameManager frameManager, Store store) {
         super( frame, frameManager);
+
         this.store = store;
+        charNo = store.numOfCharacters;
+        boostNo = store.numOfBoosts;
+        charButtons = new JButton[charNo];
+        charEq = new JButton[charNo];
+        charUl= new JButton[charNo];
+
+
         setLocation(0,0);
-        setSize(800,500);
+        setSize(X,Y);
         setLayout(null);
 
+        charXsize = (X - 2*CHARXSTART - (charNo - 1)*GAP) / charNo;
+        charYsize = charXsize;
+        for( int i = 0; i < charNo; i++){
+            Character character = store.getCharacters()[i];
+            charButtons[i] = new JButton( store.getCharacters()[i].getName());
+            charEq[i] = new JButton( "E" );
+            charUl[i] = new JButton( "U" );
 
-        JButton resumeButton=new JButton("RESUME");
-        JButton storeButton=new JButton("STORE");
-        JButton settingsButton=new JButton("SETTINGS");
-        JButton highscoreButton=new JButton("HIGHSCORES");
-        JButton helpButton=new JButton("HELP");
+            charButtons[i].setSize( charXsize, charYsize);
+            charEq[i].setSize( charXsize/2, charYsize/2);
+            charUl[i].setSize( charXsize/2, charYsize/2);
+
+            charButtons[i].setLocation(CHARXSTART + i*charXsize + i*GAP, CHARYSTART );
+            charEq[i].setLocation(CHARXSTART + i*charXsize + i*GAP, CHARYSTART + charYsize );
+            charUl[i].setLocation(CHARXSTART + i*charXsize + i*GAP + charXsize/2, CHARYSTART + charYsize );
+
+            charEq[i].addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    store.equip( character);
+                }
+            });
+            charUl[i].addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    store.unlock( character);
+                }
+            });
+            add( charButtons[i]);
+            add( charEq[i]);
+            add( charUl[i]);
+        }
 
 
-        resumeButton.setSize(330,20);
-        resumeButton.setLocation(140,130);
-
-        settingsButton.setSize(300,50);
-        settingsButton.setLocation(140,185);
-
-        highscoreButton.setSize(390,50);
-        highscoreButton.setLocation(140,240);
-
-        helpButton.setSize(310,50);
-        helpButton.setLocation(140,295);
-
-        storeButton.setSize(300,50);
-        storeButton.setLocation(140,0);
 
 
-        resumeButton.addActionListener(new ActionListener(){
+        JButton backButton=new JButton("BACK");
+
+
+
+        backButton.setSize(100,20);
+        backButton.setLocation(GAP,Y-GAP -70);
+
+
+
+
+        backButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                resumeGame();
-            }
-        });
-        settingsButton.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                settingScreen();
-            }
-        });
-        highscoreButton.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                highscoreScreen();
-            }
-        });
-        helpButton.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                helpScreen();
-            }
-
-        });
-
-        storeButton.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                storeScreen();
+                backScreen();
             }
 
         });
 
-        add(resumeButton);
-        add(settingsButton);
-        add(highscoreButton);
-        add(helpButton);
-        add(storeButton);
+
+
+
+        add(backButton);
+
 
     };
 
@@ -110,8 +140,8 @@ public class StoreMenu extends Menu{
     public void highscoreScreen(){
         mng.requestHighscores();
     }
-    public void helpScreen(){
-        mng.requestHelp();
+    public void backScreen(){
+        mng.requestMain();
     }
     public void storeScreen(){
         mng.requestStore();

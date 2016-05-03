@@ -144,4 +144,8 @@ public class RiverGame {
         return new Timer();
     }
 
+    public Store getStore(){
+        return store;
+    }
+
 }

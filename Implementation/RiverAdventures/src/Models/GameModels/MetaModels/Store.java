@@ -32,7 +32,7 @@ public class Store {
     //public final int numOfHighscores = 5;
     public final int numOfCharacters = 5;
     public final int numOfBoosts = 5;
-    public final int numOfLines = 3;
+    public final int numOfLines = 2;
 
     //++++++++++++++++++++++++++++++++++++++++++++++++
     //============== CONSTRUCTOR - START =============
@@ -160,7 +160,7 @@ public class Store {
     }
 
     public void equip(Character character){
-        if( !character.isEquipped()){
+        if( !character.isEquipped()&& character.isUnlocked()){
             for ( int i = 0; i < numOfCharacters; i++ ){
                 characters[i].setEquipped(false);
             }
@@ -168,7 +168,9 @@ public class Store {
         }
     }
 
-
+    public Character[] getCharacters(){
+        return characters;
+    }
     public void setCharacters(int [] characters){
         this.characterStates = characters;
     }
